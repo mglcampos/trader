@@ -1,0 +1,85 @@
+{
+  "backtest_nodes": [
+    {
+      "id": "forex",
+      "strategies": ["moving averages"],
+      "data_sources": [{"path":["/home/mcampos/Documents/code/algotrader/histdata/EURAUD_H1_2012"], "symbol":"EUR/AUD"}],
+      "data_header": ["Type", "Day", "Time", "Open", "High", "Low", "Close"],
+      "data_preparation": true,
+      "risk_handler" : "kelly",
+      "data_handler" : "csv_data_handler",
+      "timeframe": "H1",
+      "initial_capital": 100000,
+      "enabled": false,
+      "store": false
+    },
+    {
+      "id": "crypto_csv",
+      "strategies": ["crypto bull"],
+      "data_sources": [{"path":["histdata/BTCUSD_2017_M12.csv"], "symbol":"BTC/USD"}],
+      "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
+      "data_preparation": true,
+      "risk_handler" : "kelly",
+      "data_handler" : "csv_data_handler",
+      "timeframe": "M5",
+      "initial_capital": 600,
+      "commission" : 0.004,
+      "enabled": true,
+      "store": false
+    },
+    {
+      "id": "crypto_quandl",
+      "strategies": ["crypto_rsi"],
+      "data_sources": [{"symbol":"BTC"}, {"symbol":"ETH"}],
+      "data_header": ["Type", "Day", "Time", "Open", "High", "Low", "Close"],
+      "data_preparation": false,
+      "risk_handler" : "kelly",
+      "data_handler" : "api_crypto_data_handler",
+      "timeframe": "D1",
+      "initial_capital": 100000,
+      "enabled": false,
+      "store": false
+    },
+    {
+      "id": "crypto",
+      "strategies": ["crypto_rsi"],
+      "data_sources": [{"path":[""], "symbol":"USD/BTC"}, {"path":[""], "symbol":"USD/ETH"}, {"path":[""], "symbol":"USD/LTC"}],
+      "data_header": ["date, high, low, open, close, volume, quoteVolume, weightedAverage"],
+      "data_preparation": false,
+      "risk_handler" : "kelly",
+      "data_handler" : "csv data handler",
+      "timeframe": "M5",
+      "initial_capital": 100000,
+      "enabled": false,
+      "store": false
+    }
+
+  ],
+  "live_nodes": [
+    {
+      "id": "beta",
+      "strategy": "meanreverting",
+      "broker": {"name": "oanda", "user":"user1", "password":"pass1"},
+      "market": "forex",
+      "heartbeat": 2,
+      "plortfolio" : "kelly",
+      "enabled": false
+    },
+     {
+      "id": "beta",
+      "strategy": "crypto bull",
+      "brokerage": {"name": "bitfinex", "user":"user1", "password":"pass1"},
+      "market": "forex",
+      "heartbeat": 60,
+      "plortfolio" : "kelly",
+      "enabled": false
+    }
+  ],
+
+  "specifications": [
+    {
+    "report_metrics": ["drawdown", "sharpe"],
+    "mongo_database": {"credential":"something"}
+    }
+  ]
+}
