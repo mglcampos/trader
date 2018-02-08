@@ -16,13 +16,13 @@
     {
       "id": "crypto_csv",
       "strategies": ["crypto bull"],
-      "data_sources": [{"path":["histdata/BTCUSD_2017_M12.csv"], "symbol":"BTC/USD"}],
+      "data_sources": [{"path":["histdata/XRPUSD_2017_M12.csv"], "symbol":"XRP/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
       "data_handler" : "csv_data_handler",
       "timeframe": "M5",
-      "initial_capital": 600,
+      "initial_capital": 100,
       "commission" : 0.004,
       "enabled": true,
       "store": false
@@ -62,17 +62,21 @@
       "broker": {"name": "oanda", "user":"user1", "password":"pass1"},
       "market": "forex",
       "heartbeat": 2,
-      "plortfolio" : "kelly",
+      "risk_handler" : "kelly",
       "enabled": false
     },
      {
-      "id": "beta",
-      "strategy": "crypto bull",
-      "brokerage": {"name": "bitfinex", "user":"user1", "password":"pass1"},
+      "id": "crypto",
+      "symbol_list": ["XRP/USD"],
+      "strategies": ["crypto bull"],
+      "base_currency": "USD",
+      "data_handler" : "crypto live data handler",
+      "brokers": [{"name": "bitfinex", "key":"user1", "secret":"pass1"}],
       "market": "forex",
-      "heartbeat": 60,
-      "plortfolio" : "kelly",
-      "enabled": false
+      "heartbeat": 30,
+      "risk_handler" : "kelly",
+      "store" : true,
+      "enabled": true
     }
   ],
 

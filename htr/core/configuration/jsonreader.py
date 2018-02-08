@@ -16,7 +16,7 @@ class JsonReader:
             Retruns:
                 dictList[]: Returns a list with the information in the json file as a dictionary
             Raises:
-                Input/output error in case something fails reading the file.
+                Input/reports error in case something fails reading the file.
         """
         dictList = []
         try:

@@ -18,6 +18,7 @@ from htr.core.portfolio.portfolio import Portfolio
 
 
 class BacktestPortfolio(Portfolio):
+	"""Manages the Portfolio in a backtest/simulation scenario."""
 
 	def __init__(self, context, events, risk_handler, data_handler):
 
@@ -95,6 +96,7 @@ class BacktestPortfolio(Portfolio):
 		timestamp = signal.datetime
 		symbol = signal.symbol
 		cur_quantity = self.current_positions[symbol]
+
 		mkt_quantity = quantity
 		
 		if signal_type == 'LONG' and cur_quantity == 0:
@@ -187,9 +189,15 @@ class BacktestPortfolio(Portfolio):
 		timestamp = signal.datetime
 		symbol = signal.symbol
 		cur_quantity = self.current_positions[symbol]
-		mkt_quantity = quantity
+		available_cash = self.last_market - (quantity * self.data_handler.get_latest_bar_value(signal.symbol, "Close") * self.context.commission)
 
 		if signal_type == 'LONG':
+
+			if quantity > available_cash / self.data_handler.get_latest_bar_value(signal.symbol, "Close"):
+				mkt_quantity = available_cash / self.data_handler.get_latest_bar_value(signal.symbol, "Close")
+			else:
+				mkt_quantity = quantity
+			print('\n AVAILABLE CASH: ', quantity, available_cash, mkt_quantity  )
 			market_value = mkt_quantity * self.data_handler.get_latest_bar_value(symbol, "Close")  ##valor da moeda
 			self.last_open = self.last_market  ##cash antes do open
 			self.cash_open = self.last_market - market_value  ##somar valor da moeda mais cash
@@ -199,22 +207,34 @@ class BacktestPortfolio(Portfolio):
 			order = OrderEvent(symbol, order_type, mkt_quantity, 'BUY', timestamp=timestamp)
 	
 		elif signal_type == 'SHORT':
-			market_value = mkt_quantity * self.data_handler.get_latest_bar_value(symbol, "Close")  ##valor da moeda
+
+			if quantity < available_cash:
+				mkt_quantity = available_cash
+			else:
+				mkt_quantity = quantity
+
+			market_value = quantity * self.data_handler.get_latest_bar_value(symbol, "Close")  ##valor da moeda
 			self.last_open = self.last_market  ##cash antes do open
 			self.cash_open = self.last_market + market_value  ##somar valor da moeda mais cash
 	
 			order_type = 'MKT-OPEN'
 			self.len_sell += 1
 	
-			order = OrderEvent(symbol, order_type, mkt_quantity, 'SELL', timestamp=timestamp)
+			order = OrderEvent(symbol, order_type, quantity, 'SELL', timestamp=timestamp)
 	
 		elif signal_type == 'EXIT' and cur_quantity > 0:
+
+			if cur_quantity >= quantity:
+				mkt_quantity = quantity
+			else:
+				mkt_quantity = cur_quantity
+
 			order_type = 'MKT-CLOSE'
 			print('timestamp', timestamp)
 			print('last_open', self.last_open)
 			print('current_holdings', self.current_holdings['cash'])
 			print('cash_open', self.cash_open)
-			cash = mkt_quantity * self.data_handler.get_latest_bar_value(symbol,
+			cash = cur_quantity * self.data_handler.get_latest_bar_value(symbol,
 			                                                     "Close") + self.cash_open  ##tirar valor da moeda ao cash
 			market_value = cash - self.last_open
 			print('market_value', market_value)
@@ -230,10 +250,16 @@ class BacktestPortfolio(Portfolio):
 				self.consecutive_win = 0
 				self.consecutive_loss += 1
 	
-			order = OrderEvent(symbol, order_type, abs(mkt_quantity), 'SELL', timestamp=timestamp)
+			order = OrderEvent(symbol, order_type, abs(cur_quantity), 'SELL', timestamp=timestamp)
 			print('Exiting position of - ', symbol)
 	
 		elif signal_type == 'EXIT' and cur_quantity < 0:
+
+			if cur_quantity <= quantity:
+				mkt_quantity = quantity
+			else:
+				mkt_quantity = cur_quantity
+
 			order_type = 'MKT-CLOSE'
 			print('timestamp', timestamp)
 			print('current_holdings', self.current_holdings['cash'])
@@ -273,6 +299,30 @@ class BacktestPortfolio(Portfolio):
 	def _exit_position(self, signal):
 		pass
 
+	def construct_all_positions(self):
+		"""
+		For each symbol 0 positions
+		Constructs the positions list using the start_date
+		to determine when the time index will begin.
+		"""
+
+		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
+		d['datetime'] = self.start_date
+		return [d]
+
+	def construct_all_holdings(self):
+		"""
+		For each symbol 0 in holdings
+		Constructs the holdings list using the start_date
+		to determine when the time index will begin.
+		"""
+
+		d = dict((k, v) for k, v in [(s, 0.0) for s in self.symbol_list])
+		d['datetime'] = self.start_date
+		d['cash'] = self.initial_capital
+		d['commission'] = 0.0
+		d['total'] = self.initial_capital
+		return [d]
 	
 	def create_equity_curve_dataframe(self):
 		"""

@@ -3,13 +3,14 @@ from htr.core.portfolio.risk import RiskHandler
 
 class Kelly(RiskHandler):
 
-    def __init__(self):
+    def __init__(self, context):
         """
 
         Args:
         	curr_positions (dict): Contains the curr_positions of the portfolio
         """
         self.current_positions = None
+        self.context = context
 
     def update_current_positions(self, current_positions):
         self.current_positions = current_positions
@@ -17,11 +18,7 @@ class Kelly(RiskHandler):
     def calculate_trade(self, positions_dict, signal, close_value):
         # todo sacar isto - symbol, strength, dir, pos, pl_ratio
         self.update_current_positions(positions_dict)
-        #
-        #
-        #
-        #
-        # todo if something
+       ## todo assert there is enough units to generate quantity
         return self._calculate_quantity(close_value)
 
 
@@ -31,7 +28,7 @@ class Kelly(RiskHandler):
 
     def _calculate_quantity(self, close_value):
 
-       quantity = 100 * (1/close_value) # todo change this
+       quantity = self.context.initial_capital * (1/close_value) # todo change this
 
        ##kelly formula = hit rate and takeprofit / stop loss
        # K = ( PxB – (1–P) ) / B

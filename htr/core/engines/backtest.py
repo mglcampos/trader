@@ -60,7 +60,7 @@ class Backtest():
 
 		self.data_handler = self.data_handler_cls(self.context, self.events)
 		self.strategy = self.strategy_cls(self.context, self.events, self.data_handler)
-		self.risk_handler = self.risk_handler_cls()
+		self.risk_handler = self.risk_handler_cls(self.context)
 		self.portfolio = self.portfolio_cls(self.context, self.events, self.risk_handler, self.data_handler)
 		self.execution_handler = self.execution_handler_cls(self.context, self.events)
 		print('STRATEGY', self.context.strategies)
@@ -79,6 +79,7 @@ class Backtest():
 				break
 			# Handle the events
 			while True:
+
 				try:
 					event = self.events.get(False)
 				except queue.Empty:

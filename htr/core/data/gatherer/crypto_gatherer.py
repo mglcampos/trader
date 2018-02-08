@@ -1,46 +1,63 @@
 
 import time
+from datetime import datetime as dt
 import zmq
 
-from htr.helpers.wrappers import Bitfinex, BitfinexV2
-
-
 class CryptoGatherer:
-    def __init__(self, exchanges=None, environment='practice'):
+    def __init__(self, broker_handler):
         """.
 
         Args:
         	exchanges (list): List of exchanges
 
         """
+
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REP)
         self.socket.bind("tcp://127.0.0.1:5558")
 
-        self.bitfinex = Bitfinex.Public()
-        print(self.bitfinex.ticker())
+        ## todo pass context?
+        self.broker_handler = broker_handler('')
+        self.errors = []
+        self.last_tick = dt.now()
 
     def ticker(self, symbol):
         """Get ticks from exchanges."""
-        print(symbol)
-        ## todo point of abstraction to the exchange, change this to implement sockets or http stream and more than one exchange
-        tick = self.bitfinex.ticker(symbol)
+
+        try:
+            ## Prevent more than one tick per second todo try to improve this
+            while (dt.now() - self.last_tick).seconds < 1:
+                continue
+
+            tick = self.broker_handler.ticker(symbol.replace('/', ''))
+            self.last_tick = dt.now()
+
+        except Exception as e:
+            print(e)
+            self.errors.append(e.__str__() + symbol + str(dt.now()))
+            ## todo maybe i dont want to exit
+            return {}
 
         return tick
 
-    def startServer(self):
+    def start_server(self):
         while True:
-            request = str(self.socket.recv())
-            print("Request: ", request)
-            time.sleep(1)
-            request_type, symbol = request.split(' ')
-            print(request_type)
-            tick = self.ticker(symbol.replace('\'',''))
-            print ("TICK TIMESTAMP - ", tick['timestamp'])
-            if "tick" in request_type:
-                message = "{0} {1}".format(symbol, tick)
-                self.socket.send_string(message)
+            try:
+                request = str(self.socket.recv())
+                # print("Request: ", request)
+                time.sleep(1)
+                request_type, symbol = request.split(' ')
+                tick = self.ticker(symbol.replace('\'',''))
 
+                print ("TICK TIMESTAMP - ", tick['timestamp'])
+                if "tick" in request_type:
+                    message = "{0} {1}".format(symbol, tick)
+                    self.socket.send_string(message)
+
+            except Exception as e:
+                print(e)
+                self.errors.append(e.__str__() + symbol + str(dt.now()))
+                break
 
 # if __name__ == '__main__':
 #     instruments = ['EUR/USD', 'EUR/JPY', 'USD/CAD']
@@ -53,6 +70,6 @@ class CryptoGatherer:
 #         t2.start()
 #     except Exception as err:
 #         print err
-
-c = CryptoGatherer()
-c.startServer()
+# from htr.core.brokerage import KrakenHandler
+# c = CryptoGatherer(KrakenHandler)
+# c.start_server()

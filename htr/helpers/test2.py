@@ -78,7 +78,7 @@ if __name__ == "__main__":
 #     tau = [sqrt(std(subtract(ts[lag:], ts[:-lag]))) for lag in lags]
 #     # Use a linear fit to estimate the Hurst Exponent
 #     poly = polyfit(log(lags), log(tau), 1)
-#     # Return the Hurst exponent from the polyfit output
+#     # Return the Hurst exponent from the polyfit reports
 #     return poly[0]*2.0
 # # Create a Gometric Brownian Motion, Mean-Reverting and Trending Series
 # gbm = log(cumsum(randn(100000))+1000)

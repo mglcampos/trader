@@ -5,7 +5,7 @@ import os
 def get_class(name, path):
 	"""Returns a class by searching the file name."""
 
-	path = os.path.join(os.getcwd().split('/htr')[0], path)
+	path = os.path.join(os.getcwd().split('/tests')[0], path)
 	_class = None
 	name_list = [name.replace(' ', '_').upper(), name.replace(' ', '').upper(), name.upper()]
 

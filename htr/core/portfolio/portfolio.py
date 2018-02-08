@@ -33,30 +33,6 @@ class Portfolio(ABC):
 		self.loss_sell = 0
 		self.last_market = 0
 
-	def construct_all_positions(self):
-		"""
-		For each symbol 0 positions
-		Constructs the positions list using the start_date
-		to determine when the time index will begin.
-		"""
-
-		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
-		d['datetime'] = self.start_date
-		return [d]
-
-	def construct_all_holdings(self):
-		"""
-		For each symbol 0 in holdings
-		Constructs the holdings list using the start_date
-		to determine when the time index will begin.
-		"""
-
-		d = dict((k, v) for k, v in [(s, 0.0) for s in self.symbol_list])
-		d['datetime'] = self.start_date
-		d['cash'] = self.initial_capital
-		d['commission'] = 0.0
-		d['total'] = self.initial_capital
-		return [d]
 
 	def construct_current_holdings(self):
 		"""
@@ -143,7 +119,7 @@ class Portfolio(ABC):
 		fill_cost = self.data_handler.get_latest_bar_value(fill.symbol, "Close")
 		cost = fill_dir * fill_cost * fill.quantity
 		commission = cost * fill.commission
-		## todo in the crypto case should commission be doubled?
+
 		self.current_holdings[fill.symbol] += cost
 		self.current_holdings['commission'] += commission
 		self.current_holdings['cash'] -= (cost + commission)

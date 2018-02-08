@@ -12,7 +12,7 @@ class CryptoBull(Strategy):
 	  .
 	   """
 
-	def __init__(self, context, events, data_handler, short_window=200, long_window=200):
+	def __init__(self, context, events, data_handler, short_window=100, long_window=200):
 		"""
 		Initialises the Moving Averages Strategy.
 
@@ -78,12 +78,7 @@ class CryptoBull(Strategy):
 		for symbol in self.symbol_list:
 			# Load price series data.
 			bar_date, data = self._load_data(symbol)
-			close = self.data_handler.get_latest_bars_values(
-				symbol, "Close", N=100)
-			high = self.data_handler.get_latest_bars_values(
-				symbol, "High", N=100)
-			low = self.data_handler.get_latest_bars_values(
-				symbol, "Low", N=100)
+
 			# Checks for stop conditions
 			if self._check_stop():
 				return
@@ -92,60 +87,45 @@ class CryptoBull(Strategy):
 			if data is not None and len(data) >= 100:
 				# returns = pd.Series(data).pct_change()
 				# sum_returns = sum(returns.values[-3:])
-				ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
-				slope = talib.LINEARREG_SLOPE(close, timeperiod=14)
+				# ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
+				print("Data: ", data)
+				slope = talib.LINEARREG_SLOPE(data, timeperiod=14)
+				if self.bought[symbol][1] != 0:
+					ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
 				upperband, middleband, lowerband = talib.BBANDS(slope, timeperiod=20, nbdevup=1, nbdevdn=1, matype=0)
 				print('Slope: ', slope[-1])
 				print('Price: ', data[-1])
-				print('Ret : ', ret)
+				# print('Ret : ', ret)
 				## 87
-				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
+				# if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
 
 				## 48
-				# if slope[-1] <= lowerband[-1] and slope[-2] < slope[-1] and slope[-1] > -55  and self.pos_count[symbol] == 0:
-					self.pos_count[symbol] += 2
+				if slope[-1] <= lowerband[-1] and slope[-2] < slope[-1] and slope[-1] > -55  and self.pos_count[symbol] == 0:
+					self.pos_count[symbol] += 1
 					print("LONG: %s" % bar_date)
+					self.bought[symbol] = ('', slope[-1])
 					# Create BUY signal.
 					signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
 					# Share signal in the events queue.
 					self.events.put(signal)
-					print("LONG: %s" % bar_date)
-					# Create BUY signal.
-					signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
-					# Update bought status in strategy position cache.
-					self.bought[symbol] = ('LONG', data[-1])
-					# Share signal in the events queue.
-					self.events.put(signal)
-
+				## todo lucrar no upper band
 
 				elif slope[-1] >= upperband[-1] and self.pos_count[symbol] > 0:
 					self.pos_count[symbol] -= 1
 					print("CLOSE POSITION: %s" % bar_date)
+					self.bought[symbol] = ('', 0)
 					# Create EXIT signal.
 					signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
 					# Share signal in the events queue.
 					self.events.put(signal)
-					if self.pos_count[symbol] > 0:
-						self.pos_count[symbol] -= 1
-						print("CLOSE POSITION: %s" % bar_date)
-						# Create EXIT signal.
-						signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-						# Share signal in the events queue.
-						self.events.put(signal)
-
 				"""
-				elif slope[-1] > 0 and ret <= -0.01 and self.pos_count[symbol] > 0:
+				elif self.pos_count[symbol] > 0 and ret >= 2 and slope[-1] < 0:
 					self.pos_count[symbol] -= 1
 					print("CLOSE POSITION: %s" % bar_date)
+					self.bought[symbol] = ('', 0)
 					# Create EXIT signal.
 					signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
 					# Share signal in the events queue.
 					self.events.put(signal)
-					if self.pos_count[symbol] > 0:
-						self.pos_count[symbol] -= 1
-						print("CLOSE POSITION: %s" % bar_date)
-						# Create EXIT signal.
-						signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-						# Share signal in the events queue.
-						self.events.put(signal)
 				"""
+

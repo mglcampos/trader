@@ -107,7 +107,7 @@ if __name__ == "__main__":
     print('\n0Hurst Exponent')
     pprint.pprint(hurst)
     # print df
-    # Calculate and output the CADF test on the residuals
+    # Calculate and reports the CADF test on the residuals
     cadf = ts.adfuller(df["res"][:-1])
     pprint.pprint(cadf)
     # Plot the two time series

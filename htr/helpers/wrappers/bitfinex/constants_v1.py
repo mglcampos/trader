@@ -62,6 +62,7 @@ class Symbol(_Enum):
     BCHUSD = 'bchusd'
     BCHBTC = 'bchbtc'
     BCHETH = 'bcheth'
+    XRPUSD = 'xrpusd'
 
 
 # Bitfinex supported currencies

@@ -10,7 +10,8 @@ class ConfigManager:
     def __init__(self, config):
 
         self.context = Context()
-        self.config = JsonReader('{}{}{}'.format(os.getcwd().split('/htr')[0], '/config/', config)).read()
+        print('{}{}{}'.format(os.getcwd().split('/tests')[0], '/config/', config))
+        self.config = JsonReader('{}{}{}'.format(os.getcwd().split('/tests')[0], '/config/', config)).read()
         self.backtest_nodes = []
         self.live_nodes = []
         self._load_backtest_nodes()

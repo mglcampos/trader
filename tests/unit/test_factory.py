@@ -9,8 +9,11 @@ class TestFactory(unittest2.TestCase):
     def setUp(self):
         pass
 
-    def test_sequential_factory(self):
-        self.factory = NodeFactory(FactoryType.SEQUENTIAL, True)
+    # def test_sequential_factory(self):
+    #     self.factory = NodeFactory(FactoryType.SEQUENTIAL, 'Simulation')
+
+    def test_live_factory(self):
+        self.factory = NodeFactory(FactoryType.SEQUENTIAL, 'Live')
 
     def tearDown(self):
         pass
