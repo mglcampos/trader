@@ -88,10 +88,10 @@ class CryptoBull(Strategy):
 				# returns = pd.Series(data).pct_change()
 				# sum_returns = sum(returns.values[-3:])
 				# ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
-				print("Data: ", data)
+				# print("Data: ", data)
 				slope = talib.LINEARREG_SLOPE(data, timeperiod=14)
-				if self.bought[symbol][1] != 0:
-					ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
+				# if self.bought[symbol][1] != 0:
+				# 	ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
 				upperband, middleband, lowerband = talib.BBANDS(slope, timeperiod=20, nbdevup=1, nbdevdn=1, matype=0)
 				print('Slope: ', slope[-1])
 				print('Price: ', data[-1])
