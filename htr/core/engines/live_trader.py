@@ -110,6 +110,7 @@ class LiveTrader:
             self._set_up() ## todo e.g. ver dinheiro em cada exchange, ver posições abertas
         except Exception as e:
             print('\n"{}" error while setting up the trading environment.'.format(e))
+            return
 
         try:
             self._run()

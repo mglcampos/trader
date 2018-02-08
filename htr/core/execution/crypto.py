@@ -67,7 +67,8 @@ class CryptoExecutionHandler(ExecutionHandler):
 
         if event.type == 'ORDER':
 
-            instrument = event.symbol
+            instrument = event.symbol.replace('/', '')
+            print('Order instrument : ', instrument)
             order_type = event.order_type
             quantity = event.quantity
             direction = event.direction
@@ -100,6 +101,7 @@ class CryptoExecutionHandler(ExecutionHandler):
                         break
 
                     except Exception as e:
+                        print('\nwtf exception', e)
                         if re.search('Insufficient funds', e.__str__()) != None:
                             quantity = self.broker_handler.downsize_order(quantity)
                             print('Downsized {} order to {}.'.format(order_type, quantity))
@@ -118,10 +120,16 @@ class CryptoExecutionHandler(ExecutionHandler):
                         break
 
                     except Exception as e:
-                        if re.search('Insufficient funds', e.__str__()) != None:
-                            quantity = self.broker_handler.downsize_order(quantity)
-                            print('Downsized {} order to {}.'.format(order_type, quantity))
-                            continue
+                        ## todo remove this
+                        quantity = self.broker_handler.downsize_order(quantity)
+                        print('Downsized {} order to {}.'.format(order_type, quantity))
+                        continue
+
+                        print('\nwtf exception', e)
+                        # if re.search('Insufficient funds', e.__str__()) != None:
+                        #     quantity = self.broker_handler.downsize_order(quantity)
+                        #     print('Downsized {} order to {}.'.format(order_type, quantity))
+                        #     continue
 
                     print('Failed to {} in {} order.'.format(direction, order_type))
 

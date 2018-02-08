@@ -93,7 +93,16 @@ class CryptoBull(Strategy):
 				# if self.bought[symbol][1] != 0:
 				# 	ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
 				upperband, middleband, lowerband = talib.BBANDS(slope, timeperiod=20, nbdevup=1, nbdevdn=1, matype=0)
-				print('Slope: ', slope[-1])
+
+				slope_pos = ''
+				if slope[-1] <= lowerband[-1]:
+					slope_pos = 'BELOW LOWERBAND'
+				elif slope[-1] >= upperband[-1]:
+					slope_pos = 'ABOVE UPPERBAND'
+				elif slope[-1] >= middleband[-1]:
+					slope_pos = 'ABOVE MIDDLEBAND'
+
+				print('Slope: ', slope[-1], slope_pos)
 				print('Price: ', data[-1])
 				# print('Ret : ', ret)
 				## 87

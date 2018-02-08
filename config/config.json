@@ -73,7 +73,7 @@
       "data_handler" : "crypto live data handler",
       "brokers": [{"name": "bitfinex", "key":"user1", "secret":"pass1"}],
       "market": "forex",
-      "heartbeat": 30,
+      "heartbeat": 1,
       "risk_handler" : "kelly",
       "store" : true,
       "enabled": true

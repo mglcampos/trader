@@ -1,6 +1,7 @@
 
 
 from datetime import datetime as dt
+import time
 
 try:
 	import Queue as queue
@@ -12,8 +13,7 @@ from talib.abstract import *
 import json
 
 from htr.core.events import *
-from htr.core.performance import create_sharpe_ratio, create_drawdowns
-from htr.core.portfolio.portfolio import Portfolio
+from .portfolio import Portfolio
 
 
 class CryptoPortfolio():
@@ -22,6 +22,7 @@ class CryptoPortfolio():
 	def __init__(self, context, events, risk_handler, data_handler, broker_handler):
 
 		self.store = context.store
+		self.context = context
 		self.data_handler = data_handler
 		self.events = events
 		self.broker_handler = broker_handler
@@ -30,9 +31,14 @@ class CryptoPortfolio():
 		self.symbol_list = self.data_handler.symbol_list
 		self.start_date = dt.now()
 
-		self.all_positions = self.construct_all_positions()
 		self.current_positions = dict((k, v) for k, v in \
 		                              [(s, 0) for s in self.symbol_list])
+		## Update current positions
+		self.update_from_broker()
+
+		self.all_positions = self.construct_all_positions()
+
+
 		self.all_holdings = self.construct_all_holdings()
 		self.current_holdings = self.construct_current_holdings()
 		self.fill_history = {'BUY': {}, 'SELL': {}, 'CLOSE': {}}
@@ -49,7 +55,7 @@ class CryptoPortfolio():
 		self.loss_buy = 0
 		self.loss_sell = 0
 		self.last_market = 0
-		self.context = context
+
 		self.events = events
 		self.risk_handler = risk_handler
 		self.broker_handler = broker_handler
@@ -281,17 +287,28 @@ class CryptoPortfolio():
 	def _exit_position(self, signal):
 		pass
 
+	def update_from_broker(self):
+		"""."""
+
+		positions = self.broker_handler.get_available_units()
+		for s in positions:
+			if s[1:] == self.context.base_currency:
+				self.current_positions['cash'] = float(positions[s])
+
+			else:
+				self.current_positions[s[1:] + '/' + self.context.base_currency] = float(positions[s])
+
 	def construct_all_positions(self):
 		"""
 		For each symbol 0 positions
 		Constructs the positions list using the start_date
 		to determine when the time index will begin.
 		"""
-		positions = self.broker_handler.get_available_units()
+
 		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
 
-		for s in positions:
-			d[s[1:]] = positions[s]
+		for s in self.current_positions:
+			d[s] = self.current_positions[s]
 
 		d['datetime'] = self.start_date
 		return [d]
@@ -302,7 +319,10 @@ class CryptoPortfolio():
 		value of the portfolio across all symbols.
 		"""
 
-		d = dict((k, v) for k, v in [(s, 0.0) for s in self.symbol_list])
+		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
+
+		for s in self.current_positions:
+			d[s] = self.current_positions[s]
 		d['cash'] = self.initial_capital
 		d['commission'] = 0.0
 		d['total'] = self.initial_capital
@@ -315,11 +335,11 @@ class CryptoPortfolio():
 		to determine when the time index will begin.
 		"""
 
-		positions = self.broker_handler.get_available_units()
 		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
 
-		for s in positions:
-			d[s[1:]] = positions[s]
+		for s in self.current_positions:
+			d[s] = self.current_positions[s]
+
 		d['datetime'] = self.start_date
 		d['cash'] = self.initial_capital
 		print(d)
@@ -341,7 +361,17 @@ class CryptoPortfolio():
 		)
 		# Update positions
 		# ================
-		positions = self.broker_handler.get_available_units()
+		## todo what to do here when exception occurs?
+		while True:
+			try:
+				positions = self.broker_handler.get_available_units()
+				break
+
+			except Exception as e:
+				print(e)
+				time.sleep(5)
+				continue
+
 		dp = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
 
 		for s in positions:
@@ -361,9 +391,7 @@ class CryptoPortfolio():
 		dh['total'] = self.current_holdings['cash']
 		for s in self.symbol_list:
 			# Approximation to the real value
-			market_value = self.current_positions[s] * \
-			               self.data_handler.get_latest_bar_value(s, "Close")
-
+			market_value = self.current_positions[s] * self.data_handler.get_latest_bar_value(s, "Close")
 			dh[s] = market_value
 			dh['total'] += market_value
 
