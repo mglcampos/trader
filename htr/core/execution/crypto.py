@@ -34,9 +34,12 @@ class CryptoExecutionHandler(ExecutionHandler):
         placed onto the events queue subsequent to an order
         being filled.
         """
-        order_id = -1
 
-        order_id = response['order_id']
+        try:
+            order_id = response['order_id']
+        except:
+            order_id = -1
+
         if not any(str(order_id) in str(s) for s in self.fill_dict):
             self.fill_dict[order_id] = {}
 
@@ -93,7 +96,7 @@ class CryptoExecutionHandler(ExecutionHandler):
 
             elif direction == 'SELL' and order_type == 'MKT-CLOSE':
                 ## todo check if quantity is right
-                for i in range(0, 2):
+                for i in range(0, 1):
                     try:
                         response = self.broker_handler.create_order(instrument, quantity, 0, direction.lower(),
                                                                     'market')
@@ -102,10 +105,17 @@ class CryptoExecutionHandler(ExecutionHandler):
 
                     except Exception as e:
                         print('\nwtf exception', e)
+                        quantity = self.broker_handler.downsize_order(quantity)
+                        print('Downsized {} order to {}.'.format(order_type, quantity))
+
+
                         if re.search('Insufficient funds', e.__str__()) != None:
-                            quantity = self.broker_handler.downsize_order(quantity)
-                            print('Downsized {} order to {}.'.format(order_type, quantity))
-                            continue
+                            print('\nAPANHOU ERRO de funds')
+                            # quantity = self.broker_handler.downsize_order(quantity)
+                            # print('Downsized {} order to {}.'.format(order_type, quantity))
+                            # continue
+
+                        continue
 
                         print('Failed to {} in {} order.'.format(direction, order_type))
 
@@ -123,13 +133,15 @@ class CryptoExecutionHandler(ExecutionHandler):
                         ## todo remove this
                         quantity = self.broker_handler.downsize_order(quantity)
                         print('Downsized {} order to {}.'.format(order_type, quantity))
-                        continue
-
                         print('\nwtf exception', e)
-                        # if re.search('Insufficient funds', e.__str__()) != None:
+
+                        if re.search('Insufficient funds', e.__str__()) != None:
+                            print('\nAPANHOU ERRO de funds')
                         #     quantity = self.broker_handler.downsize_order(quantity)
                         #     print('Downsized {} order to {}.'.format(order_type, quantity))
                         #     continue
+
+                        continue
 
                     print('Failed to {} in {} order.'.format(direction, order_type))
 

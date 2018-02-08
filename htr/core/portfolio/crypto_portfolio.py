@@ -34,7 +34,7 @@ class CryptoPortfolio():
 		self.current_positions = dict((k, v) for k, v in \
 		                              [(s, 0) for s in self.symbol_list])
 		## Update current positions
-		self.update_from_broker()
+		self.update_pos_from_broker()
 
 		self.all_positions = self.construct_all_positions()
 
@@ -203,6 +203,7 @@ class CryptoPortfolio():
 		mkt_quantity = quantity
 
 		if signal_type == 'LONG':
+			print(self.current_holdings)
 			market_value = mkt_quantity * self.data_handler.get_latest_bar_value(symbol, "Close")  ##valor da moeda
 			self.last_open = self.last_market  ##cash antes do open
 			self.cash_open = self.last_market - market_value  ##somar valor da moeda mais cash
@@ -287,7 +288,7 @@ class CryptoPortfolio():
 	def _exit_position(self, signal):
 		pass
 
-	def update_from_broker(self):
+	def update_pos_from_broker(self):
 		"""."""
 
 		positions = self.broker_handler.get_available_units()
@@ -305,10 +306,7 @@ class CryptoPortfolio():
 		to determine when the time index will begin.
 		"""
 
-		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
-
-		for s in self.current_positions:
-			d[s] = self.current_positions[s]
+		d = dict((k, v) for k, v in [(s, self.current_positions[s]) for s in self.symbol_list])
 
 		d['datetime'] = self.start_date
 		return [d]
@@ -319,10 +317,8 @@ class CryptoPortfolio():
 		value of the portfolio across all symbols.
 		"""
 
-		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
+		d = dict((k, v) for k, v in [(s, self.current_positions[s]) for s in self.symbol_list])
 
-		for s in self.current_positions:
-			d[s] = self.current_positions[s]
 		d['cash'] = self.initial_capital
 		d['commission'] = 0.0
 		d['total'] = self.initial_capital
@@ -335,10 +331,7 @@ class CryptoPortfolio():
 		to determine when the time index will begin.
 		"""
 
-		d = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
-
-		for s in self.current_positions:
-			d[s] = self.current_positions[s]
+		d = dict((k, v) for k, v in [(s, self.current_positions[s]) for s in self.symbol_list])
 
 		d['datetime'] = self.start_date
 		d['cash'] = self.initial_capital

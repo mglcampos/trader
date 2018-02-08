@@ -31,8 +31,13 @@ class KrakenHandler(BrokerHandler):
 
         output = self.kraken.add_order(symbol, side, ord_type, price, amount)
 
-        # print(reports)
-        return output['result']['txid'][0]
+        try:
+            id_response = output['result']['txid'][0]
+
+        except:
+            return -1
+
+        return id_response
 
     def __get_tick(self, symbol):
         """."""
@@ -85,7 +90,7 @@ class KrakenHandler(BrokerHandler):
         tick = self.__get_tick(pair)['result']
         return 1 / float([tick[close]['c'][0] for close in tick][0]) * float(self.get_cash())
 
-    def downsize_order(self, amount, pct=0.001):
+    def downsize_order(self, amount, pct=0.005):
         """."""
 
         slice = float(amount) * pct

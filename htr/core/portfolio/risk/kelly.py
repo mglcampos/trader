@@ -27,6 +27,7 @@ class Kelly(RiskHandler):
         raise NotImplementedError('Should Implement')
 
     def _calculate_quantity(self, close_value, signal):
+        """Calculate quantity for base currency in pair (e.g. for XRPUSD calculates XRP amount)"""
 
         quantity = 0
         if signal.signal_type == 'LONG':
