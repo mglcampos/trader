@@ -79,7 +79,7 @@ class Interpreter:
             factory_type = FactoryType.SEQUENTIAL
 
         if mode == '' or mode is None:
-            mode = RuntimeMode.SIMULATION
+            mode = RuntimeMode.LIVE
 
         NodeFactory(factory_type, mode)
 

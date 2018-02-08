@@ -109,12 +109,12 @@ class LiveTrader:
         try:
             self._set_up() ## todo e.g. ver dinheiro em cada exchange, ver posições abertas
         except Exception as e:
-            print('"{}" error while setting up the trading environment.'.format(e))
+            print('\n"{}" error while setting up the trading environment.'.format(e))
 
         try:
             self._run()
         except Exception as e:
-            print('"{}" runtime error while trading.'.format(e))
+            print('\n"{}" runtime error while trading.'.format(e))
             raise e
 
         # try:
