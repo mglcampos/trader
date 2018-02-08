@@ -14,6 +14,7 @@ numpy==1.14.0
 oauthlib==1.0.3
 pandas==0.22.0
 prettytable==0.7.2
+psutil==5.4.3
 pyasn1==0.1.9
 pycurl==7.43.0
 pygobject==3.20.0
@@ -25,6 +26,7 @@ python-debian==0.1.27
 python-systemd==231
 pytz==2017.3
 PyYAML==3.11
+pyzmq==16.0.4
 requests==2.9.1
 six==1.11.0
 ssh-import-id==5.5
@@ -33,3 +35,4 @@ ufw==0.35
 unattended-upgrades==0.1
 urllib3==1.13.1
 WALinuxAgent==2.2.17
+zmq==0.0.0
