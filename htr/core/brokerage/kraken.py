@@ -30,14 +30,15 @@ class KrakenHandler(BrokerHandler):
         """
 
         output = self.kraken.add_order(symbol, side, ord_type, price, amount)
+        response = {'order_id' : -1, 'exchange' : 'Kraken', 'price' : price, 'timestamp' : time.mktime(dt.now().timetuple())}
 
         try:
-            id_response = output['result']['txid'][0]
+            response['order_id'] = output['result']['txid'][0]
 
         except:
-            return -1
+            response['order_id'] = -1
 
-        return id_response
+        return response
 
     def __get_tick(self, symbol):
         """."""

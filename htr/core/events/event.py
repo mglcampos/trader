@@ -116,6 +116,7 @@ class FillEvent(Event):
         commission - An optional commission
         broker - brokerage company executing the trades
         """
+        ##todo remove broker and position
         self.type = 'FILL'
         self.timeindex = timeindex
         self.symbol = symbol
@@ -127,41 +128,6 @@ class FillEvent(Event):
         self.broker = broker
         # Calculate commission
         if commission is None:
-            self.commission = self.calculate_commission()
+            self.commission = -1
         else:
             self.commission = commission
-
-    def calculate_commission(self):
-        """
-            Calculates the fees of trading based on an Interactive
-            Brokers fee structure for API, in USD.
-            This does not include exchange or ECN fees.
-            Based on "US API Directed Orders":
-            https://www.interactivebrokers.com/en/index.php?
-            f=commission&p=stocks2
-            """
-        if self.broker == 'IB':
-            full_cost = 1.3
-            if self.quantity <= 500:
-                full_cost = max(1.3, 0.013 * self.quantity)
-            else:  # Greater than 500
-                full_cost = max(1.3, 0.008 * self.quantity)
-            return full_cost
-
-        elif self.broker == 'OANDA':
-            return 0
-
-
-        elif self.broker == None:
-
-            print ("Warning no Broker Selected")
-            return 0
-
-
-        else:
-            raise ValueError('Broker unknown')
-
-
-
-
-

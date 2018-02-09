@@ -31,11 +31,7 @@ class CryptoPortfolio():
 		self.symbol_list = self.data_handler.symbol_list
 		self.start_date = dt.now()
 
-		self.current_positions = dict((k, v) for k, v in \
-		                              [(s, 0) for s in self.symbol_list])
-		## Update current positions
-		self.update_pos_from_broker()
-
+		self.current_positions = self.update_pos_from_broker()
 		self.all_positions = self.construct_all_positions()
 
 
@@ -291,13 +287,18 @@ class CryptoPortfolio():
 	def update_pos_from_broker(self):
 		"""."""
 
+		d = dict((k, v) for k, v in \
+		     [(s, 0) for s in self.symbol_list])
+
 		positions = self.broker_handler.get_available_units()
 		for s in positions:
 			if s[1:] == self.context.base_currency:
-				self.current_positions['cash'] = float(positions[s])
+				d['cash'] = float(positions[s])
 
 			else:
-				self.current_positions[s[1:] + '/' + self.context.base_currency] = float(positions[s])
+				d[s[1:] + '/' + self.context.base_currency] = float(positions[s])
+
+		return d
 
 	def construct_all_positions(self):
 		"""
@@ -354,21 +355,18 @@ class CryptoPortfolio():
 		)
 		# Update positions
 		# ================
-		## todo what to do here when exception occurs?
-		while True:
-			try:
-				positions = self.broker_handler.get_available_units()
-				break
-
-			except Exception as e:
-				print(e)
-				time.sleep(5)
-				continue
+		# ## todo what to do here when exception occurs?
+		# while True:
+		# 	try:
+		# 		positions = self.broker_handler.get_available_units()
+		# 		break
+		#
+		# 	except Exception as e:
+		# 		print(e)
+		# 		time.sleep(5)
+		# 		continue
 
 		dp = dict((k, v) for k, v in [(s, 0) for s in self.symbol_list])
-
-		for s in positions:
-			dp[s[1:]] = positions[s]
 
 		dp['datetime'] = latest_datetime
 		for s in self.symbol_list:

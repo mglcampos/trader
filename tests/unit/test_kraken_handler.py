@@ -27,7 +27,7 @@ class TestKrakenHandler(unittest2.TestCase):
 		# except Exception as e:
 		# 	if re.search('Insufficient funds', e.__str__()) != None:
 		# 		print(kraken.create_order('XRPUSD', kraken.downsize_order(kraken.get_max_buy('XRPUSD')), 1, 'buy', 'market'))
-		#
+
 		# print(kraken.create_order('XRPUSD', kraken.get_max_sell('XRPUSD'), 1, 'sell', 'market'))
 		#
 		# print('Max amount XRP: ', kraken.get_max_buy('XRPUSD'))

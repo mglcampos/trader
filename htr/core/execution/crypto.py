@@ -28,7 +28,7 @@ class CryptoExecutionHandler(ExecutionHandler):
         self.events = events
         self.fill_dict = {}
 
-    def create_fill(self, response, units, direction):
+    def create_fill(self, response, event):
         """
         Handles the creation of the FillEvent that will be
         placed onto the events queue subsequent to an order
@@ -37,19 +37,19 @@ class CryptoExecutionHandler(ExecutionHandler):
 
         try:
             order_id = response['order_id']
+
         except:
+            ## todo do something here
             order_id = -1
 
-        if not any(str(order_id) in str(s) for s in self.fill_dict):
-            self.fill_dict[order_id] = {}
-
-        fd = self.fill_dict[order_id]
+        self.fill_dict[str(order_id)] = {}
+        fd = self.fill_dict[str(order_id)]
         # # Prepare the fill data
-        fd["symbol"] = response['symbol']
+        fd["symbol"] = event.symbol
         fd['timestamp'] = response['timestamp']
         fd['price'] = response['price']
-        fd['units'] = units
-        fd['direction'] = direction
+        fd['units'] = event.quantity
+        fd['direction'] = event.direction
         fd['exchange'] = response['exchange']
         # Create a fill event object
         fill = FillEvent(
@@ -83,7 +83,7 @@ class CryptoExecutionHandler(ExecutionHandler):
                 for i in range(0, 2):
                     try:
                         response = self.broker_handler.create_order(instrument, quantity, 0, direction.lower(), 'market')
-                        self.create_fill(response, quantity, direction)
+                        self.create_fill(response, event)
                         break
 
                     except Exception as e:
@@ -100,7 +100,8 @@ class CryptoExecutionHandler(ExecutionHandler):
                     try:
                         response = self.broker_handler.create_order(instrument, quantity, 0, direction.lower(),
                                                                     'market')
-                        self.create_fill(response, quantity, direction)
+                        self.create_fill(response, event)
+                        print('ORDER EXECUTED : ', response)
                         break
 
                     except Exception as e:
@@ -126,14 +127,15 @@ class CryptoExecutionHandler(ExecutionHandler):
                     ## todo check if quantity is right
                     try:
                         response = self.broker_handler.create_order(instrument, quantity, 0, direction.lower(), 'market')
-                        self.create_fill(response, quantity, direction)
+                        self.create_fill(response, event)
+                        print('ORDER EXECUTED : ', response)
                         break
 
                     except Exception as e:
                         ## todo remove this
                         quantity = self.broker_handler.downsize_order(quantity)
                         print('Downsized {} order to {}.'.format(order_type, quantity))
-                        print('\nwtf exception', e)
+                        print('\nwtf exception', e, e.__str__())
 
                         if re.search('Insufficient funds', e.__str__()) != None:
                             print('\nAPANHOU ERRO de funds')
@@ -154,7 +156,7 @@ class CryptoExecutionHandler(ExecutionHandler):
                         response = self.broker_handler.create_order(instrument, quantity, 0, direction.lower(),
                                                                     'market')
 
-                        self.create_fill(response, quantity, direction)
+                        self.create_fill(response, event)
                         break
 
                     except Exception as e:
