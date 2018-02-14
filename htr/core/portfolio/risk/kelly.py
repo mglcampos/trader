@@ -31,8 +31,11 @@ class Kelly(RiskHandler):
 
         quantity = 0
         if signal.signal_type == 'LONG':
-            ## todo assert quantity is < cash available
-            quantity = 50 * (1/close_value) # todo change this
+            if signal.strength == 1.0:
+                quantity = 50 * (1/close_value) # todo change this
+
+            else:
+                quantity = 25 * (1 / close_value)  # todo change this
 
         elif signal.signal_type == 'EXIT':
             print(self.current_positions)

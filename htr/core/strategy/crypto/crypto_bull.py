@@ -106,15 +106,18 @@ class CryptoBull(Strategy):
 				print('Price: ', data[-1])
 				# print('Ret : ', ret)
 				## 87
-				# if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
+				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
+					strength = 1.0
+					# if slope[-1] < -0.01:
+					# 	strength = 1.0
+					# else:
+					# 	strength = 0.5
 
-				## 48
-				if slope[-1] <= lowerband[-1] and slope[-2] < slope[-1] and slope[-1] > -55  and self.pos_count[symbol] == 0:
 					self.pos_count[symbol] += 1
 					print("LONG: %s" % bar_date)
 					self.bought[symbol] = ('', slope[-1])
 					# Create BUY signal.
-					signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
+					signal = SignalEvent(1, symbol, bar_date, 'LONG', strength)
 					# Share signal in the events queue.
 					self.events.put(signal)
 				## todo lucrar no upper band
