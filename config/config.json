@@ -16,8 +16,8 @@
     {
       "id": "crypto_csv",
       "strategies": ["crypto bull"],
-      "data_sources": [{"path":["histdata/ETCUSD_2018_M1M2.csv"], "symbol":"ETC/USD"},
-                        {"path":["histdata/BTCUSD_2018_M1M2.csv"], "symbol":"BTC/USD"}],
+      "data_sources": [{"path":["histdata/ETHUSD_2018_M2.csv"], "symbol":"ETH/USD"},
+                        {"path":["histdata/BTCUSD_2018_M2.csv"], "symbol":"BTC/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
