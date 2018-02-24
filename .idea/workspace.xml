@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BTCUSD_report.csv" afterPath="$PROJECT_DIR$/BTCUSD_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ETCUSD_report.csv" afterPath="$PROJECT_DIR$/ETCUSD_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ETHUSD_report.csv" afterPath="$PROJECT_DIR$/ETHUSD_report.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/XRPUSD_report.csv" afterPath="$PROJECT_DIR$/XRPUSD_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.json" afterPath="$PROJECT_DIR$/config/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/equity.csv" afterPath="$PROJECT_DIR$/equity.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" afterPath="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reportf.json" afterPath="$PROJECT_DIR$/reportf.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,7 +26,7 @@
       <file leaf-file-name="crypto.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/execution/crypto.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1428">
+            <state relative-caret-position="0">
               <caret line="90" column="62" lean-forward="false" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="62" />
               <folding>
                 <element signature="e#5648#6504#0" expanded="false" />
@@ -32,21 +35,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="event.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/events/event.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1751">
-              <caret line="103" column="68" lean-forward="false" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.json" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
+            <state relative-caret-position="178">
+              <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -65,7 +58,7 @@
       <file leaf-file-name="crypto_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5780">
+            <state relative-caret-position="192">
               <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
               <folding>
                 <element signature="e#2985#7032#0" expanded="false" />
@@ -74,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="backtest_portfolio.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="backtest_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="400" column="49" lean-forward="true" selection-start-line="400" selection-start-column="49" selection-end-line="400" selection-end-column="49" />
+            <state relative-caret-position="88">
+              <caret line="381" column="24" lean-forward="false" selection-start-line="381" selection-start-column="24" selection-end-line="381" selection-end-column="24" />
               <folding>
                 <element signature="e#65#80#0" expanded="true" />
               </folding>
@@ -89,7 +82,7 @@
       <file leaf-file-name="backtest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1785">
+            <state relative-caret-position="379">
               <caret line="108" column="50" lean-forward="true" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
               <folding />
             </state>
@@ -99,8 +92,8 @@
       <file leaf-file-name="crypto_bull.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1853">
-              <caret line="113" column="38" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="113" selection-end-column="38" />
+            <state relative-caret-position="973">
+              <caret line="112" column="38" lean-forward="true" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -109,8 +102,8 @@
       <file leaf-file-name="kelly.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
+            <state relative-caret-position="-233">
+              <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -160,9 +153,9 @@
         <option value="$PROJECT_DIR$/htr/core/events/event.py" />
         <option value="$PROJECT_DIR$/htr/helpers/dataprep/crypto_prep.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
+        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" />
         <option value="$PROJECT_DIR$/config/config.json" />
-        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
       </list>
     </option>
   </component>
@@ -187,6 +180,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -249,6 +243,21 @@
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="htr" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="htr" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="htr" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -273,7 +282,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -394,13 +402,13 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-1" width="1924" height="952" extended-state="6" />
+    <frame x="-2" y="-1" width="1370" height="640" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1921875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19180088" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38849765" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38849765" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4888889" sideWeight="0.49791667" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -434,16 +442,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5797">
-          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
-          <folding>
-            <element signature="e#2985#7032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
@@ -762,55 +760,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="38" lean-forward="false" selection-start-line="33" selection-start-column="38" selection-end-line="33" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="113" column="38" lean-forward="false" selection-start-line="110" selection-start-column="22" selection-end-line="113" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5780">
-          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
-          <folding>
-            <element signature="e#2985#7032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/execution/crypto.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
+        <state relative-caret-position="0">
           <caret line="90" column="62" lean-forward="false" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="62" />
           <folding>
             <element signature="e#5648#6504#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1785">
-          <caret line="108" column="50" lean-forward="true" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="77" lean-forward="false" selection-start-line="18" selection-start-column="77" selection-end-line="18" selection-end-column="77" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -822,13 +778,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/strategy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="108" column="50" lean-forward="true" selection-start-line="108" selection-start-column="50" selection-end-line="108" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
+          <folding>
+            <element signature="e#2985#7032#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-233">
+          <caret line="15" column="42" lean-forward="false" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="400" column="49" lean-forward="true" selection-start-line="400" selection-start-column="49" selection-end-line="400" selection-end-column="49" />
+        <state relative-caret-position="88">
+          <caret line="381" column="24" lean-forward="false" selection-start-line="381" selection-start-column="24" selection-end-line="381" selection-end-column="24" />
           <folding>
             <element signature="e#65#80#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="973">
+          <caret line="112" column="38" lean-forward="true" selection-start-line="112" selection-start-column="38" selection-end-line="112" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>

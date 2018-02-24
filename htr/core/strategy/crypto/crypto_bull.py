@@ -93,6 +93,7 @@ class CryptoBull(Strategy):
 				# if self.bought[symbol][1] != 0:
 				# 	ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
 				upperband, middleband, lowerband = talib.BBANDS(slope, timeperiod=20, nbdevup=1, nbdevdn=1, matype=0)
+				ema12 = talib.EMA(data, timeperiod=12)
 
 				slope_pos = ''
 				if slope[-1] <= lowerband[-1]:
@@ -106,9 +107,9 @@ class CryptoBull(Strategy):
 				print('Price: ', data[-1])
 				# print('Ret : ', ret)
 				## 87
-				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
+				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
 					strength = 1.0
-					# if slope[-1] < -0.01:
+					# if data[-1] <= ema12[-1]:
 					# 	strength = 1.0
 					# else:
 					# 	strength = 0.5

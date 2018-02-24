@@ -379,31 +379,38 @@ class BacktestPortfolio(Portfolio):
 					'close': symbol_data[instrument]['Close']
 				}
 				try:
+					pass
 					# atr = ATR(inputs, timeperiod=len(symbol_data[instrument]) - 1)
 					# volatility[instrument] = (atr[-1] / symbol_data[instrument]['Close'].values[-1]) * 100
 
 
 					# # Lets plot
-					fig = plt.figure(1)
-					fig.suptitle('Performance', fontsize=16)
-					ax = plt.subplot(411)
-					ax.title.set_text('Equity Curve')
-					self.equity_curve['equity_curve'].plot(legend=None)
-					ax = plt.subplot(412)
-					ax.title.set_text('ROC')
-					atr = pd.Series(ATR(inputs))
-					atr.plot(legend=None)
-					fig.subplots_adjust(hspace=1)
-					ax = plt.subplot(413)
-					ax.title.set_text('ADX')
-					adx = pd.Series(ADX(inputs, timeperiod=21))
-					adx.plot(legend=None)
-					fig.subplots_adjust(hspace=1)
-					ax = plt.subplot(414)
-					ax.title.set_text('RSI')
-					rsi = pd.Series(RSI(inputs, timeperiod=21))
-					rsi.plot(legend=None)
-					plt.show()
+					# fig = plt.figure(1)
+					# fig.suptitle('Performance', fontsize=16)
+					# ax = plt.subplot(511)
+					# ax.title.set_text('Equity Curve')
+					# self.equity_curve['equity_curve'].plot(legend=None)
+					# ax = plt.subplot(512)
+					# ax.title.set_text('ROC')
+					# atr = pd.Series(ATR(inputs))
+					# atr.plot(legend=None)
+					# fig.subplots_adjust(hspace=1)
+					# ax = plt.subplot(513)
+					# ax.title.set_text('ADX')
+					# adx = pd.Series(ADX(inputs, timeperiod=21))
+					# adx.plot(legend=None)
+					# fig.subplots_adjust(hspace=1)
+					# ax = plt.subplot(514)
+					# ax.title.set_text('RSI')
+					# rsi = pd.Series(RSI(inputs, timeperiod=21))
+					# rsi.plot(legend=None)
+					# sd = symbol_data[instrument]['Close']
+					# fig.subplots_adjust(hspace=1)
+					# ax = plt.subplot(515)
+					# ax.title.set_text(instrument)
+					# sd = pd.Series(sd)
+					# sd.plot(legend=None)
+					# plt.show()
 
 				except Exception as e:
 					volatility[instrument] = 0

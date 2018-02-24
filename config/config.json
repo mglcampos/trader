@@ -16,14 +16,13 @@
     {
       "id": "crypto_csv",
       "strategies": ["crypto bull"],
-      "data_sources": [{"path":["histdata/ETHUSD_2018_M2.csv"], "symbol":"ETH/USD"},
-                        {"path":["histdata/BTCUSD_2018_M2.csv"], "symbol":"BTC/USD"}],
+      "data_sources": [{"path":["histdata/XRPUSD_2018_M1M2.csv"], "symbol":"XRP/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
       "data_handler" : "csv_data_handler",
       "timeframe": "M5",
-      "initial_capital": 100,
+      "initial_capital": 50,
       "commission" : 0.004,
       "enabled": true,
       "store": false
