@@ -794,7 +794,7 @@ def query_mongo():
     print("sharpe mean", np.mean(sharpe))
     print("profit mean", np.mean(profit))
 
-query_mongo()
+# query_mongo()
 
 # def denoise(df):
 #     signal = pywt.waverec(denoised, 'db8', mode='per')

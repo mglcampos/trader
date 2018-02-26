@@ -16,7 +16,7 @@
     {
       "id": "crypto_csv",
       "strategies": ["crypto bull"],
-      "data_sources": [{"path":["histdata/XRPUSD_2018_M1M2.csv"], "symbol":"XRP/USD"}],
+      "data_sources": [{"path":["histdata/BTCUSD_2017_M11M12.csv"], "symbol":"BTC/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",

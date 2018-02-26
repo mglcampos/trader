@@ -107,7 +107,7 @@ class CryptoBull(Strategy):
 				print('Price: ', data[-1])
 				# print('Ret : ', ret)
 				## 87
-				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
+				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
 					strength = 1.0
 					# if data[-1] <= ema12[-1]:
 					# 	strength = 1.0
