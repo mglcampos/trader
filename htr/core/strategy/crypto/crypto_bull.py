@@ -1,5 +1,8 @@
 
 import talib
+import statsmodels.tsa.stattools as ts
+import numpy as np
+import matplotlib.pyplot as plt
 import pandas as pd
 
 from htr.core.events import *
@@ -33,6 +36,9 @@ class CryptoBull(Strategy):
 		self.pos_count = {}
 		for s in self.symbol_list:
 			self.pos_count[s] = 0
+
+		self.hurst_cache = []
+		self.adf_cache = []
 
 	def _calculate_initial_bought(self):
 		"""Cache where open positions are stored for strategy use."""
@@ -71,6 +77,24 @@ class CryptoBull(Strategy):
 
 		pass
 
+
+	def hurst(self, p):
+		tau = [];
+		lagvec = []
+		#  Step through the different lags
+		for lag in range(2, 20):
+			#  produce price difference with lag
+			pp = np.subtract(p[lag:], p[:-lag])
+			#  Write the different lags into a vector
+			lagvec.append(lag)
+			#  Calculate the variance of the difference vector
+			tau.append(np.sqrt(np.std(pp)))
+		# linear fit to double-log graph (gives power)
+		m = np.polyfit(np.log10(lagvec), np.log10(tau), 1)
+		# calculate hurst
+		hurst = m[0] * 2
+		return hurst
+
 	def calculate_signals(self):
 		"""Calculates if trading signals should be generated and queued."""
 
@@ -105,9 +129,25 @@ class CryptoBull(Strategy):
 
 				print('Slope: ', slope[-1], slope_pos)
 				print('Price: ', data[-1])
-				# print('Ret : ', ret)
-				## 87
-				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and self.pos_count[symbol] == 0:
+
+				# cadf = ts.adfuller(data)
+				# print('ADF: ', cadf)
+				# print('HURST: ', self.hurst(data))
+				self.hurst_cache.append(self.hurst(data))
+				self.adf_cache.append(ts.adfuller(data)[0])
+
+				if len(self.hurst_cache) > 800:
+					fig = plt.figure(2)
+					fig.suptitle('Stationarity', fontsize=16)
+					ax = plt.subplot(211)
+					ax.title.set_text('ADF')
+					pd.Series(self.adf_cache).plot(legend=None)
+					ax = plt.subplot(212)
+					ax.title.set_text('Hurst')
+					pd.Series(self.hurst_cache).plot(legend=None)
+
+
+				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
 					strength = 1.0
 					# if data[-1] <= ema12[-1]:
 					# 	strength = 1.0
@@ -141,4 +181,3 @@ class CryptoBull(Strategy):
 					# Share signal in the events queue.
 					self.events.put(signal)
 				"""
-

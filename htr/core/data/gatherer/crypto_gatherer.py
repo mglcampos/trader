@@ -57,7 +57,7 @@ class CryptoGatherer:
             except Exception as e:
                 print(e)
                 self.errors.append(e.__str__() + symbol + str(dt.now()))
-                break
+                continue
 
 # if __name__ == '__main__':
 #     instruments = ['EUR/USD', 'EUR/JPY', 'USD/CAD']

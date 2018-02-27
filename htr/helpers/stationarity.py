@@ -23,12 +23,13 @@ def hurst(p):
     return hurst
 
 def evaluate_stationarity(df):
-    diff = df['Close'] - df['Close'].shift()
-    log = np.log(df['Close'])
-    ema = pd.ewma(df['Close'], halflife=12)
-    ema_diff = df['Close'] - ema
+    diff = df['close'] - df['close'].shift()
+    log = np.log(df['close'])
+    ema = pd.ewma(df['close'], halflife=12)
+    ema_diff = df['close'] - ema
 
-    series = [(diff, 'diff'), (log, 'log'), (ema_diff, 'ema_diff'), (df['Close'], 'price')]
+    # series = [(diff, 'diff'), (log, 'log'), (ema_diff, 'ema_diff'), (df['close'], 'price')]
+    series = [(df['close'], 'price')]
 
     for s in series:
         s = list(s)
@@ -42,14 +43,17 @@ def decompose_series(df):
     # df = merge_day_time(df)
     ##todo fix this
     # print(np.isnan(np.sum(df['Close'].values)))
-    print(df['Close'].head())
-    decomposition = seasonal_decompose(df['Close'], freq=1)
+    df.reset_index(inplace=True)
+    df['date'] = pd.to_datetime(df['date'])
+    df = df.set_index('date')
+
+    decomposition = seasonal_decompose(df['close'], freq=1)
     trend = decomposition.trend
     seasonal = decomposition.seasonal
     residual = decomposition.resid
 
     plt.subplot(411)
-    plt.plot(df['Close'], label='Original')
+    plt.plot(df['close'], label='Original')
     plt.legend(loc='best')
     plt.subplot(412)
     plt.plot(trend, label='Trend')
@@ -64,7 +68,24 @@ def decompose_series(df):
     plt.show()
     return df
 
+from htr.helpers.dataprep import DataPrep
+import datetime
+dt = DataPrep()
+df = dt.load_crypto("../../histdata/USDT_BTC.csv",
+                         header=["date, high, low, open, close, volume, quoteVolume, weightedAverage"])[0]
 
-## todo load data
-## todo for each df evaluate_stationarity
-print('\n############################################################################################################\n')
+df.index = df.index.map(lambda x: datetime.datetime.fromtimestamp(int(x)).strftime('%Y-%m-%d %H:%M:%S'))
+df = df.dropna()
+
+dfs = []
+dfs.append(df[df.index > '2018-02-01'])
+dfs.append(df[(df.index > '2018-01-01') & (df.index < '2018-02-01')])
+dfs.append(df[(df.index > '2017-12-01') & (df.index < '2018-01-01')])
+dfs.append(df[(df.index > '2017-11-01') & (df.index < '2017-12-01')])
+dfs.append(df[(df.index > '2017-10-01') & (df.index < '2017-11-01')])
+dfs.append(df[(df.index > '2017-09-01') & (df.index < '2017-10-01')])
+
+for frame in dfs:
+    print('\n############################################################################################################\n')
+    print(frame.index[0])
+    print(evaluate_stationarity(frame))
