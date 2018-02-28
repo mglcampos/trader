@@ -4,6 +4,7 @@ try:
 	import Queue as queue
 except ImportError:
 	import queue
+import statsmodels.tsa.stattools as ts
 
 import datetime
 from math import floor
@@ -18,6 +19,7 @@ from talib.abstract import *
 import json
 
 from htr.core.portfolio.portfolio import Portfolio
+from htr.helpers.stationarity import hurst
 
 
 class BacktestPortfolio(Portfolio):
@@ -382,7 +384,13 @@ class BacktestPortfolio(Portfolio):
 					pass
 					# atr = ATR(inputs, timeperiod=len(symbol_data[instrument]) - 1)
 					# volatility[instrument] = (atr[-1] / symbol_data[instrument]['Close'].values[-1]) * 100
-
+					l = 0
+					hurst100 = []
+					adf100 = []
+					while l < len(symbol_data[instrument]['Close']):
+						hurst100.append(hurst(symbol_data[instrument]['Close'].iloc[l:l+100]))
+						adf100.append(ts.adfuller(symbol_data[instrument]['Close'].iloc[l:l+100])[0])
+						l += 100
 
 					# Lets plot
 					fig = plt.figure(1)
@@ -391,13 +399,13 @@ class BacktestPortfolio(Portfolio):
 					ax.title.set_text('Equity Curve')
 					self.equity_curve['equity_curve'].plot(legend=None)
 					ax = plt.subplot(512)
-					ax.title.set_text('ATR')
-					atr = pd.Series(ATR(inputs))
+					ax.title.set_text('ADF')
+					atr = pd.Series(adf100)
 					atr.plot(legend=None)
 					fig.subplots_adjust(hspace=1)
 					ax = plt.subplot(513)
-					ax.title.set_text('ADX')
-					adx = pd.Series(ADX(inputs, timeperiod=21))
+					ax.title.set_text('Hurst')
+					adx = pd.Series(hurst100)
 					adx.plot(legend=None)
 					fig.subplots_adjust(hspace=1)
 					ax = plt.subplot(514)
