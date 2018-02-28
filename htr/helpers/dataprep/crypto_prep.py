@@ -53,13 +53,13 @@ etc[0] = etc[0].dropna()
 # ltc[0] = ltc[0].dropna()
 xrp[0] = xrp[0].dropna()
 
-'''
+
 btc[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/BTCUSD_all.csv', encoding='utf-8', header=False)
 eth[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/ETHUSD_all.csv', encoding='utf-8', header=False)
 xrp[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/XRPUSD_all.csv', encoding='utf-8', header=False)
-ltc[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/LTCUSD_all.csv', encoding='utf-8', header=False)
+# ltc[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/LTCUSD_all.csv', encoding='utf-8', header=False)
 etc[0][2:].to_csv('/home/mcampos/Documents/code/algotrader/histdata/ETCUSD_all.csv', encoding='utf-8', header=False)
-'''
+
 
 btc[0][btc[0].index > '2018-01-01'].to_csv('../../../histdata/BTCUSD_2018_M1M2.csv', encoding='utf-8', header=False)
 btc[0][btc[0].index > '2018-02-01'].to_csv('../../../histdata/BTCUSD_2018_M2.csv', encoding='utf-8', header=False)
@@ -72,8 +72,21 @@ btc[0][(btc[0].index > '2017-10-01') & (btc[0].index < '2017-11-01')].to_csv('..
 
 eth[0][eth[0].index > '2018-01-01'].to_csv('../../../histdata/ETHUSD_2018_M1M2.csv', encoding='utf-8', header=False)
 eth[0][eth[0].index > '2018-02-01'].to_csv('../../../histdata/ETHUSD_2018_M2.csv', encoding='utf-8', header=False)
+eth[0][(eth[0].index > '2018-01-01') & (eth[0].index < '2018-02-01')].to_csv('../../../histdata/ETHUSD_2018_M1.csv', encoding='utf-8', header=False)
+eth[0][(eth[0].index > '2017-12-01') & (eth[0].index < '2018-01-01')].to_csv('../../../histdata/ETHUSD_2017_M12.csv', encoding='utf-8', header=False)
+eth[0][(eth[0].index > '2017-11-01') & (eth[0].index < '2017-12-01')].to_csv('../../../histdata/ETHUSD_2017_M11.csv', encoding='utf-8', header=False)
+eth[0][(eth[0].index > '2017-10-01') & (eth[0].index < '2017-11-01')].to_csv('../../../histdata/ETHUSD_2017_M10.csv', encoding='utf-8', header=False)
+
 xrp[0][xrp[0].index > '2018-01-01'].to_csv('../../../histdata/XRPUSD_2018_M1M2.csv', encoding='utf-8', header=False)
 xrp[0][xrp[0].index > '2018-02-01'].to_csv('../../../histdata/XRPUSD_2018_M2.csv', encoding='utf-8', header=False)
+xrp[0][(xrp[0].index > '2018-01-01') & (xrp[0].index < '2018-02-01')].to_csv('../../../histdata/XRPUSD_2018_M1.csv', encoding='utf-8', header=False)
+xrp[0][(xrp[0].index > '2017-12-01') & (xrp[0].index < '2018-01-01')].to_csv('../../../histdata/XRPUSD_2017_M12.csv', encoding='utf-8', header=False)
+xrp[0][(xrp[0].index > '2017-11-01') & (xrp[0].index < '2017-12-01')].to_csv('../../../histdata/XRPUSD_2017_M11.csv', encoding='utf-8', header=False)
+xrp[0][(xrp[0].index > '2017-10-01') & (xrp[0].index < '2017-11-01')].to_csv('../../../histdata/XRPUSD_2017_M10.csv', encoding='utf-8', header=False)
 # ltc[0][ltc[0].index > '2018-01-01'].to_csv('../../../histdata/LTCUSD_2018_M1M2.csv', encoding='utf-8', header=False)
 # ltc[0][ltc[0].index > '2018-02-01'].to_csv('../../../histdata/LTCUSD_2018_M2.csv', encoding='utf-8', header=False)
 etc[0][etc[0].index > '2018-01-01'].to_csv('../../../histdata/ETCUSD_2018_M1M2.csv', encoding='utf-8', header=False)
+etc[0][(etc[0].index > '2018-01-01') & (etc[0].index < '2018-02-01')].to_csv('../../../histdata/ETCUSD_2018_M1.csv', encoding='utf-8', header=False)
+etc[0][(etc[0].index > '2017-12-01') & (etc[0].index < '2018-01-01')].to_csv('../../../histdata/ETCUSD_2017_M12.csv', encoding='utf-8', header=False)
+etc[0][(etc[0].index > '2017-11-01') & (etc[0].index < '2017-12-01')].to_csv('../../../histdata/ETCUSD_2017_M11.csv', encoding='utf-8', header=False)
+etc[0][(etc[0].index > '2017-10-01') & (etc[0].index < '2017-11-01')].to_csv('../../../histdata/ETCUSD_2017_M10.csv', encoding='utf-8', header=False)

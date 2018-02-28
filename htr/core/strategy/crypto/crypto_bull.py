@@ -118,6 +118,7 @@ class CryptoBull(Strategy):
 				# 	ret = (slope[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
 				upperband, middleband, lowerband = talib.BBANDS(slope, timeperiod=20, nbdevup=1, nbdevdn=1, matype=0)
 				ema12 = talib.EMA(data, timeperiod=12)
+				rsi3 = talib.RSI(data, timeperiod=3)
 
 				slope_pos = ''
 				if slope[-1] <= lowerband[-1]:
@@ -130,24 +131,24 @@ class CryptoBull(Strategy):
 				print('Slope: ', slope[-1], slope_pos)
 				print('Price: ', data[-1])
 
-				# cadf = ts.adfuller(data)
+				# adf = ts.adfuller(data)
 				# print('ADF: ', cadf)
 				# print('HURST: ', self.hurst(data))
-				self.hurst_cache.append(self.hurst(data))
-				self.adf_cache.append(ts.adfuller(data)[0])
+				# self.hurst_cache.append(self.hurst(data))
+				# self.adf_cache.append(adf[0])
 
-				if len(self.hurst_cache) > 800:
-					fig = plt.figure(2)
-					fig.suptitle('Stationarity', fontsize=16)
-					ax = plt.subplot(211)
-					ax.title.set_text('ADF')
-					pd.Series(self.adf_cache).plot(legend=None)
-					ax = plt.subplot(212)
-					ax.title.set_text('Hurst')
-					pd.Series(self.hurst_cache).plot(legend=None)
+				# if len(self.hurst_cache) > 800:
+				# 	fig = plt.figure(2)
+				# 	fig.suptitle('Stationarity', fontsize=16)
+				# 	ax = plt.subplot(211)
+				# 	ax.title.set_text('ADF')
+				# 	pd.Series(self.adf_cache).plot(legend=None)
+				# 	ax = plt.subplot(212)
+				# 	ax.title.set_text('Hurst')
+				# 	pd.Series(self.hurst_cache).plot(legend=None)
 
 
-				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
+				if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and rsi3[-1] <= 50 and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
 					strength = 1.0
 					# if data[-1] <= ema12[-1]:
 					# 	strength = 1.0
