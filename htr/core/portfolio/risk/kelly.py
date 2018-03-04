@@ -32,7 +32,8 @@ class Kelly(RiskHandler):
         quantity = 0
         if signal.signal_type == 'LONG':
             if signal.strength == 1.0:
-                quantity = 50 * (1/close_value) # todo change this
+                # quantity = 50 * (1/close_value) # todo change this
+                quantity = 5000
 
             else:
                 quantity = 25 * (1 / close_value)  # todo change this

@@ -2,15 +2,17 @@
   "backtest_nodes": [
     {
       "id": "forex",
-      "strategies": ["moving averages"],
-      "data_sources": [{"path":["/home/mcampos/Documents/code/algotrader/histdata/EURAUD_H1_2012"], "symbol":"EUR/AUD"}],
+      "strategies": ["pairs trading"],
+      "data_sources": [{"path":["/home/mcampos/Documents/code/algotrader/histdata/EURAUD_H1_2012"], "symbol":"EUR/AUD"},
+                      {"path":["/home/mcampos/Documents/code/algotrader/histdata/EURNZD_H1_2012"], "symbol":"EUR/NZD"}],
       "data_header": ["Type", "Day", "Time", "Open", "High", "Low", "Close"],
       "data_preparation": true,
       "risk_handler" : "kelly",
       "data_handler" : "csv_data_handler",
       "timeframe": "H1",
-      "initial_capital": 100000,
-      "enabled": false,
+      "commission" : 0.004,
+      "initial_capital": 5000,
+      "enabled": true,
       "store": false
     },
     {
@@ -20,11 +22,11 @@
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
-      "data_handler" : "csv_data_handler",
+      "data_handler" : "crypto_data_handler",
       "timeframe": "M5",
       "initial_capital": 50,
       "commission" : 0.004,
-      "enabled": true,
+      "enabled": false,
       "store": false
     },
     {

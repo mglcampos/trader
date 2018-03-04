@@ -7,10 +7,10 @@ except ImportError:
 
 import numpy as np
 import pandas as pd
-from Event import SignalEvent
-from Interfaces import Strategy
+from htr.core.events import SignalEvent
+from htr.core.strategy import Strategy
 
-class IntradayOLSMRStrategy(Strategy):
+class PairsTrading(Strategy):
     """
     Uses ordinary least squares (OLS) to perform a rolling linear
     regression to determine the hedge ratio between a pair of equities.
@@ -21,21 +21,22 @@ class IntradayOLSMRStrategy(Strategy):
     low threshold).
     """
 
-    def __init__(self, bars, events, ols_window=100, zscore_low=0.5, zscore_high=3.0):
+    def __init__(self, context, events, data_handler, ols_window=100, zscore_low=0.5, zscore_high=3.0):
         """
         Initialises the stat arb strategy.
         Parameters:
-        bars - The DataHandler object that provides bar information
+        data_handler - The DataHandler object that provides bar information
         events - The Event Queue object.
         """
 
-        self.bars = bars
-        self.symbol_list = self.bars.symbol_list
+        self.data_handler = data_handler
+        self.symbol_list = self.data_handler.symbol_list
         self.events = events
+
         self.ols_window = ols_window
         self.zscore_low = zscore_low
         self.zscore_high = zscore_high
-        self.pair = ('EUR/USD', 'EUR/AUD')
+        self.pair = ('EUR/NZD', 'EUR/AUD')
         self.datetime = datetime.datetime.utcnow()
         self.long_market = False
         self.short_market = False
@@ -54,8 +55,8 @@ class IntradayOLSMRStrategy(Strategy):
         p0 = self.pair[0]
         p1 = self.pair[1]
         # dt = self.datetime
-        dt0 = self.bars.get_latest_bar_datetime(p0)
-        dt1 = self.bars.get_latest_bar_datetime(p1)
+        dt0 = self.data_handler.get_latest_bar_datetime(p0)
+        dt1 = self.data_handler.get_latest_bar_datetime(p1)
         hr = abs(self.hedge_ratio)
         # If we're long the market and below the
         # negative of the high zscore threshold
@@ -84,7 +85,7 @@ class IntradayOLSMRStrategy(Strategy):
 
         return y_signal, x_signal
 
-    def calculate_signals(self, event):
+    def calculate_signals(self):
         """
         Generates a new set of signals based on the mean reversion
         strategy.
@@ -93,23 +94,23 @@ class IntradayOLSMRStrategy(Strategy):
         """
         # Obtain the latest window of values for each
         # component of the pair of tickers
-        if event.type == 'MARKET':
-            y = self.bars.get_latest_bars_values(
-                self.pair[0], "Close", N=self.ols_window
-            )
-            x = self.bars.get_latest_bars_values(
-                self.pair[1], "Close", N=self.ols_window
-            )
-            if y is not None and x is not None:
-                # Check that all window periods are available
-                if len(y) >= self.ols_window and len(x) >= self.ols_window:
-                    # Calculate the current hedge ratio using OLS
-                    self.hedge_ratio = sm.OLS(y, x).fit().params[0]
-                    # Calculate the current z-score of the residuals
-                    spread = y - self.hedge_ratio * x
-                    zscore_last = ((spread - spread.mean()) / spread.std())[-1]
-                    # Calculate signals and add to events queue
-                    y_signal, x_signal = self.calculate_xy_signals(zscore_last)
-                    if y_signal is not None and x_signal is not None:
-                        self.events.put(y_signal)
-                        self.events.put(x_signal)
+
+        y = self.data_handler.get_latest_bars_values(
+            self.pair[0], "Close", N=self.ols_window
+        )
+        x = self.data_handler.get_latest_bars_values(
+            self.pair[1], "Close", N=self.ols_window
+        )
+        if y is not None and x is not None:
+            # Check that all window periods are available
+            if len(y) >= self.ols_window and len(x) >= self.ols_window:
+                # Calculate the current hedge ratio using OLS
+                self.hedge_ratio = sm.OLS(y, x).fit().params[0]
+                # Calculate the current z-score of the residuals
+                spread = y - self.hedge_ratio * x
+                zscore_last = ((spread - spread.mean()) / spread.std())[-1]
+                # Calculate signals and add to events queue
+                y_signal, x_signal = self.calculate_xy_signals(zscore_last)
+                if y_signal is not None and x_signal is not None:
+                    self.events.put(y_signal)
+                    self.events.put(x_signal)

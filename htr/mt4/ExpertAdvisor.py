@@ -37,7 +37,7 @@ class ExpertAdvisor():
                     if time > self.cache[symbol]['time']:
                         self.cache[symbol]['df'] = self.cache[symbol]['df'].append(pd.DataFrame({'ask': [ask], 'bid': [bid]}, [time]))
                         self.cache[symbol]['time'] = time
-                        print self.cache[symbol]['df']
+                        print(self.cache[symbol]['df'])
                 else:
                     self.cache[symbol] = {'df' : pd.DataFrame({'ask': [ask], 'bid': [bid]}, [time]), 'time' : time}
 

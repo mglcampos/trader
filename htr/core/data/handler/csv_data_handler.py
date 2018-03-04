@@ -48,11 +48,11 @@ class CsvDataHandler(DataHandler):
                             for file in files:
                                 if file.endswith('.csv') or file.endswith('.txt'):
                                     self.dframes[symbol].append(pd.read_csv(os.path.join(root, file),
-                header=None, parse_dates=True, names=self.header, index_col='Datetime'))
+                header=None, parse_dates=True, names=self.header))
 
                     elif os.path.isfile(path):
                         self.dframes[symbol].append(pd.read_csv(path,
-                header=None, parse_dates=True, names=self.header, index_col='Datetime'))
+                header=None, parse_dates=True, names=self.header))
 
                 else:
                     ##todo raise custom exception
@@ -82,14 +82,12 @@ class CsvDataHandler(DataHandler):
 
     def get_symbol_data(self, symbol=None):
 
-
         try:
             self.symbol_data[symbol] = self.symbol_data[symbol].dropna()
             return self.symbol_data[symbol]
 
         except KeyError:
             return self.symbol_data
-
 
     def get_start_date(self, symbol):
         # todo test this
