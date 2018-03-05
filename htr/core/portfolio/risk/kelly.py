@@ -23,8 +23,8 @@ class Kelly(RiskHandler):
 
 
     def evaluate_group_trade(self, positions_dict, signal):
-        # todo sacar isto - symbol, strength, dir, pos, pl_ratio
-        raise NotImplementedError('Should Implement')
+
+        return 2500
 
     def _calculate_quantity(self, close_value, signal):
         """Calculate quantity for base currency in pair (e.g. for XRPUSD calculates XRP amount)"""

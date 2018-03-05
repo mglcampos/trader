@@ -2,7 +2,6 @@
 import talib
 import statsmodels.tsa.stattools as ts
 import numpy as np
-import matplotlib.pyplot as plt
 import pandas as pd
 
 from htr.core.events import *

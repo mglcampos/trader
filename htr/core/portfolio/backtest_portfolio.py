@@ -8,7 +8,7 @@ import statsmodels.tsa.stattools as ts
 
 import datetime
 from math import floor
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from htr.core.events import *
@@ -46,25 +46,26 @@ class BacktestPortfolio(Portfolio):
 		if event.type == 'SIGNAL':
 			quantity = self.risk_handler.calculate_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:
-				order = self._singular_order(event, quantity)
+				orders = self._singular_order(event, quantity)
 
 		elif len(event.signals) == 2 and event.type == 'GROUP_SIGNAL':
 			## todo fix this
 			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:
-				order = self._pair_order(event)
+				orders = self._pair_order(event)
 
 		elif len(event.signals) == 3 :
 			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:
-				order = self._triangular_order(event)
+				orders = self._triangular_order(event)
 			##todo when should triangular orders should be used
 			pass
 
 		else:
 			pass
 
-		self.events.put(order)
+		for order in orders:
+			self.events.put(order)
 		#     if signal_type == 'LONG' and cur_quantity == 0:
         #
         #         order_type = 'MKT-OPEN'
@@ -95,98 +96,102 @@ class BacktestPortfolio(Portfolio):
 
 
 
-	def _pair_order(self, signal, quantity):
-		signal_type = signal.signal_type
-		strength = signal.strength
-		timestamp = signal.datetime
-		symbol = signal.symbol
-		cur_quantity = self.current_positions[symbol]
+	def _pair_order(self, signals, quantity):
 
 		mkt_quantity = quantity
-		
-		if signal_type == 'LONG' and cur_quantity == 0:
-			market_value = mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0], "Close")
-			market_value = market_value - (
-			mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1], "Close"))  ##valor da moeda
-			self.last_open = self.last_market  ##cash antes do open
-			self.cash_open = self.last_market - market_value  ##somar valor da moeda mais cash
+		orders = []
+		for signal in signals:
+			signal_type = signal.signal_type
+			strength = signal.strength
+			timestamp = signal.datetime
+			symbol = signal.symbol
+			cur_quantity = self.current_positions[symbol]
 
-			order_type = 'MKT-OPEN'
-			self.len_buy += 1
-			order = OrderEvent(symbol, order_type, mkt_quantity, 'BUY', timestamp=timestamp)
 
-		if signal_type == 'SHORT' and cur_quantity == 0:
-			market_value = - mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0], "Close")
-			market_value = market_value + (
-			mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1], "Close"))  ##valor da moeda
-			self.last_open = self.last_market  ##cash antes do open
-			self.cash_open = self.last_market + market_value  ##somar valor da moeda mais cash
+			if signal_type == 'LONG' and cur_quantity == 0:
+				market_value = mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0], "Close")
+				market_value = market_value - (
+				mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1], "Close"))  ##valor da moeda
+				self.last_open = self.last_market  ##cash antes do open
+				self.cash_open = self.last_market - market_value  ##somar valor da moeda mais cash
 
-			order_type = 'MKT-OPEN'
-			self.len_sell += 1
+				order_type = 'MKT-OPEN'
+				self.len_buy += 1
+				orders.append(OrderEvent(symbol, order_type, mkt_quantity, 'BUY', timestamp=timestamp))
 
-			order = OrderEvent(symbol, order_type, mkt_quantity, 'SELL', timestamp=timestamp)
+			if signal_type == 'SHORT' and cur_quantity == 0:
+				market_value = - mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0], "Close")
+				market_value = market_value + (
+				mkt_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1], "Close"))  ##valor da moeda
+				self.last_open = self.last_market  ##cash antes do open
+				self.cash_open = self.last_market + market_value  ##somar valor da moeda mais cash
 
-		if signal_type == 'EXIT' and cur_quantity > 0:
-			order_type = 'MKT-CLOSE'
-			print('timestamp', timestamp)
-			print('len_symbols', len(self.symbol_list))
-			print('current_holdings', self.current_holdings['cash'])
-			print('last_open', self.last_open)
-			print('cash_open', self.cash_open)
-			cash = (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
-			                                                      "Close")) + self.current_holdings[
-				       'cash']  ##tirar valor da moeda ao cash
-			cash = cash - (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1],
-			                                                             "Close"))
-			market_value = cash - self.last_open
-			print('market_value', market_value)
-			print('cash', cash)
-			if market_value > 0:
-				self.profit_buy += market_value
-				self.consecutive_win += 1
-				self.loss_streak.append(self.consecutive_loss)
-				self.consecutive_loss = 0
-			else:
-				self.loss_buy += market_value
-				self.win_streak.append(self.consecutive_win)
-				self.consecutive_win = 0
-				self.consecutive_loss += 1
+				order_type = 'MKT-OPEN'
+				self.len_sell += 1
 
-			order = OrderEvent(symbol, order_type, abs(cur_quantity), 'SELL', timestamp=timestamp)
-			print
-			'Exiting position of - ', symbol
+				orders.append(OrderEvent(symbol, order_type, mkt_quantity, 'SELL', timestamp=timestamp))
 
-		if signal_type == 'EXIT' and cur_quantity < 0:
-			order_type = 'MKT-CLOSE'
-			print('timestamp', timestamp)
-			print('last_open', self.last_open)
-			print('current_holdings', self.current_holdings['cash'])
-			print('cash_open', self.cash_open)
-			print(self.symbol_list[0], (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
-			                                                                          "Close")))
-			cash = self.current_holdings['cash'] + (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
-			                                                                                      "Close"))  ##tirar valor da moeda ao cash
-			print('1stcash', cash)
-			cash = cash + (-cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1],
-			                                                              "Close"))
-			market_value = cash - self.last_open
-			print('market_value', market_value)
-			print('2ndcash', cash)
-			if market_value > 0:
-				self.profit_sell += market_value
-				self.consecutive_win += 1
-				self.loss_streak.append(self.consecutive_loss)
-				self.consecutive_loss = 0
-			else:
-				self.loss_sell += market_value
-				self.win_streak.append(self.consecutive_win)
-				self.consecutive_win = 0
-				self.consecutive_loss += 1
+			if signal_type == 'EXIT' and cur_quantity > 0:
+				order_type = 'MKT-CLOSE'
+				print('timestamp', timestamp)
+				print('len_symbols', len(self.symbol_list))
+				print('current_holdings', self.current_holdings['cash'])
+				print('last_open', self.last_open)
+				print('cash_open', self.cash_open)
+				cash = (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
+				                                                      "Close")) + self.current_holdings[
+					       'cash']  ##tirar valor da moeda ao cash
+				cash = cash - (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1],
+				                                                             "Close"))
+				market_value = cash - self.last_open
+				print('market_value', market_value)
+				print('cash', cash)
+				if market_value > 0:
+					self.profit_buy += market_value
+					self.consecutive_win += 1
+					self.loss_streak.append(self.consecutive_loss)
+					self.consecutive_loss = 0
+				else:
+					self.loss_buy += market_value
+					self.win_streak.append(self.consecutive_win)
+					self.consecutive_win = 0
+					self.consecutive_loss += 1
 
-			order = OrderEvent(symbol, order_type, abs(cur_quantity), 'BUY', timestamp=timestamp)
-			print
-			'Exiting position of - ', symbol
+				orders.append(OrderEvent(symbol, order_type, abs(cur_quantity), 'SELL', timestamp=timestamp))
+				print('Exiting position of - ', symbol)
+
+			if signal_type == 'EXIT' and cur_quantity < 0:
+				order_type = 'MKT-CLOSE'
+				print('timestamp', timestamp)
+				print('last_open', self.last_open)
+				print('current_holdings', self.current_holdings['cash'])
+				print('cash_open', self.cash_open)
+				print(self.symbol_list[0], (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
+				                                                                          "Close")))
+				cash = self.current_holdings['cash'] + (cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[0],
+				                                                                                      "Close"))  ##tirar valor da moeda ao cash
+				print('1stcash', cash)
+				cash = cash + (-cur_quantity * self.data_handler.get_latest_bar_value(self.symbol_list[1],
+				                                                              "Close"))
+				market_value = cash - self.last_open
+				print('market_value', market_value)
+				print('2ndcash', cash)
+				if market_value > 0:
+					self.profit_sell += market_value
+					self.consecutive_win += 1
+					self.loss_streak.append(self.consecutive_loss)
+					self.consecutive_loss = 0
+				else:
+					self.loss_sell += market_value
+					self.win_streak.append(self.consecutive_win)
+					self.consecutive_win = 0
+					self.consecutive_loss += 1
+
+				orders.append(OrderEvent(symbol, order_type, abs(cur_quantity), 'BUY', timestamp=timestamp))
+				print('Exiting position of - ', symbol)
+
+		return orders
+
 
 	def _singular_order(self, signal, quantity):
 		signal_type = signal.signal_type
@@ -380,49 +385,49 @@ class BacktestPortfolio(Portfolio):
 					'low': symbol_data[instrument]['Low'],
 					'close': symbol_data[instrument]['Close']
 				}
-				try:
-					pass
-					# atr = ATR(inputs, timeperiod=len(symbol_data[instrument]) - 1)
-					# volatility[instrument] = (atr[-1] / symbol_data[instrument]['Close'].values[-1]) * 100
-					l = 0
-					hurst100 = []
-					adf100 = []
-					while l < len(symbol_data[instrument]['Close']):
-						hurst100.append(hurst(symbol_data[instrument]['Close'].iloc[l:l+100]))
-						adf100.append(ts.adfuller(symbol_data[instrument]['Close'].iloc[l:l+100])[0])
-						l += 100
-
-					# Lets plot
-					fig = plt.figure(1)
-					fig.suptitle('Performance', fontsize=16)
-					ax = plt.subplot(511)
-					ax.title.set_text('Equity Curve')
-					self.equity_curve['equity_curve'].plot(legend=None)
-					ax = plt.subplot(512)
-					ax.title.set_text('ADF')
-					atr = pd.Series(adf100)
-					atr.plot(legend=None)
-					fig.subplots_adjust(hspace=1)
-					ax = plt.subplot(513)
-					ax.title.set_text('Hurst')
-					adx = pd.Series(hurst100)
-					adx.plot(legend=None)
-					fig.subplots_adjust(hspace=1)
-					ax = plt.subplot(514)
-					ax.title.set_text('RSI')
-					rsi = pd.Series(RSI(inputs, timeperiod=21))
-					rsi.plot(legend=None)
-					sd = symbol_data[instrument]['Close']
-					fig.subplots_adjust(hspace=1)
-					ax = plt.subplot(515)
-					ax.title.set_text(instrument)
-					sd = pd.Series(sd)
-					sd.plot(legend=None)
-					plt.show()
-
-				except Exception as e:
-					volatility[instrument] = 0
-					print("COULDN'T calculate volatility", e)
+				# try:
+				# 	pass
+				# 	# atr = ATR(inputs, timeperiod=len(symbol_data[instrument]) - 1)
+				# 	# volatility[instrument] = (atr[-1] / symbol_data[instrument]['Close'].values[-1]) * 100
+				# 	l = 0
+				# 	hurst100 = []
+				# 	adf100 = []
+				# 	while l < len(symbol_data[instrument]['Close']):
+				# 		hurst100.append(hurst(symbol_data[instrument]['Close'].iloc[l:l+100]))
+				# 		adf100.append(ts.adfuller(symbol_data[instrument]['Close'].iloc[l:l+100])[0])
+				# 		l += 100
+				#
+				# 	# Lets plot
+				# 	fig = plt.figure(1)
+				# 	fig.suptitle('Performance', fontsize=16)
+				# 	ax = plt.subplot(511)
+				# 	ax.title.set_text('Equity Curve')
+				# 	self.equity_curve['equity_curve'].plot(legend=None)
+				# 	ax = plt.subplot(512)
+				# 	ax.title.set_text('ADF')
+				# 	atr = pd.Series(adf100)
+				# 	atr.plot(legend=None)
+				# 	fig.subplots_adjust(hspace=1)
+				# 	ax = plt.subplot(513)
+				# 	ax.title.set_text('Hurst')
+				# 	adx = pd.Series(hurst100)
+				# 	adx.plot(legend=None)
+				# 	fig.subplots_adjust(hspace=1)
+				# 	ax = plt.subplot(514)
+				# 	ax.title.set_text('RSI')
+				# 	rsi = pd.Series(RSI(inputs, timeperiod=21))
+				# 	rsi.plot(legend=None)
+				# 	sd = symbol_data[instrument]['Close']
+				# 	fig.subplots_adjust(hspace=1)
+				# 	ax = plt.subplot(515)
+				# 	ax.title.set_text(instrument)
+				# 	sd = pd.Series(sd)
+				# 	sd.plot(legend=None)
+				# 	plt.show()
+				#
+				# except Exception as e:
+				# 	volatility[instrument] = 0
+				# 	print("COULDN'T calculate volatility", e)
 			#
 			# fig2 = plt.figure(2)
 			# fig2.suptitle('Instruments', fontsize=16)

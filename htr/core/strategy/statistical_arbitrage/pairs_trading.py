@@ -1,5 +1,5 @@
 import statsmodels.api as sm
-import datetime
+from datetime import datetime as dt
 try:
     import Queue as queue
 except ImportError:
@@ -7,7 +7,7 @@ except ImportError:
 
 import numpy as np
 import pandas as pd
-from htr.core.events import SignalEvent
+from htr.core.events import GroupSignalEvent, SignalEvent
 from htr.core.strategy import Strategy
 
 class PairsTrading(Strategy):
@@ -37,7 +37,7 @@ class PairsTrading(Strategy):
         self.zscore_low = zscore_low
         self.zscore_high = zscore_high
         self.pair = ('EUR/NZD', 'EUR/AUD')
-        self.datetime = datetime.datetime.utcnow()
+        self.datetime = dt.utcnow()
         self.long_market = False
         self.short_market = False
 
@@ -62,20 +62,27 @@ class PairsTrading(Strategy):
         # negative of the high zscore threshold
         if zscore_last <= -self.zscore_high and not self.long_market:
             self.long_market = True
+            ## todo put group signal
             y_signal = SignalEvent(1, p0, dt0, 'LONG', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'SHORT', hr)
+
+            signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
             # If we're long the market and between the
             # absolute value of the low zscore threshold
         if abs(zscore_last) <= self.zscore_low and self.long_market:
             self.long_market = False
             y_signal = SignalEvent(1, p0, dt0, 'EXIT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'EXIT', 1.0)
+
+            signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
             # If we're short the market and above
             # the high zscore threshold
         if zscore_last >= self.zscore_high and not self.short_market:
             self.short_market = True
             y_signal = SignalEvent(1, p0, dt0, 'SHORT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'LONG', hr)
+
+            signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
             # If we're short the market and between the
             # absolute value of the low zscore threshold
         if abs(zscore_last) <= self.zscore_low and self.short_market:
@@ -83,7 +90,9 @@ class PairsTrading(Strategy):
             y_signal = SignalEvent(1, p0, dt0, 'EXIT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'EXIT', 1.0)
 
-        return y_signal, x_signal
+            signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
+
+        return signal
 
     def calculate_signals(self):
         """
@@ -110,7 +119,6 @@ class PairsTrading(Strategy):
                 spread = y - self.hedge_ratio * x
                 zscore_last = ((spread - spread.mean()) / spread.std())[-1]
                 # Calculate signals and add to events queue
-                y_signal, x_signal = self.calculate_xy_signals(zscore_last)
-                if y_signal is not None and x_signal is not None:
-                    self.events.put(y_signal)
-                    self.events.put(x_signal)
+                signal = self.calculate_xy_signals(zscore_last)
+                if signal is not None:
+                    self.events.put(signal)
