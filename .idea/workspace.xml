@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" afterPath="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py" afterPath="$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,7 +38,7 @@
       <file leaf-file-name="crypto_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5780">
+            <state relative-caret-position="5450">
               <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
               <folding>
                 <element signature="e#2985#7032#0" expanded="false" />
@@ -54,8 +50,8 @@
       <file leaf-file-name="backtest_portfolio.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-900">
-              <caret line="119" column="63" lean-forward="false" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+            <state relative-caret-position="516">
+              <caret line="52" column="90" lean-forward="false" selection-start-line="52" selection-start-column="90" selection-end-line="52" selection-end-column="90" />
               <folding>
                 <element signature="e#64#102#0" expanded="true" />
               </folding>
@@ -489,7 +485,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py</url>
-          <line>401</line>
+          <line>404</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
@@ -831,16 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5780">
-          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
-          <folding>
-            <element signature="e#2985#7032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/events/event.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -867,10 +853,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5450">
+          <caret line="432" column="16" lean-forward="false" selection-start-line="432" selection-start-column="8" selection-end-line="432" selection-end-column="16" />
+          <folding>
+            <element signature="e#2985#7032#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-900">
-          <caret line="119" column="63" lean-forward="false" selection-start-line="119" selection-start-column="63" selection-end-line="119" selection-end-column="63" />
+        <state relative-caret-position="516">
+          <caret line="52" column="90" lean-forward="false" selection-start-line="52" selection-start-column="90" selection-end-line="52" selection-end-column="90" />
           <folding>
             <element signature="e#64#102#0" expanded="true" />
           </folding>

@@ -50,7 +50,7 @@ class BacktestPortfolio(Portfolio):
 
 		elif len(event.signals) == 2 and event.type == 'GROUP_SIGNAL':
 			## todo fix this
-			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
+			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event.signals, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:
 				orders = self._pair_order(event)
 
@@ -97,6 +97,7 @@ class BacktestPortfolio(Portfolio):
 
 
 	def _pair_order(self, signals, quantity):
+		"""."""
 
 		mkt_quantity = quantity
 		orders = []
@@ -194,6 +195,8 @@ class BacktestPortfolio(Portfolio):
 
 
 	def _singular_order(self, signal, quantity):
+		"""."""
+
 		signal_type = signal.signal_type
 		strength = signal.strength
 		timestamp = signal.datetime
