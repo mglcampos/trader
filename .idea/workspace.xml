@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
-    </list>
+    <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
