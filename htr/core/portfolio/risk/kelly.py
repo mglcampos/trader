@@ -22,9 +22,9 @@ class Kelly(RiskHandler):
         return self._calculate_quantity(close_value, signal)
 
 
-    def evaluate_group_trade(self, positions_dict, signal):
+    def evaluate_group_trade(self, positions_dict, signals):
 
-        return 2500
+        return 5000
 
     def _calculate_quantity(self, close_value, signal):
         """Calculate quantity for base currency in pair (e.g. for XRPUSD calculates XRP amount)"""

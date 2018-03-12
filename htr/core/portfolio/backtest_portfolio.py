@@ -41,8 +41,6 @@ class BacktestPortfolio(Portfolio):
 		signal - The tuple containing Signal information.
 		"""
 
-		order = None
-
 		if event.type == 'SIGNAL':
 			quantity = self.risk_handler.calculate_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:
@@ -50,14 +48,14 @@ class BacktestPortfolio(Portfolio):
 
 		elif len(event.signals) == 2 and event.type == 'GROUP_SIGNAL':
 			## todo fix this
-			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event.signals, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
+			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event.signals)
 			if quantity != 0:
-				orders = self._pair_order(event)
+				orders = self._pair_order(event.signals, quantity)
 
 		elif len(event.signals) == 3 :
-			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
+			quantity = self.risk_handler.evaluate_group_trade(self.current_positions, event.signals)
 			if quantity != 0:
-				orders = self._triangular_order(event)
+				orders = self._triangular_order(event.signals, quantity)
 			##todo when should triangular orders should be used
 			pass
 

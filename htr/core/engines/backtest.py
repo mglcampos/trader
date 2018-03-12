@@ -100,7 +100,7 @@ class Backtest():
 							# self.wall_time.append(time.time() - t3)
 							self.portfolio.update_timeindex(event)
 							## todo group signal too
-						elif event.type == 'SIGNAL':
+						elif event.type == 'SIGNAL' or event.type == 'GROUP_SIGNAL':
 							self.signals += 1
 							self.portfolio.process_signal(event)
 						elif event.type == 'ORDER':

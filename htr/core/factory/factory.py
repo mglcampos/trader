@@ -53,9 +53,18 @@ class NodeFactory():
 					data_handler_class = get_class(node['data_handler'], FilePaths.DATA_HANDLER)
 					# Merges backtest nodes dict attribute with specs dict.
 					merged_dict = dict(list(node.items()) + list(getattr(self.context, Context.SPECS).items()))
-					node_context = Context()
-					node_context.__dict__ = merged_dict
-					BacktestEngine(data_handler_class, SimulatedExecutionHandler, BacktestPortfolio, StrategyManager, risk_class, node_context).simulate_trading()
+
+					if node['specs'] != '':
+						reader = CsvReader(node['specs'])
+						for specification in reader.read():
+							node_context = Context()
+							node_context.__dict__ = dict(list(merged_dict.items()) + list(specification.items()))
+							BacktestEngine(data_handler_class, SimulatedExecutionHandler, BacktestPortfolio, StrategyManager, risk_class, node_context).simulate_trading()
+
+					else:
+						node_context = Context()
+						node_context.__dict__ = merged_dict
+						BacktestEngine(data_handler_class, SimulatedExecutionHandler, BacktestPortfolio, StrategyManager, risk_class, node_context).simulate_trading()
 
 		elif self.simulation is False:
 			for node in self.context.live_nodes:

@@ -3,10 +3,11 @@
     {
       "id": "forex",
       "strategies": ["pairs trading"],
-      "data_sources": [{"path":["/home/mcampos/Documents/code/algotrader/histdata/EURAUD_H1_2012"], "symbol":"EUR/AUD"},
-                      {"path":["/home/mcampos/Documents/code/algotrader/histdata/EURNZD_H1_2012"], "symbol":"EUR/NZD"}],
+      "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/EURAUD_H1_2012"], "symbol":"EUR/AUD"},
+                      {"path":["/home/mcampos/Documents/code/trader/histdata/EURNZD_H1_2012"], "symbol":"EUR/NZD"}],
       "data_header": ["Type", "Day", "Time", "Open", "High", "Low", "Close"],
       "data_preparation": true,
+      "specs": "/home/mcampos/Documents/code/trader/config/specs.csv",
       "risk_handler" : "kelly",
       "data_handler" : "csv_data_handler",
       "timeframe": "H1",

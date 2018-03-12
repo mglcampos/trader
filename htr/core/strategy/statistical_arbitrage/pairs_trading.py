@@ -67,32 +67,34 @@ class PairsTrading(Strategy):
             x_signal = SignalEvent(1, p1, dt1, 'SHORT', hr)
 
             signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
+            return signal
             # If we're long the market and between the
             # absolute value of the low zscore threshold
-        if abs(zscore_last) <= self.zscore_low and self.long_market:
+        elif abs(zscore_last) <= self.zscore_low and self.long_market:
             self.long_market = False
             y_signal = SignalEvent(1, p0, dt0, 'EXIT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'EXIT', 1.0)
 
             signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
+            return signal
             # If we're short the market and above
             # the high zscore threshold
-        if zscore_last >= self.zscore_high and not self.short_market:
+        elif zscore_last >= self.zscore_high and not self.short_market:
             self.short_market = True
             y_signal = SignalEvent(1, p0, dt0, 'SHORT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'LONG', hr)
 
             signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
+            return signal
             # If we're short the market and between the
             # absolute value of the low zscore threshold
-        if abs(zscore_last) <= self.zscore_low and self.short_market:
+        elif abs(zscore_last) <= self.zscore_low and self.short_market:
             self.short_market = False
             y_signal = SignalEvent(1, p0, dt0, 'EXIT', 1.0)
             x_signal = SignalEvent(1, p1, dt1, 'EXIT', 1.0)
 
             signal = GroupSignalEvent(1, [y_signal, x_signal], dt.utcnow(), 1)
-
-        return signal
+            return signal
 
     def calculate_signals(self):
         """
