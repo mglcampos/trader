@@ -17,7 +17,6 @@ from htr.core.performance import create_sharpe_ratio, create_drawdowns
 # from pymongo import MongoClient
 from talib.abstract import *
 import json
-
 from htr.core.portfolio.portfolio import Portfolio
 from htr.helpers.stationarity import hurst
 
