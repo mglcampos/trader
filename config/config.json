@@ -7,7 +7,7 @@
                       {"path":["/home/mcampos/Documents/code/trader/histdata/EURNZD_H1_2012"], "symbol":"EUR/NZD"}],
       "data_header": ["Type", "Day", "Time", "Open", "High", "Low", "Close"],
       "data_preparation": true,
-      "specs": "/home/mcampos/Documents/code/trader/config/specs.csv",
+      "specs": "/home/mcampos/Documents/code/trader/config/specs_pairs.csv",
       "risk_handler" : "kelly",
       "data_handler" : "csv_data_handler",
       "timeframe": "H1",

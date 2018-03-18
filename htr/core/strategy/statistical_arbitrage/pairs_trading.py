@@ -33,9 +33,9 @@ class PairsTrading(Strategy):
         self.symbol_list = self.data_handler.symbol_list
         self.events = events
 
-        self.ols_window = ols_window
-        self.zscore_low = zscore_low
-        self.zscore_high = zscore_high
+        self.ols_window = context.ols_window
+        self.zscore_low = context.zscore_low
+        self.zscore_high = context.zscore_high
         self.pair = ('EUR/NZD', 'EUR/AUD')
         self.datetime = dt.utcnow()
         self.long_market = False
@@ -50,8 +50,7 @@ class PairsTrading(Strategy):
         zscore_last - The current zscore
 
         """
-        y_signal = None
-        x_signal = None
+
         p0 = self.pair[0]
         p1 = self.pair[1]
         # dt = self.datetime
