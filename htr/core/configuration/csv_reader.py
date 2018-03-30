@@ -28,6 +28,7 @@ class CsvReader():
 				for row in reader:
 					dictList.append(row)
 				return dictList
+
 		except IOError as e:
 			print("Error reading csv file.")
 			print("{} - {}".format(e.errno, e.strerror))

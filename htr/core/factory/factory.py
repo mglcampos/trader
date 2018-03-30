@@ -59,6 +59,7 @@ class NodeFactory():
 						for specification in reader.read():
 							node_context = Context()
 							node_context.__dict__ = dict(list(merged_dict.items()) + list(specification.items()))
+							node_context = NodeFactory.__set_name(node_context, specification)
 							BacktestEngine(data_handler_class, SimulatedExecutionHandler, BacktestPortfolio, StrategyManager, risk_class, node_context).simulate_trading()
 
 					else:
@@ -104,6 +105,21 @@ class NodeFactory():
 			for node in self.context.live_nodes:
 				print(node)
 			# launch live nods
+
+
+	@classmethod
+	def __set_name(cls, context, specification):
+		"""."""
+
+		name = ''
+		for strategy in context.strategies:
+			name += strategy + ' '
+
+		for k, v in specification.items():
+			name += k + v
+
+		setattr(context, 'name', name)
+		return context
 
 class FactoryType:
 

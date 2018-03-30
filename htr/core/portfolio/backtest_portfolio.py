@@ -14,7 +14,7 @@ import pandas as pd
 from htr.core.events import *
 from htr.core.performance import create_sharpe_ratio, create_drawdowns
 
-# from pymongo import MongoClient
+from pymongo import MongoClient
 from talib.abstract import *
 import json
 from htr.core.portfolio.portfolio import Portfolio
@@ -30,6 +30,10 @@ class BacktestPortfolio(Portfolio):
 		self.context = context
 		self.events = events
 		self.risk_handler = risk_handler
+		try:
+			self.notes = self.context.notes
+		except:
+			self.notes = 'N/A'
 
 	def process_signal(self, event):
 		"""
@@ -497,35 +501,36 @@ class BacktestPortfolio(Portfolio):
 			consecutive_losses = max(self.loss_streak)
 
 		reportf = {
+			'name': self.context.name,
 			'files': files,
 			'strategy': self.context.strategies,
 			'header': self.context.data_header,
 			'instruments': self.symbol_list,
-			'sharpe': sharpe_ratio,
-			'max_drawdown': max_dd * 500.0,
-			'drawdown_duration': dd_duration,
-			'len_bars': symbol_data[self.symbol_list[0]].shape[0],
-			'len_sell': self.len_sell,
-			'len_buy': self.len_buy,
-			'profit': (total_return - 1.0) * 100.0,
-			'profit_sell': self.profit_sell,
-			'profit_buy': self.profit_buy,
-			'loss_sell': self.loss_sell,
-			'loss_buy': self.loss_buy,
-			'consecutive_wins': consecutive_wins,
-			'consecutive_losses': consecutive_losses,
+			'sharpe': float(sharpe_ratio),
+			'max_drawdown': float(max_dd * 500.0),
+			'drawdown_duration': float(dd_duration),
+			'len_bars': int(symbol_data[self.symbol_list[0]].shape[0]),
+			'len_sell': int(self.len_sell),
+			'len_buy': int(self.len_buy),
+			'profit': float((total_return - 1.0) * 100.0),
+			'profit_sell': float(self.profit_sell),
+			'profit_buy': float(self.profit_buy),
+			'loss_sell': float(self.loss_sell),
+			'loss_buy': float(self.loss_buy),
+			'consecutive_wins': int(consecutive_wins),
+			'consecutive_losses': int(consecutive_losses),
 			'volatility': volatility,
 			'granularity': self.context.timeframe,
-			'notes': ''
+			'notes': self.notes
 		}
 		with open('reportf.json', 'w') as outfile:
 			json.dump(reportf, outfile)
-		# if self.store == True:
-		# 	client = MongoClient('localhost', 27017)
-		# 	results = client['results']
-		# 	bresults = results.backtest
-		# 	post_id = bresults.insert_one(reportf).inserted_id
-		# 	print('id inserido', post_id)
+		if self.store == True:
+			client = MongoClient('localhost', 27017)
+			results = client['backtests']
+			bresults = results.backtest
+			post_id = bresults.insert_one(reportf).inserted_id
+			print('id inserido', post_id)
 	
 		# print('COLUNAS',report_builder.columns.values)
 		print(report.head())

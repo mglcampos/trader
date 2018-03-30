@@ -14,7 +14,7 @@
       "commission" : 0.004,
       "initial_capital": 5000,
       "enabled": true,
-      "store": false
+      "store": true
     },
     {
       "id": "crypto_csv",

@@ -1,3 +1,4 @@
+
 import statsmodels.api as sm
 from datetime import datetime as dt
 try:
@@ -33,9 +34,10 @@ class PairsTrading(Strategy):
         self.symbol_list = self.data_handler.symbol_list
         self.events = events
 
-        self.ols_window = context.ols_window
-        self.zscore_low = context.zscore_low
-        self.zscore_high = context.zscore_high
+        self.ols_window = int(context.ols_window)
+        self.zscore_low = float(context.zscore_low)
+        self.zscore_high = float(context.zscore_high)
+        ##todo remove this pair
         self.pair = ('EUR/NZD', 'EUR/AUD')
         self.datetime = dt.utcnow()
         self.long_market = False
@@ -111,11 +113,16 @@ class PairsTrading(Strategy):
         x = self.data_handler.get_latest_bars_values(
             self.pair[1], "Close", N=self.ols_window
         )
+
         if y is not None and x is not None:
             # Check that all window periods are available
             if len(y) >= self.ols_window and len(x) >= self.ols_window:
                 # Calculate the current hedge ratio using OLS
-                self.hedge_ratio = sm.OLS(y, x).fit().params[0]
+                try:
+                    self.hedge_ratio = sm.OLS(y, x).fit().params[0]
+                except Exception as e:
+                    print('wtf ols? ', e.__str__())
+                    return
                 # Calculate the current z-score of the residuals
                 spread = y - self.hedge_ratio * x
                 zscore_last = ((spread - spread.mean()) / spread.std())[-1]

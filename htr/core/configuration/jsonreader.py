@@ -25,4 +25,4 @@ class JsonReader:
                 return dictList
         except IOError as e:
             print("Error reading json file.")
-            print("{} - {}".format(e.errno,e.strerror))
+            print("{} - {}".format(e.errno, e.strerror))
