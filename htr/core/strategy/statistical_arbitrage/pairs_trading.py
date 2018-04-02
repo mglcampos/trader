@@ -38,7 +38,7 @@ class PairsTrading(Strategy):
         self.zscore_low = float(context.zscore_low)
         self.zscore_high = float(context.zscore_high)
         ##todo remove this pair
-        self.pair = ('EUR/NZD', 'EUR/AUD')
+        self.pair = ('EUR/AUD', 'EUR/NZD')
         self.datetime = dt.utcnow()
         self.long_market = False
         self.short_market = False

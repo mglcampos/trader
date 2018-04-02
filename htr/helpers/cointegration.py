@@ -30,6 +30,48 @@ def hurst(p):
     hurst = m[0]*2
     return hurst
 
+def get_cadf(df1, df2, symbol_list):
+    # symbol_list = ['EURUSD', 'EURAUD']
+    # s_file = '_H1_2012'
+    # file1 = symbol_list[0] + s_file
+    # file2 = symbol_list[1] + s_file
+    # df1 = pd.read_csv("histdata/" + file1, usecols=['Day', 'Open', 'High', 'Low', 'Close'],
+    #                   names=['Type', 'Day', 'Time', 'Open', 'High', 'Low', 'Close'])
+    # df2 = pd.read_csv("histdata/" + file2, usecols=['Day', 'Open', 'High', 'Low', 'Close'],
+    #                   names=['Type', 'Day', 'Time', 'Open', 'High', 'Low', 'Close'])
+    # print(df1.head())
+    # print(df2.head())
+    df = pd.DataFrame(index=df1.index)
+    start_date = datetime.datetime.strptime(df1['Day'][1], '%Y.%m.%d')
+    print('start_date', start_date)
+    end_date = datetime.datetime.strptime(df1['Day'][len(df1['Day']) - 1], '%Y.%m.%d')
+    print('end_date', end_date)
+
+    # Calculate optimal hedge ratio "beta"
+    res = ols(y=df1['Close'], x=df2["Close"])
+    print('residuals', res)
+    print('beta', res.beta)
+    print('beta_hr', res.beta.x)
+    beta_hr = res.beta.x
+    # Calculate the residuals of the linear combination
+    # df["res"] = df["WLL"] - beta_hr*df["AREX"]
+    df["res"] = df1['Close'] - beta_hr * df2["Close"]
+    hrst = hurst(df['res'][:-1].values)
+    print('\n0Hurst Exponent')
+    pprint.pprint(hrst)
+    # print df
+    # Calculate and reports the CADF test on the residuals
+    cadf = ts.adfuller(df["res"][:-1])
+    pprint.pprint(cadf)
+    # # Plot the two time series
+    # plot_price_series(df1['Close'].values, df2["Close"].values, symbol_list, start_date, end_date)
+    # # Display a scatter plot of the two time series
+    # plot_scatter_series(df1['Close'].values, df2["Close"].values, symbol_list)
+    # # Plot the residuals
+    # plot_residuals(df, start_date, end_date)
+
+    return hrst, cadf
+
 def plot_price_series(ts1, ts2, symbol_list, start_date, end_date):
     months = mdates.MonthLocator() # every month
     fig, ax = plt.subplots()

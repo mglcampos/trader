@@ -2,6 +2,7 @@
 import pandas as pd
 import datetime
 import os
+import time
 
 
 class DataPrep():
@@ -116,7 +117,7 @@ class DataPrep():
 
 	def load_csv(self, path, header=None):
 		if header is None:
-			self.header = ['Type', 'Day', 'Time', 'Open', 'High', 'Low', 'Close']
+			self.header = ['Day', 'Time', 'Open', 'High', 'Low', 'Close']
 		else:
 			self.header = header
 
@@ -137,28 +138,89 @@ class DataPrep():
 
 		return dframes
 
-	def load_crypto(self, path, header=None):
-		if header is None:
-			self.header = ['Type', 'Day', 'Time', 'Open', 'High', 'Low', 'Close']
+	def get_monthly_dataframes(self, df, month=None):
+		# returns dict with months as keys
+		t0 = time.clock()
+		t1 = time.time()
+
+		## todo check length
+
+		if type(month) is list:
+			mdf = {}
+			for m in month:
+				# mdf[m] = pd.DataFrame()
+				mdf[m] = self.df_year_to_month(df, m)[m]
+		elif month:
+			mdf = self.df_year_to_month(df, month)
+
 		else:
-			self.header = header
+			mdf = self.df_year_to_month(df)
 
-		# if path is not None:
-		#     df = pd.read_csv(path, names=self.header)
-		#     # print(len(df.columns))
-		#     # print(df.head())
-		# else:
-		#     pass
-		dframes = []
-		if path is not None and os.path.isdir(path):
-			for root, dirs, files in os.walk(path):
-				for file in files:
-					if file.endswith('.csv') or file.endswith('.txt'):
-						dframes.append(pd.read_csv(os.path.join(root, file), index_col='date'))
-		elif os.path.isfile(path):
-			dframes.append(pd.read_csv(path, index_col='date'))
+		print("# get_monthly_dataframes # -", time.clock() - t0, "seconds process time")
+		print("# get_monthly_dataframes # -", time.time() - t1, "seconds wall time")
 
-		return dframes
+		return mdf
+
+	def get_df_dates(self, df):
+		# print(df.head())
+		# print(df.iloc['Day',len(df['Day'][1]) - 1])
+		start_date = datetime.datetime.strptime(df['Day'].values[1], '%Y.%m.%d')
+		print('df start_date', start_date)
+		end_date = datetime.datetime.strptime(df['Day'].values[len(df['Day'].values) - 1], '%Y.%m.%d')
+		print('df end_date', end_date)
+
+		return start_date, end_date
+
+	def df_year_to_month(self, ydf, month=None):
+
+		t0 = time.clock()
+		t1 = time.time()
+
+		start_date, end_date = self.get_df_dates(ydf)
+		mdf = {}
+
+		if month is None:
+
+			for m in range(start_date.month, end_date.month + 1):
+
+				if m == 1:
+					if start_date.day < 10:
+						month_start = str(start_date.year) + '.0' + str(m) + '.0' + str(start_date.day)
+					else:
+						month_start = str(start_date.year) + '.0' + str(m) + '.' + str(start_date.day)
+
+					month_end = str(start_date.year) + '.0' + str(m + 1) + '.0' + str(1)
+				elif m < 9:
+					month_start = str(start_date.year) + '.0' + str(m) + '.0' + str(1)
+					month_end = str(start_date.year) + '.0' + str(m + 1) + '.0' + str(1)
+				elif m == 9:
+					month_start = str(start_date.year) + '.0' + str(m) + '.0' + str(1)
+					month_end = str(start_date.year) + '.' + str(m + 1) + '.0' + str(1)
+
+				elif m == 12:
+					month_start = str(start_date.year) + '.' + str(m) + '.0' + str(1)
+					if end_date.day > 10:
+						month_end = str(start_date.year) + '.' + str(m) + '.' + str(end_date.day)
+					else:
+						month_end = str(start_date.year) + '.' + str(m) + '.0' + str(end_date.day)
+
+				else:
+					month_start = str(start_date.year) + '.' + str(m) + '.0' + str(1)
+					month_end = str(start_date.year) + '.' + str(m + 1) + '.0' + str(1)
+
+				print('month_start', month_start)
+				print('month_end', month_end)
+
+				mdf[str(m)] = pd.DataFrame()
+				# mdf[str(m)] = mdf[str(m)].append(ydf.loc[month_start:month_end])
+				ydf = ydf.set_index(ydf['Day'].values)
+				mdf[str(m)] = ydf.loc[month_start:month_end].drop(month_end)
+				mdf[str(m)] = self._merge_day_time(mdf[str(m)])
+
+			print("# df_year_to_month # -", time.clock() - t0, "seconds process time")
+			print("# df_year_to_month # -", time.time() - t1, "seconds wall time")
+
+			return mdf
 
 	def index_union(self, dframes):
 
@@ -180,4 +242,16 @@ class Evaluation():
 	def __init__(self):
 		self.merged = None
 		self.gaps = None
+
+dt = DataPrep()
+file = '/home/mcampos/Documents/code/trader/histdata/NZDUSD15.csv'
+header = ['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']
+start_date = '2018-01-01'
+end_date = '2018-04-01'
+
+df = dt.load_csv(file, header = header)
+print(df[0].head())
+df = dt.prepare(df)[0]
+print(df[df.index > start_date])
+
 
