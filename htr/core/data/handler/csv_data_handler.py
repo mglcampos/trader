@@ -47,8 +47,9 @@ class CsvDataHandler(DataHandler):
                         for root, dirs, files in os.walk(path):
                             for file in files:
                                 if file.endswith('.csv') or file.endswith('.txt'):
-                                    self.dframes[symbol].append(pd.read_csv(os.path.join(root, file),
-                header=None, parse_dates=True, names=self.header))
+                                    df = pd.read_csv(os.path.join(root, file),
+                header=None, parse_dates=True, names=self.header)
+                                    self.dframes[symbol].append(df[(df[0].index > self.start_date) & (df[0].index < self.end_date)])
 
                     elif os.path.isfile(path):
                         self.dframes[symbol].append(pd.read_csv(path,

@@ -5,7 +5,8 @@ import matplotlib.dates as mdates
 import pandas as pd
 import pprint
 import statsmodels.tsa.stattools as ts
-from pandas.stats.api import ols
+import statsmodels.api as sm
+
 
 #  Different types of time series for testing
     #p = log10(cumsum(random.randn(50000)+1)+1000) # trending, hurst ~ 1
@@ -30,7 +31,7 @@ def hurst(p):
     hurst = m[0]*2
     return hurst
 
-def get_cadf(df1, df2, symbol_list):
+def study_samples(df1, df2):
     # symbol_list = ['EURUSD', 'EURAUD']
     # s_file = '_H1_2012'
     # file1 = symbol_list[0] + s_file
@@ -48,16 +49,19 @@ def get_cadf(df1, df2, symbol_list):
     print('end_date', end_date)
 
     # Calculate optimal hedge ratio "beta"
-    res = ols(y=df1['Close'], x=df2["Close"])
-    print('residuals', res)
-    print('beta', res.beta)
-    print('beta_hr', res.beta.x)
-    beta_hr = res.beta.x
+    # res = ols(y=df1['Close'], x=df2["Close"])
+    # print('residuals', res)
+    # print('beta', res.beta)
+    # print('beta_hr', res.beta.x)
+    # beta_hr = res.beta.x
+
+    beta_hr = sm.OLS(df1['Close'].values, df2["Close"].values).fit().params[0]
+
     # Calculate the residuals of the linear combination
     # df["res"] = df["WLL"] - beta_hr*df["AREX"]
     df["res"] = df1['Close'] - beta_hr * df2["Close"]
     hrst = hurst(df['res'][:-1].values)
-    print('\n0Hurst Exponent')
+    print('\nHurst Exponent')
     pprint.pprint(hrst)
     # print df
     # Calculate and reports the CADF test on the residuals

@@ -237,21 +237,61 @@ class DataPrep():
 
 		return dframes
 
+	def resize(self, df1, df2):
+		"""."""
+
+		diff = len(df1) - len(df2)
+		if diff > 0:
+			df1 = df1[:-diff]
+		elif diff < 0:
+			df2 = df2[:diff]
+
+		return [df1, df2]
 
 class Evaluation():
 	def __init__(self):
 		self.merged = None
 		self.gaps = None
 
-dt = DataPrep()
-file = '/home/mcampos/Documents/code/trader/histdata/NZDUSD15.csv'
+afile = '/home/mcampos/Documents/code/trader/histdata/EURCAD15.csv'
+bfile = '/home/mcampos/Documents/code/trader/histdata/EURJPY15.csv'
 header = ['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']
 start_date = '2018-01-01'
 end_date = '2018-04-01'
 
-df = dt.load_csv(file, header = header)
-print(df[0].head())
-df = dt.prepare(df)[0]
-print(df[df.index > start_date])
+def study_them(afile, bfile, header=['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']):
+	"""."""
+
+	## Prepare data.
+	dt = DataPrep()
+	samples = []
+	files = [afile.split('/')[-1], bfile.split('/')[-1]]
+	print('Files: ', files)
+	samples.append(dt.load_csv(afile, header=header)[0])
+	samples.append(dt.load_csv(bfile, header=header)[0])
+	samples = dt.prepare(samples)
+	samples = dt.resize(samples[0][(samples[0].index > start_date) & (samples[0].index < end_date)],
+						samples[1][(samples[1].index > start_date) & (samples[1].index < end_date)])
+
+	## Study data.
+	from htr.helpers.cointegration import study_samples
+	hurst, cadf = study_samples(samples[0], samples[1])
+
+	report = {
+		'files' : files,
+		'start_date' : datetime.datetime.strptime(samples[0]['Day'].values[1], '%Y.%m.%d'),
+		'end_date' : datetime.datetime.strptime(samples[0]['Day'].values[len(samples[0]['Day'].values) - 1], '%Y.%m.%d'),
+		'hurst' : hurst,
+		'cadf' : cadf
+	}
+
+	print(report)
+	## Store it.
+	from pymongo import MongoClient
+	client = MongoClient('localhost', 27017)
+	results = client['series_analysis']
+	cresults = results.cointegration
+	post_id = cresults.insert_one(report).inserted_id
 
 
+# print(study_them(afile, bfile))

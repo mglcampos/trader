@@ -37,8 +37,7 @@ class PairsTrading(Strategy):
         self.ols_window = int(context.ols_window)
         self.zscore_low = float(context.zscore_low)
         self.zscore_high = float(context.zscore_high)
-        ##todo remove this pair
-        self.pair = ('EUR/AUD', 'EUR/NZD')
+        self.pair = (context.data_sources[0]['symbol'], context.data_sources[1]['symbol'])
         self.datetime = dt.utcnow()
         self.long_market = False
         self.short_market = False
