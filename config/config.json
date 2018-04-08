@@ -6,7 +6,7 @@
       "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/EURJPY15.csv"], "symbol":"EUR/JPY"},
       {"path":["/home/mcampos/Documents/code/trader/histdata/EURGBP15.csv"], "symbol":"EUR/GBP"}],
       "data_header": ["Day", "Time", "Open", "High", "Low", "Close", "Volume"],
-      "start_date": "2018-01-01",
+      "start_date": "2018-02-01",
       "end_date": "2018-04-01",
       "data_preparation": true,
       "specs": "/home/mcampos/Documents/code/trader/config/specs_pairs.csv",

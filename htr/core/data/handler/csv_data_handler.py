@@ -19,6 +19,8 @@ class CsvDataHandler(DataHandler):
         self.prepare = context.data_preparation
         self.header = context.data_header
         self.dframes = {}
+        self.start_date = context.start_date
+        self.end_date = context.end_date
         self.latest_data = {}
         self.data_generator = {}
         self.symbol_data = {}
@@ -47,9 +49,8 @@ class CsvDataHandler(DataHandler):
                         for root, dirs, files in os.walk(path):
                             for file in files:
                                 if file.endswith('.csv') or file.endswith('.txt'):
-                                    df = pd.read_csv(os.path.join(root, file),
-                header=None, parse_dates=True, names=self.header)
-                                    self.dframes[symbol].append(df[(df[0].index > self.start_date) & (df[0].index < self.end_date)])
+                                    self.dframes[symbol].append(pd.read_csv(os.path.join(root, file),
+                header=None, parse_dates=True, names=self.header))
 
                     elif os.path.isfile(path):
                         self.dframes[symbol].append(pd.read_csv(path,
@@ -62,6 +63,9 @@ class CsvDataHandler(DataHandler):
             # Prepare data.
             if self.prepare is True:
                 self.dframes[symbol] = self.dataprep.prepare(self.dframes[symbol])
+                ##todo change this later
+                df = self.dframes[symbol][0]
+                self.dframes[symbol][0] = df[(df.index > self.start_date) & (df.index < self.end_date)]
 
             # todo change this to use concatenation of dframes
             try:

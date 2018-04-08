@@ -100,7 +100,7 @@ class BacktestPortfolio(Portfolio):
 	def _pair_order(self, signals, quantity):
 		"""."""
 
-		mkt_quantity = quantity
+		mkt_quantity = quantity/2
 		orders = []
 		for signal in signals:
 			signal_type = signal.signal_type
