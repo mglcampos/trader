@@ -25,7 +25,7 @@ class SignalEvent(Event):
         Parameters:
         strategy_id - The unique identifier for the strategy that
         generated the signal.
-        symbol -  e.g. 'EUR/USD'.
+        symbol -  e.g. 'eur/USD'.
         datetime - The timestamp at which the signal was generated.
         signal_type - 'LONG' or 'SHORT'.
         strength - An adjustment factor "suggestion" used to scale

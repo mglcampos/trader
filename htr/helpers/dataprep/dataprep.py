@@ -23,7 +23,7 @@ class DataPrep():
 					dframes[i] = self._fill_gaps(df, freq, mode=fill_mode)
 
 			else:
-				dframes[i] = self._merge_daytime(df)
+				dframes[i] = self.merge_daytime(df)
 				try:
 					df.index.freqstr
 				except:
@@ -46,7 +46,7 @@ class DataPrep():
 		nrcolumns = len(df.columns)
 		pass
 
-	def _merge_daytime(self, df):
+	def merge_daytime(self, df):
 		'''
 
 		Args:

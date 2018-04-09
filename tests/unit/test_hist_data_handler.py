@@ -19,13 +19,13 @@ class TestHistDataHandler(unittest2.TestCase):
     def test_init(self):
 
         self.dhandler = CsvDataHandler(self.context, self.events)
-        self.assertEqual(1, len(self.dhandler.dframes['EUR/AUD']))
+        self.assertEqual(1, len(self.dhandler.dframes['eur/AUD']))
 
     def test_get_dframes(self):
 
         self.dhandler = CsvDataHandler(self.context, self.events)
         self.dhandler.update_bars()
-        print(self.dhandler.get_latest_bar('EUR/AUD'))
+        print(self.dhandler.get_latest_bar('eur/AUD'))
 
     def tearDown(self):
         pass

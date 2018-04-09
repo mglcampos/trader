@@ -377,7 +377,7 @@ class SimpleHistoricDataHandler(DataHandler):
         return (c - pd.rolling_mean(c, window=20)) / pd.rolling_std(c, window=20)
 
     def create_lagged_series(self, symbol, start_date, end_date, lags=5):
-        # symbol = 'EUR/USD'
+        # symbol = 'eur/USD'
 
 
         # df = self.data_generator[symbol]
@@ -668,7 +668,7 @@ class HistoricTXTDataHandler(DataHandler):
         return (c - pd.rolling_mean(c, window=20)) / pd.rolling_std(c, window=20)
 
     def create_lagged_series(self, symbol, start_date, end_date, lags=5):
-        symbol = 'EUR/USDH1'
+        symbol = 'eur/USDH1'
 
 
         # df = self.data_generator[symbol]
@@ -1106,7 +1106,7 @@ class HistoricMT4CSVDataHandler(DataHandler):
         return (c - pd.rolling_mean(c, window=20)) / pd.rolling_std(c, window=20)
 
     def create_lagged_series(self, symbol, start_date, end_date, lags=5):
-        symbol = 'EUR/USDH1'
+        symbol = 'eur/USDH1'
 
 
         # df = self.data_generator[symbol]
@@ -1215,14 +1215,14 @@ class HistoricMT4CSVDataHandler(DataHandler):
 #             Encodes symbols to be able to make requests via pandas
 #         """
 #         symbol_pandas = {}
-#         symbol_pandas['USD/EUR'] = "EUR=X"
+#         symbol_pandas['USD/eur'] = "eur=X"
 #         symbol_pandas['USD/JPY'] = "JPY=X"
 #         symbol_pandas['USD/CAD'] = "CAD=X"
 #         symbol_pandas['USD/CHF'] = "CHF=X"
 #         symbol_pandas['USD/AUD'] = "AUD=X"
 #         symbol_pandas['USD/NZD'] = "NZD=X"
 #         symbol_pandas['USD/GBP'] = "GBP=X"
-#         symbol_pandas['EUR/USD'] = "EUR=X"
+#         symbol_pandas['eur/USD'] = "eur=X"
 #         symbol_pandas['JPY/USD'] = "JPY=X"
 #         symbol_pandas['CAD/USD'] = "CAD=X"
 #         symbol_pandas['CHF/USD'] = "CHF=X"
@@ -1240,8 +1240,8 @@ class HistoricMT4CSVDataHandler(DataHandler):
 #         symbols = self.pandas_dict()
 #         for s in self.symbol_list:
 #             self.latest_data[s] = []
-#             if (s == "EUR/USD"):
-#                 data = web.DataReader(symbols['EUR/USD'], 'yahoo', start, end)
+#             if (s == "eur/USD"):
+#                 data = web.DataReader(symbols['eur/USD'], 'yahoo', start, end)
 #                 data['Open'] = 1 / data['Open']
 #                 data['High'] = 1 / data['High']
 #                 data['Low'] = 1 / data['Low']
@@ -1430,6 +1430,6 @@ class HistoricMT4CSVDataHandler(DataHandler):
 # start = datetime.datetime(2008, 1, 1)
 # end = datetime.datetime.now()
 #
-# a = HistoricPandasDataHandler(['USD/GBP', 'USD/EUR'], start, end).get_symbol_data()
+# a = HistoricPandasDataHandler(['USD/GBP', 'USD/eur'], start, end).get_symbol_data()
 #
 # print a

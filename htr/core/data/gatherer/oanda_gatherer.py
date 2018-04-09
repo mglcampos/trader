@@ -91,7 +91,7 @@ class RateStreamer(Streamer):
 
 
 if __name__ == '__main__':
-    instruments = ['EUR/USD', 'EUR/JPY', 'USD/CAD']
+    instruments = ['eur/USD', 'eur/JPY', 'USD/CAD']
     stream = RateStreamer(instruments)
 
     try:

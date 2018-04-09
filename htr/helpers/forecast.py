@@ -219,7 +219,7 @@ class Forecast(object):
         print('selected', [i for i in zip(allfeatures,selector.ranking_) if i[1] == 1])
         return [i[0] for i in zip(allfeatures,selector.ranking_) if i[1] == 1]
 
-    def runForecast(self, lags=50, features_len=10, s_file='_M1_2012_2013', rfe = False, symbol_list = ['EUR/USD'], pca_reduction=False, store=True):
+    def runForecast(self, lags=50, features_len=10, s_file='_M1_2012_2013', rfe = False, symbol_list = ['eur/USD'], pca_reduction=False, store=True):
 
         print('rfe', rfe)
         print('pca', pca_reduction)
@@ -434,7 +434,7 @@ forecast = Forecast()
 # files = ['_M1_2012_2013','_M1_2013_2014','_M1_2014_2015','_M1_2015_2016']
 # files = ['_H1_2012','_H1_2013','_H1_2014','_H1_2015','_H1_2016']
 files = ['_m1_2012']
-symbol_list = ['EUR/USD']
+symbol_list = ['eur/USD']
 for s_file in files:
     print('s_file',s_file)
     forecast.runForecast(lags=5, features_len=None, s_file=s_file, symbol_list=symbol_list, pca_reduction=False, store=True, rfe=False)

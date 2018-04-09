@@ -546,7 +546,7 @@ class HedgeStrategy(Strategy):
         self.ols_window = ols_window
         self.zscore_low = zscore_low
         self.zscore_high = zscore_high
-        self.pair = ('EUR/USD','EUR/AUD' )
+        self.pair = ('eur/USD','eur/AUD' )
         self.datetime = datetime.utcnow()
         self.long_market = False
         self.short_market = False

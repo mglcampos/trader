@@ -1,22 +1,23 @@
 
 import datetime
 from pymongo import MongoClient
+import os
 
 from htr.helpers.dataprep import DataPrep
 from htr.helpers.cointegration import study_samples, hurst, adf
 
 class Analyzer:
 
-    def __init__(self):
+    def __init__(self, start_date = '2018-01-01', end_date = '2018-04-01'):
         """."""
 
-        self.afile = '/home/mcampos/Documents/code/trader/histdata/forex/NZDUSD15.csv'
-        self.bfile = '/home/mcampos/Documents/code/trader/histdata/forex/AUDUSD15.csv'
-        self.header = ['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']
+        # self.afile = '/home/mcampos/Documents/code/trader/histdata/forex/NZDUSD15.csv'
+        # self.bfile = '/home/mcampos/Documents/code/trader/histdata/forex/AUDUSD15.csv'
+        # self.header = ['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']
         self.start_date = '2018-01-01'
         self.end_date = '2018-04-01'
 
-    def study_pair(self, afile, bfile, header=['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']):
+    def study_pair(self, afile, bfile, header= ['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']):
         """."""
 
         ## Prepare data.
@@ -56,6 +57,8 @@ class Analyzer:
         cresults = results.cointegration
         post_id = cresults.insert_one(report).inserted_id
 
+        return report
+
     def study_series(self, file, header=['Day', 'Time', 'Open', 'High', 'Low', 'Close', 'Volume']):
         """."""
 
@@ -65,7 +68,9 @@ class Analyzer:
         df = dt.load_csv(file, header=header)[0]
         file = file.split('/')[-1]
         print('File: ', file)
-        df = dt.prepare([df])[0]
+        print(df.head())
+        # df = dt.prepare([df])[0]
+        df = dt.merge_daytime(df)
         df = df[(df.index > self.start_date) & (df.index < self.end_date)]
 
         ## Study data.
@@ -81,12 +86,43 @@ class Analyzer:
             'adf': c_value
         }
 
-        print(report)
         ## Store it.
-        from pymongo import MongoClient
         client = MongoClient('localhost', 27017)
         results = client['series_analysis']
-        sresults = results.stationariy
+        sresults = results.stationarity
         post_id = sresults.insert_one(report).inserted_id
+        print(report)
+
+        return report
+
+    def get_files(self, path):
+        """."""
+
+        file_paths = []
+
+        for root, dirs, files in os.walk(path):
+            if files:
+                for file in files:
+                    if file.endswith('.csv'):
+                        file_path = os.path.join(root, file)
+                        print(file_path)
+                        file_paths.append(file_path)
+
+        return file_paths
 
 
+
+errors = []
+timeframe = '15.'
+
+a = Analyzer(start_date='2018-01-01', end_date='2018-04-01')
+files = a.get_files('/home/mcampos/Documents/code/trader/histdata/forex')
+
+for file in files:
+    if timeframe in file:
+        try:
+            print(a.study_series(file))
+        except Exception as e:
+            errors.append((e, file))
+
+print(errors)

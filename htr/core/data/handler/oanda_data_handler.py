@@ -211,10 +211,10 @@ class OandaLiveDataHandler(DataHandler):
 
 
 #
-# instruments = ['EUR/USD']
+# instruments = ['eur/USD']
 # oanda = OandaLiveDataHandler(instruments)
 #
 # while True:
 #     oanda.update_symbol_data()
-#     print "BAR - " + str(oanda._get_new_bar('EUR/USD'))
+#     print "BAR - " + str(oanda._get_new_bar('eur/USD'))
 

@@ -12,6 +12,12 @@ client = MongoClient('localhost', 27017)
 backtests = client['series_analysis']
 results = backtests.cointegration
 for test in results.find().sort('hurst', ASCENDING):
-    print('Files: ', test['files'],  ' | Hurst: ', test['hurst'], ' | CADF : ', test['cadf'])
+    print('Cointegration: ', test['files'],  ' | Hurst: ', test['hurst'], ' | CADF : ', test['cadf'])
+
+client = MongoClient('localhost', 27017)
+backtests = client['series_analysis']
+sresults = backtests.stationarity
+for test in sresults.find().sort('hurst', ASCENDING):
+    print('Stationarity: ', test['file'],  ' | Hurst: ', test['hurst'], ' | ADF : ', test['adf'])
 
 

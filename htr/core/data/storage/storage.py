@@ -28,7 +28,7 @@ class Artic(object):
         except Exception:
             print "SNAPSHOT ERROR: Snapshot already exists"
         print str(df.tail(1).index)
-        # print self.pairs.read('EUR/CAD').data.ix['2014, 1, 2':]
+        # print self.pairs.read('eur/CAD').data.ix['2014, 1, 2':]
 
     def getData(self, symbol, start=None, end=dt.now(), Nrows=None):
         if start is None:
@@ -72,8 +72,8 @@ class Artic(object):
 # df = pd.DataFrame({'prices': [1, 2, 3]},
 #                           [dt(2014, 1, 4), dt(2014, 1, 5), dt(2014, 1, 6)])
 #
-# artic.storeData('EUR/GBP', df)
+# artic.storeData('eur/GBP', df)
 # print artic.getPairList()
-# print artic.getData('EUR/CAD', Nrows=2)
-# artic.remove('EUR/GBP')
-# print artic.getData('EUR/GBP')
+# print artic.getData('eur/CAD', Nrows=2)
+# artic.remove('eur/GBP')
+# print artic.getData('eur/GBP')

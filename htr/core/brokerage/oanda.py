@@ -155,10 +155,10 @@ class BrokerIB:
 
 
 # broker = BrokerOanda()
-# symbol = 'EUR/USD'
+# symbol = 'eur/USD'
 # # #
 # # print broker.get_capital()
-# print broker.get_prices(['EUR/USD'])
+# print broker.get_prices(['eur/USD'])
 # # # print broker.get_instruments()
 # # # print broker.get_pending_orders()
 # #
@@ -186,7 +186,7 @@ class BrokerIB:
 ###close all trades for a instrument
 # #
 # broker = BrokerOanda()
-# symbol = 'EUR/USD'
+# symbol = 'eur/USD'
 # open_trades = broker.get_trades(instrument=symbol.replace('/','_',1))
 # trades = open_trades.get('trades')
 # print("Trades - ",len(trades), trades)

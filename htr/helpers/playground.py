@@ -784,8 +784,8 @@ def query_mongo():
     bresults = results.backtest
     sharpe = []
     profit = []
-    for result in bresults.find({"strategy":"BollingerBandsStrategy", "granularity":"M1", "instruments": ["EUR/AUD","EUR/CAD"]}):
-    # for result in bresults.find({"strategy": "BollingerBandsStrategy", "granularity": "H1", "instruments": ["EUR/AUD"]}):
+    for result in bresults.find({"strategy":"BollingerBandsStrategy", "granularity":"M1", "instruments": ["eur/AUD","eur/CAD"]}):
+    # for result in bresults.find({"strategy": "BollingerBandsStrategy", "granularity": "H1", "instruments": ["eur/AUD"]}):
 
         sharpe.append(result['sharpe'])
         profit.append(result['profit'])
@@ -822,10 +822,10 @@ def query_mongo():
 ##TODO usar csv na pasta principal para testar sempre
 
 
-# symbol = 'EUR/GBP'
+# symbol = 'eur/GBP'
 # generate_sample(symbol)
 
-# symbol = 'EUR/USD'
+# symbol = 'eur/USD'
 # df1 = get_dataframe(symbol, s_file='UDAT_MT_EURUSD_M1_2015', removeInter=True, index=True)
 # df2 = get_dataframe(symbol, s_file='UDAT_MT_EURUSD_M1_2016', removeInter=True, index=True)
 #
@@ -834,9 +834,9 @@ def query_mongo():
 # print df.head()
 # save_dataframe(symbol, df, type='Concat')
 
-# symbol = 'EUR/NZD'
+# symbol = 'eur/NZD'
 # df2 = get_dataframe(symbol, filename='EURNZD_M15_2014', mergedIndex=True, index=True)
-# symbol = 'EUR/AUD'
+# symbol = 'eur/AUD'
 # df = get_dataframe(symbol, filename='EURAUD_M15_2014', mergedIndex=True, index=True)
 # evaluate_stationarity(df, df2)
 

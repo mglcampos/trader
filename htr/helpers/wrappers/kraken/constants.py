@@ -115,7 +115,7 @@ class Currency(_Enum):
     XXVN = 'XVN'
     XZEC = 'ZEC'
     ZCAD = 'CAD'
-    ZEUR = 'EUR'
+    ZEUR = 'eur'
     ZGBP = 'GBP'
     ZJPY = 'JPY'
     ZKRW = 'KRW'

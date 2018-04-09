@@ -30,8 +30,8 @@
 #         ###
 #         # Set running variables
 #         ###
-#         # list = ["EUR/USD", "EUR/AUD",'EUR/GBP', "EUR/CAD"]
-#         list = [['EUR/AUD','EUR/CAD']]
+#         # list = ["eur/USD", "eur/AUD",'eur/GBP', "eur/CAD"]
+#         list = [['eur/AUD','eur/CAD']]
 #         for symbol_list in list:
 #             # symbol_list = [symbol_list]
 #             # filename = 'EURAUD_m1_2015'

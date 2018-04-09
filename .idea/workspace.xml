@@ -2,115 +2,70 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htr/helpers/analyzer.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/NZDUSD_M1_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCAD_M15_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCAD_M1_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCAD_M5_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCHF_M15_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCHF_M1_2018.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/USDCHF_M5_2018.csv" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/AUDUSD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/AUDUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/AUDUSD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/AUDUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/AUDUSD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/AUDUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD1.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/BTCUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD15.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/BTCUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD5.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/BTCUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2017_M10.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2017_M10.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2017_M11.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2017_M11.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2017_M11M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2017_M11M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2017_M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2017_M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2018_M1.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2018_M1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2018_M1M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2018_M1M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_2018_M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_2018_M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTCUSD_all.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTCUSD_all.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_DGB.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_DGB.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_ETC.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_ETC.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_ETH.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_ETH.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_FCT.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_FCT.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_LSK.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_LSK.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_LTC.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_LTC.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_SC.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_SC.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_STRAT.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_STRAT.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/BTC_XRP.csv" afterPath="$PROJECT_DIR$/histdata/crypto/BTC_XRP.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2017_M10.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2017_M10.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2017_M11.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2017_M11.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2017_M11M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2017_M11M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2017_M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2017_M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2018_M1.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2018_M1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_2018_M1M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_2018_M1M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETCUSD_all.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETCUSD_all.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD1.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/ETHUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD15.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/ETHUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD5.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/ETHUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2017_M10.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2017_M10.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2017_M11.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2017_M11.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2017_M11M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2017_M11M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2017_M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2017_M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2018_M1.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2018_M1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2018_M1M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2018_M1M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_2018_M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_2018_M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/ETHUSD_all.csv" afterPath="$PROJECT_DIR$/histdata/crypto/ETHUSD_all.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_H1_2012" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_H1_2012" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_M15_2012" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_M15_2012" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_M15_2013" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_M15_2013" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_M15_2014" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_M15_2014" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_M15_2015" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_M15_2015" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_M15_2016" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_M15_2016" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_m1_2015" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_m1_2015" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_m3_2015" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_m3_2015" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_m4_2015" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_m4_2015" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURAUD_m5_2015" afterPath="$PROJECT_DIR$/histdata/crypto/EURAUD_m5_2015" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCAD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCAD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCAD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCHF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCHF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURCHF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURGBP1.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURGBP15.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURGBP5.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURJPY1.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURJPY15.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURJPY5.csv" afterPath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURNZD_H1_2012" afterPath="$PROJECT_DIR$/histdata/crypto/EURNZD_H1_2012" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURNZD_M15_2013" afterPath="$PROJECT_DIR$/histdata/crypto/EURNZD_M15_2013" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURNZD_M15_2014" afterPath="$PROJECT_DIR$/histdata/crypto/EURNZD_M15_2014" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURNZD_M1_2012" afterPath="$PROJECT_DIR$/histdata/crypto/EURNZD_M1_2012" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURUSD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/EURUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURUSD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/EURUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURUSD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/EURUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/EURUSD_M1_2012_2013" afterPath="$PROJECT_DIR$/histdata/crypto/EURUSD_M1_2012_2013" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/LTCUSD_2017_M11M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/LTCUSD_2017_M11M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/LTCUSD_2017_M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/LTCUSD_2017_M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/LTCUSD_all.csv" afterPath="$PROJECT_DIR$/histdata/crypto/LTCUSD_all.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/NZDUSD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/NZDUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/NZDUSD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/NZDUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/NZDUSD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/NZDUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDBTC_2017_3T.csv" afterPath="$PROJECT_DIR$/histdata/crypto/USDBTC_2017_3T.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDBTC_original" afterPath="$PROJECT_DIR$/histdata/crypto/USDBTC_original" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCAD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCAD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCAD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCAD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCAD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCAD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCHF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCHF1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCHF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCHF15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDCHF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/USDCHF5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDT_BTC.csv" afterPath="$PROJECT_DIR$/histdata/crypto/USDT_BTC.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/USDT_BTC.txt" afterPath="$PROJECT_DIR$/histdata/crypto/USDT_BTC.txt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD1.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/XRPUSD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD15.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/XRPUSD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD5.csv" afterPath="$PROJECT_DIR$/histdata/crypto_mt/XRPUSD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2017_M10.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2017_M10.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2017_M11.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2017_M11.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2017_M11M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2017_M11M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2017_M12.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2017_M12.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2018_M1.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2018_M1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2018_M1M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2018_M1M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_2018_M2.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_2018_M2.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/XRPUSD_all.csv" afterPath="$PROJECT_DIR$/histdata/crypto/XRPUSD_all.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD60.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY1.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY15.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY5.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY60.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/cointegration.py" afterPath="$PROJECT_DIR$/htr/helpers/cointegration.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/brokerage/oanda.py" afterPath="$PROJECT_DIR$/htr/core/brokerage/oanda.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/api_crypto_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/api_crypto_data_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/json_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/json_data_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/storage/storage.py" afterPath="$PROJECT_DIR$/htr/core/data/storage/storage.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/events/event.py" afterPath="$PROJECT_DIR$/htr/core/events/event.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/strategy/examples.py" afterPath="$PROJECT_DIR$/htr/core/strategy/examples.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/analyzer.py" afterPath="$PROJECT_DIR$/htr/helpers/analyzer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" afterPath="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/forecast.py" afterPath="$PROJECT_DIR$/htr/helpers/forecast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/playground.py" afterPath="$PROJECT_DIR$/htr/helpers/playground.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/report_analysis.py" afterPath="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/test2.py" afterPath="$PROJECT_DIR$/htr/helpers/test2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/wrappers/cryptomkt/constants.py" afterPath="$PROJECT_DIR$/htr/helpers/wrappers/cryptomkt/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/wrappers/kraken/constants.py" afterPath="$PROJECT_DIR$/htr/helpers/wrappers/kraken/constants.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/main.py" afterPath="$PROJECT_DIR$/htr/main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unit/test_hist_data_handler.py" afterPath="$PROJECT_DIR$/tests/unit/test_hist_data_handler.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -124,28 +79,8 @@
       <file leaf-file-name="report_analysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NZDUSD1.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD1.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AUDUSD1.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/histdata/forex/AUDUSD1.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="276">
+              <caret line="20" column="91" lean-forward="true" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -161,21 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="cointegration.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/cointegration.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state relative-caret-position="-1849">
+              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -186,8 +111,8 @@
       <file leaf-file-name="dataprep.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+            <state relative-caret-position="-2669">
+              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
@@ -198,11 +123,21 @@
       <file leaf-file-name="analyzer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+            <state relative-caret-position="277">
+              <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
               <folding>
                 <element signature="e#1#16#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="class_finder.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="19" column="64" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -212,16 +147,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="csv_data_handler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="85" column="59" lean-forward="false" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="99" />
               <folding />
             </state>
           </provider>
@@ -261,6 +186,7 @@
       <find>self.notes</find>
       <find>'</find>
       <find>end_date</find>
+      <find>usdchf</find>
     </findStrings>
     <replaceStrings>
       <replace>eth</replace>
@@ -302,13 +228,13 @@
         <option value="$PROJECT_DIR$/htr/core/factory/factory.py" />
         <option value="$PROJECT_DIR$/config/temp" />
         <option value="$PROJECT_DIR$/config/specs_pairs.csv" />
-        <option value="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py" />
         <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/helpers/cointegration.py" />
         <option value="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
         <option value="$PROJECT_DIR$/htr/helpers/analyzer.py" />
       </list>
     </option>
@@ -356,6 +282,13 @@
               <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="histdata" type="462c0819:PsiDirectoryNode" />
               <item name="forex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="histdata" type="462c0819:PsiDirectoryNode" />
+              <item name="forex" type="462c0819:PsiDirectoryNode" />
+              <item name="eur" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
@@ -441,6 +374,21 @@
               <item name="pandas" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.4.2 virtualenv at /home/mcampos/Documents/environments/q &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="site-packages" type="462c0819:PsiDirectoryNode" />
+              <item name="pandas" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="indexes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.4.2 virtualenv at /home/mcampos/Documents/environments/q &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="python3.4" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -477,20 +425,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.dataprep">
-    <configuration name="crypto_prep" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.report_analysis">
+    <configuration name="analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/htr/helpers/dataprep" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/htr/helpers" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="trader" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/htr/helpers/dataprep/crypto_prep.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/htr/helpers/analyzer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -565,18 +513,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.htr" />
-      <item index="1" class="java.lang.String" itemvalue="Python.crypto_prep" />
-      <item index="2" class="java.lang.String" itemvalue="Python.stationarity" />
-      <item index="3" class="java.lang.String" itemvalue="Python.report_analysis" />
-      <item index="4" class="java.lang.String" itemvalue="Python.dataprep" />
+      <item index="1" class="java.lang.String" itemvalue="Python.stationarity" />
+      <item index="2" class="java.lang.String" itemvalue="Python.report_analysis" />
+      <item index="3" class="java.lang.String" itemvalue="Python.dataprep" />
+      <item index="4" class="java.lang.String" itemvalue="Python.analyzer" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.dataprep" />
-        <item index="1" class="java.lang.String" itemvalue="Python.report_analysis" />
-        <item index="2" class="java.lang.String" itemvalue="Python.htr" />
-        <item index="3" class="java.lang.String" itemvalue="Python.stationarity" />
-        <item index="4" class="java.lang.String" itemvalue="Python.crypto_prep" />
+        <item index="0" class="java.lang.String" itemvalue="Python.report_analysis" />
+        <item index="1" class="java.lang.String" itemvalue="Python.analyzer" />
+        <item index="2" class="java.lang.String" itemvalue="Python.dataprep" />
+        <item index="3" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="4" class="java.lang.String" itemvalue="Python.stationarity" />
       </list>
     </recent_temporary>
   </component>
@@ -621,12 +569,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1924" height="952" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34624413" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28755867" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43779343" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -639,7 +587,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962963" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -672,6 +619,16 @@
           <line>65</line>
           <option name="timeStamp" value="37" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/helpers/analyzer.py</url>
+          <line>72</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -683,32 +640,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="39" />
+      <option name="time" value="44" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1581">
-          <caret line="96" column="44" lean-forward="false" selection-start-line="96" selection-start-column="44" selection-end-line="96" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/io/parsers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26605">
-          <caret line="1604" column="0" lean-forward="false" selection-start-line="1604" selection-start-column="0" selection-end-line="1604" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/execution/crypto.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
@@ -762,13 +698,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="50" column="85" lean-forward="false" selection-start-line="50" selection-start-column="81" selection-end-line="50" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -894,14 +823,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/EUR/EURCHF1.csv">
+    <entry file="file://$PROJECT_DIR$/histdata/forex/eur/EURCHF1.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/EUR/EURCHF15.csv">
+    <entry file="file://$PROJECT_DIR$/histdata/forex/eur/EURCHF15.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1001,10 +930,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
+    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="437" column="34" lean-forward="false" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
+        <state relative-caret-position="646">
+          <caret line="49" column="59" lean-forward="false" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histdata/forex/eur/EURTRY1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="2989" column="0" lean-forward="false" selection-start-line="2989" selection-start-column="0" selection-end-line="2989" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="64" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
           <folding />
         </state>
       </provider>
@@ -1017,14 +978,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD1.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1033,18 +986,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="49" column="59" lean-forward="false" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        <state relative-caret-position="17">
+          <caret line="437" column="34" lean-forward="false" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/cointegration.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state relative-caret-position="-1849">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -1053,18 +1006,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="255" column="0" lean-forward="false" selection-start-line="255" selection-start-column="0" selection-end-line="255" selection-end-column="0" />
+        <state relative-caret-position="-2669">
+          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="20" column="91" lean-forward="true" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="37" lean-forward="true" selection-start-line="29" selection-start-column="37" selection-end-line="29" selection-end-column="37" />
+        <state relative-caret-position="277">
+          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
           <folding>
             <element signature="e#1#16#0" expanded="true" />
           </folding>

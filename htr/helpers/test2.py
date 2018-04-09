@@ -32,7 +32,7 @@ def main():
 
 
 def send():
-    symbol = 'EUR/USD'
+    symbol = 'eur/USD'
     request = 'tick'
     message = "{0} {1}".format(request, symbol)
     print("send_message - ", message)

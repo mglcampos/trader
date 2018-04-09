@@ -26,7 +26,7 @@ class Currency(_Currency):
     BRL = dict(value='BRL')
     CLP = dict(value='CLP')
     ETH = dict(value='ETH', decimals=18)
-    EUR = dict(value='EUR')
+    EUR = dict(value='eur')
 
 
 class OrderType(_Enum):
