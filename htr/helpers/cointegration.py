@@ -31,6 +31,9 @@ def hurst(p):
     hurst = m[0]*2
     return hurst
 
+def adf(series):
+    return ts.adfuller(series)
+
 def study_samples(df1, df2):
     # symbol_list = ['EURUSD', 'EURAUD']
     # s_file = '_H1_2012'
