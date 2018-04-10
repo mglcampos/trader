@@ -45,7 +45,7 @@ class OandaLiveDataHandler(DataHandler):
     def startListener(self):
         context = zmq.Context()
         self.socket = context.socket(zmq.REQ)
-        # self.socket.setsockopt(zmq.SUBSCRIBE, '')
+        # self.socket.setsockopt(zmq.py.SUBSCRIBE, '')
         self.socket.connect("tcp://127.0.0.1:5558")
 
 

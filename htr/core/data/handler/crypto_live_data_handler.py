@@ -34,7 +34,7 @@ class CryptoLiveDataHandler():
     def __startListener(self):
         context = zmq.Context()
         self.socket = context.socket(zmq.REQ)
-        # self.socket.setsockopt(zmq.SUBSCRIBE, '')
+        # self.socket.setsockopt(zmq.py.SUBSCRIBE, '')
         self.socket.connect("tcp://127.0.0.1:5558")
 
     def update_symbol_data(self):
@@ -211,8 +211,8 @@ class CryptoLiveDataHandler():
 #     print("BAR - " + str(handler._get_new_bar('XRPUSD')))
 
 # symbol = ('XRPUSD')
-# context = zmq.Context()
-# socket = context.socket(zmq.REQ)
+# context = zmq.py.Context()
+# socket = context.socket(zmq.py.REQ)
 # socket.connect("tcp://127.0.0.1:5558")
 # request = 'tick'
 # message = "{0} {1}".format(request, symbol)

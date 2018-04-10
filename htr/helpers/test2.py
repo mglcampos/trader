@@ -44,7 +44,7 @@ def send():
 if __name__ == "__main__":
     context = zmq.Context()
     socket = context.socket(zmq.REQ)
-    # socket.setsockopt(zmq.SUBSCRIBE, '')
+    # socket.setsockopt(zmq.py.SUBSCRIBE, '')
     socket.connect("tcp://127.0.0.1:5558")
     request = 'tick'
     # send()
