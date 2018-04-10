@@ -19,16 +19,22 @@ class DataPrep():
 				try:
 					df.index.freqstr
 				except:
-					freq = (df.index[1] - df.index[0]).seconds
-					dframes[i] = self._fill_gaps(df, freq, mode=fill_mode)
+					try:
+						freq = (df.index[1] - df.index[0]).seconds
+						dframes[i] = self._fill_gaps(df, freq, mode=fill_mode)
+					except:
+						print('Couldn\'t fill dataframe.')
 
 			else:
 				dframes[i] = self.merge_daytime(df)
 				try:
 					df.index.freqstr
 				except:
-					freq = (dframes[i].index[1] - dframes[i].index[0]).seconds
-					dframes[i] = self._fill_gaps(dframes[i], freq, mode=fill_mode)
+					try:
+						freq = (dframes[i].index[1] - dframes[i].index[0]).seconds
+						dframes[i] = self._fill_gaps(dframes[i], freq, mode=fill_mode)
+					except:
+						print('Couldn\'t fill dataframe.')
 
 		return dframes
 

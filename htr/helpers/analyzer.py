@@ -110,19 +110,37 @@ class Analyzer:
 
         return file_paths
 
+    def study_stationarity(self, files, timeframe = '5.'):
+        """."""
 
+        errors = []
+        for file in files:
+            if timeframe in file:
+                try:
+                    print(a.study_series(file))
+                except Exception as e:
+                    errors.append((e, file))
+
+        print(errors)
+
+    def study_cointegration(self, files, timeframe = '5.'):
+        """."""
+
+        errors = []
+        for afile in files:
+            if timeframe in afile:
+                for bfile in files:
+                    if timeframe in bfile and afile != bfile:
+                        try:
+                            print(a.study_pair(afile, bfile))
+                        except Exception as e:
+                            errors.append((e, afile, bfile))
+
+        print(errors)
 
 errors = []
-timeframe = '15.'
+timeframe = '5.'
 
 a = Analyzer(start_date='2018-01-01', end_date='2018-04-01')
-files = a.get_files('/home/mcampos/Documents/code/trader/histdata/forex')
-
-for file in files:
-    if timeframe in file:
-        try:
-            print(a.study_series(file))
-        except Exception as e:
-            errors.append((e, file))
-
-print(errors)
+files = a.get_files('/home/mcampos/Documents/code/trader/histdata')
+print(a.study_cointegration(files))

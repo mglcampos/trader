@@ -27,7 +27,10 @@ class CsvDataHandler(DataHandler):
         ##todo should there be more dataprep modules? choose base on context?
         self.dataprep = DataPrep(context = context)
         self.continue_backtest = True
-        self._load_csv_files()
+        try:
+            self._load_csv_files()
+        except Exception as e:
+            print('Error loading files.', e)
 
     ##todo use decorator to validate types
     def _load_csv_files(self):

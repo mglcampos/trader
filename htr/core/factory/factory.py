@@ -54,7 +54,7 @@ class NodeFactory():
 					# Merges backtest nodes dict attribute with specs dict.
 					merged_dict = dict(list(node.items()) + list(getattr(self.context, Context.SPECS).items()))
 
-					if node['specs'] != '':
+					if 'specs' in node.keys() and node['specs'] != '':
 						reader = CsvReader(node['specs'])
 						for specification in reader.read():
 							node_context = Context()

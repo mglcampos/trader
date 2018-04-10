@@ -301,7 +301,7 @@ class BacktestPortfolio(Portfolio):
 		else:
 			raise ValueError('Empty order error for signal {} with current quantity of {}.'.format(signal, cur_quantity))
 		
-		return order
+		return [order]
 
 	def tringular_order(self, signal):
 
@@ -371,6 +371,7 @@ class BacktestPortfolio(Portfolio):
 		total_return = self.equity_curve['equity_curve'][-1]
 		returns = self.equity_curve['returns']
 		pnl = self.equity_curve['equity_curve']
+		pnl = pnl.dropna()
 		sharpe_ratio = create_sharpe_ratio(returns, periods=periods)
 		drawdown, max_dd, dd_duration = create_drawdowns(pnl)
 		self.equity_curve['drawdown'] = drawdown

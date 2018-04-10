@@ -2,70 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURAUD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURAUD60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCAD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCAD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURCHF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURCHF5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURGBP5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURGBP5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURHUF60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURHUF60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURJPY5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURJPY5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNOK60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNOK60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURNZD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURNZD60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURPLN60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURPLN60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSEK60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSEK60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURSGD60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURSGD60.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY1.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY1.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY15.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY15.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY5.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY5.csv" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/histdata/forex/EUR/EURTRY60.csv" afterPath="$PROJECT_DIR$/histdata/forex/eur/EURTRY60.csv" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/forex/EURUSD1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/forex/EURUSD15.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/forex/EURUSD5.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/forex/eur/EURSGD15.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/metals/GOLD5.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/metals/GOLD60.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/metals/SILVER1.csv" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/histdata/metals/SILVER15.csv" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/brokerage/oanda.py" afterPath="$PROJECT_DIR$/htr/core/brokerage/oanda.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/api_crypto_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/api_crypto_data_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/json_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/json_data_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/storage/storage.py" afterPath="$PROJECT_DIR$/htr/core/data/storage/storage.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/events/event.py" afterPath="$PROJECT_DIR$/htr/core/events/event.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/strategy/examples.py" afterPath="$PROJECT_DIR$/htr/core/strategy/examples.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BTCUSD_report.csv" afterPath="$PROJECT_DIR$/BTCUSD_report.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ETHUSD_report.csv" afterPath="$PROJECT_DIR$/ETHUSD_report.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.json" afterPath="$PROJECT_DIR$/config/config.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/equity.csv" afterPath="$PROJECT_DIR$/equity.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/factory/factory.py" afterPath="$PROJECT_DIR$/htr/core/factory/factory.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/analyzer.py" afterPath="$PROJECT_DIR$/htr/helpers/analyzer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" afterPath="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/forecast.py" afterPath="$PROJECT_DIR$/htr/helpers/forecast.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/playground.py" afterPath="$PROJECT_DIR$/htr/helpers/playground.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/report_analysis.py" afterPath="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/test2.py" afterPath="$PROJECT_DIR$/htr/helpers/test2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/wrappers/cryptomkt/constants.py" afterPath="$PROJECT_DIR$/htr/helpers/wrappers/cryptomkt/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/wrappers/kraken/constants.py" afterPath="$PROJECT_DIR$/htr/helpers/wrappers/kraken/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/main.py" afterPath="$PROJECT_DIR$/htr/main.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/unit/test_hist_data_handler.py" afterPath="$PROJECT_DIR$/tests/unit/test_hist_data_handler.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reportf.json" afterPath="$PROJECT_DIR$/reportf.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -79,8 +35,8 @@
       <file leaf-file-name="report_analysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="20" column="91" lean-forward="true" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+            <state relative-caret-position="221">
+              <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -89,42 +45,48 @@
       <file leaf-file-name="backtest_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="437" column="34" lean-forward="false" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
+            <state relative-caret-position="1494">
+              <caret line="542" column="0" lean-forward="false" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cointegration.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/cointegration.py">
+      <file leaf-file-name="portfolio.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1849">
-              <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataprep.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
+      <file leaf-file-name="config.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2669">
-              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-              <folding>
-                <element signature="e#1#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-251">
+              <caret line="6" column="80" lean-forward="false" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analyzer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="specs_pairs.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/specs_pairs.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analyzer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
+            <state relative-caret-position="2312">
+              <caret line="136" column="37" lean-forward="false" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
               <folding>
                 <element signature="e#1#16#0" expanded="true" />
               </folding>
@@ -132,22 +94,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="class_finder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
+      <file leaf-file-name="kelly.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="19" column="64" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
+            <state relative-caret-position="408">
+              <caret line="24" column="28" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crypto_prep.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/crypto_prep.py">
+      <file leaf-file-name="csv_data_handler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+            <state relative-caret-position="148">
+              <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interpreter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1377">
+              <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dataprep.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="629">
+              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <element signature="e#1#20#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,8 +147,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>above lower</find>
-      <find>current_posi</find>
       <find>process</find>
       <find>proces</find>
       <find>current_pos</find>
@@ -187,6 +169,14 @@
       <find>'</find>
       <find>end_date</find>
       <find>usdchf</find>
+      <find>eursgd</find>
+      <find>name</find>
+      <find>id</find>
+      <find>commission</find>
+      <find>60</find>
+      <find>15</find>
+      <find>huf</find>
+      <find>dd_duration</find>
     </findStrings>
     <replaceStrings>
       <replace>eth</replace>
@@ -195,6 +185,7 @@
       <replace>data_handler</replace>
       <replace>GroupSignalEvent</replace>
       <replace>&quot;</replace>
+      <replace>name</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -225,17 +216,18 @@
         <option value="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
         <option value="$PROJECT_DIR$/htr/core/configuration/jsonreader.py" />
         <option value="$PROJECT_DIR$/htr/core/configuration/csv_reader.py" />
-        <option value="$PROJECT_DIR$/htr/core/factory/factory.py" />
         <option value="$PROJECT_DIR$/config/temp" />
         <option value="$PROJECT_DIR$/config/specs_pairs.csv" />
         <option value="$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py" />
-        <option value="$PROJECT_DIR$/config/config.json" />
-        <option value="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" />
-        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/helpers/cointegration.py" />
+        <option value="$PROJECT_DIR$/htr/core/factory/factory.py" />
+        <option value="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" />
-        <option value="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
         <option value="$PROJECT_DIR$/htr/helpers/analyzer.py" />
+        <option value="$PROJECT_DIR$/htr/core/portfolio/portfolio.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
+        <option value="$PROJECT_DIR$/config/config.json" />
+        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
       </list>
     </option>
   </component>
@@ -270,25 +262,13 @@
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="histdata" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="histdata" type="462c0819:PsiDirectoryNode" />
-              <item name="forex" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="histdata" type="462c0819:PsiDirectoryNode" />
-              <item name="forex" type="462c0819:PsiDirectoryNode" />
-              <item name="eur" type="462c0819:PsiDirectoryNode" />
+              <item name="metals" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
@@ -393,8 +373,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,10 +500,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.report_analysis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.analyzer" />
-        <item index="2" class="java.lang.String" itemvalue="Python.dataprep" />
-        <item index="3" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="0" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="1" class="java.lang.String" itemvalue="Python.report_analysis" />
+        <item index="2" class="java.lang.String" itemvalue="Python.analyzer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.dataprep" />
         <item index="4" class="java.lang.String" itemvalue="Python.stationarity" />
       </list>
     </recent_temporary>
@@ -570,11 +550,10 @@
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1924" height="952" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18177083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34624413" sideWeight="0.50625" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43779343" sideWeight="0.49375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5316901" sideWeight="0.22552083" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41784036" sideWeight="0.77447915" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -587,6 +566,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3286385" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -606,23 +586,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py</url>
-          <line>405</line>
+          <line>406</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py</url>
-          <line>179</line>
+          <line>185</line>
           <option name="timeStamp" value="32" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/htr/helpers/cointegration.py</url>
           <line>65</line>
           <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py</url>
-          <line>37</line>
-          <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/htr/helpers/analyzer.py</url>
@@ -645,41 +620,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/htr/core/execution/crypto.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="90" column="62" lean-forward="false" selection-start-line="90" selection-start-column="61" selection-end-line="90" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/forecast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_rsi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="56" column="31" lean-forward="false" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="56" column="27" lean-forward="false" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/mt4/ExpertAdvisor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -760,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/configuration/manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -792,13 +725,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1734">
-          <caret line="115" column="33" lean-forward="false" selection-start-line="115" selection-start-column="33" selection-end-line="115" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -858,13 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/specs_pairs.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/histdata/forex/USDCHF15.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -876,9 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="629">
           <caret line="38" column="53" lean-forward="false" selection-start-line="38" selection-start-column="53" selection-end-line="38" selection-end-column="53" />
-          <folding>
-            <element signature="e#1#29#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -886,6 +802,116 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6528">
           <caret line="403" column="37" lean-forward="false" selection-start-line="403" selection-start-column="37" selection-end-line="403" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD_M1_2018.csv" />
+    <entry file="file://$PROJECT_DIR$/histdata/forex/AUDUSD1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="49" column="59" lean-forward="false" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histdata/forex/eur/EURTRY1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python3.4/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/core/indexes/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="2989" column="0" lean-forward="false" selection-start-line="2989" selection-start-column="0" selection-end-line="2989" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="19" column="64" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/crypto_prep.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD1.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/cointegration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/histdata/crypto_mt/BTCUSD5.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/option_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1785">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1377">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -898,137 +924,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="85" column="59" lean-forward="false" selection-start-line="85" selection-start-column="59" selection-end-line="85" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD_M1_2018.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/AUDUSD1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="49" column="59" lean-forward="false" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/eur/EURTRY1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///usr/lib/python3.4/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="300" column="0" lean-forward="false" selection-start-line="300" selection-start-column="0" selection-end-line="300" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/core/indexes/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="2989" column="0" lean-forward="false" selection-start-line="2989" selection-start-column="0" selection-end-line="2989" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/class_finder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="19" column="64" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="19" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/crypto_prep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/forex/NZDUSD1.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="32" lean-forward="false" selection-start-line="24" selection-start-column="32" selection-end-line="24" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="437" column="34" lean-forward="false" selection-start-line="437" selection-start-column="34" selection-end-line="437" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/cointegration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1849">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2669">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="629">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="e#1#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+    <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="20" column="91" lean-forward="true" selection-start-line="20" selection-start-column="91" selection-end-line="20" selection-end-column="91" />
+        <state relative-caret-position="2312">
+          <caret line="136" column="37" lean-forward="false" selection-start-line="136" selection-start-column="37" selection-end-line="136" selection-end-column="37" />
+          <folding>
+            <element signature="e#1#16#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/specs_pairs.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="11" lean-forward="false" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="93" column="21" lean-forward="true" selection-start-line="93" selection-start-column="21" selection-end-line="93" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#16#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="148">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1494">
+          <caret line="542" column="0" lean-forward="false" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-251">
+          <caret line="6" column="80" lean-forward="false" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+          <folding />
         </state>
       </provider>
     </entry>
