@@ -31,6 +31,10 @@ def hurst(p):
     hurst = m[0]*2
     return hurst
 
+def parallax_hurst(p):
+    ## (ln(hh-ll)-ln(atr)) / ln(time)
+    pass
+
 def adf(series):
     return ts.adfuller(series)
 

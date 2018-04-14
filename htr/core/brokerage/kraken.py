@@ -1,6 +1,7 @@
 
 from datetime import datetime as dt
 import time
+import zmq
 
 from htr.helpers.wrappers.kraken import Kraken
 from htr.core.brokerage import BrokerHandler
@@ -10,11 +11,9 @@ class KrakenHandler(BrokerHandler):
     def __init__(self, context):
         """."""
 
-        ## todo change this to retrieve keys from config file
-        self.KRAKEN_KEY = "P4Yvbvc0/skqWxcDmIOwIsA6bY5opvxdATJPB2bzK2IYw0T9pBSDdbT9"
-        self.KRAKEN_SECRET = 'CQQ1nlm5pWq3dHCZZ0mSqduYWwaZJL9W1PRiS/c0MaEi9bBAHHHl9LFFCM0giw0h8Yg9Yvh4/8OwgNQZd8IL2Q=='
-
-        self.kraken = Kraken.Auth(key=self.KRAKEN_KEY, secret=self.KRAKEN_SECRET)
+        # Create REQ Socket
+        self.reqSocket = context.socket(zmq.REQ)
+        self.reqSocket.connect("tcp://localhost:5555")
 
         ## todo contemplate the case of lost internet connection
 

@@ -1,7 +1,7 @@
 
 import time
 from datetime import datetime as dt
-import zmq
+import zmq_client
 
 class CryptoGatherer:
     def __init__(self, broker_handler):
@@ -12,8 +12,8 @@ class CryptoGatherer:
 
         """
 
-        self.context = zmq.Context()
-        self.socket = self.context.socket(zmq.REP)
+        self.context = zmq_client.Context()
+        self.socket = self.context.socket(zmq_client.REP)
         self.socket.bind("tcp://127.0.0.1:5558")
 
         ## todo pass context?

@@ -2,7 +2,7 @@ import datetime
 import OandaWrapper
 import schedule
 import time
-import zmq
+import zmq_client
 
 OANDA_ACCESS_TOKEN = "970b08eac223cc0fb6b9d50aa9bd7bd5-aa2497c02bec0264cc32c98909be36fd"
 OANDA_ACCOUNT_ID = 6068438  # put your access id here
@@ -42,9 +42,9 @@ def send():
 
 
 if __name__ == "__main__":
-    context = zmq.Context()
-    socket = context.socket(zmq.REQ)
-    # socket.setsockopt(zmq.py.SUBSCRIBE, '')
+    context = zmq_client.Context()
+    socket = context.socket(zmq_client.REQ)
+    # socket.setsockopt(zmq_client.py.SUBSCRIBE, '')
     socket.connect("tcp://127.0.0.1:5558")
     request = 'tick'
     # send()

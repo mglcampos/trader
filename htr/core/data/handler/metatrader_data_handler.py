@@ -2,12 +2,13 @@
 from datetime import datetime as dt
 import numpy as np
 import pandas as pd
-import zmq_client
+import zmq
 import json, ast
+import time
 
 from htr.core.events import MarketEvent
 
-class CryptoLiveDataHandler():
+class MetatraderDataHandler():
     """
 
     """
@@ -32,33 +33,43 @@ class CryptoLiveDataHandler():
         self.__startListener()
 
     def __startListener(self):
-        context = zmq_client.Context()
-        self.socket = context.socket(zmq_client.REQ)
-        # self.socket.setsockopt(zmq_client.py.SUBSCRIBE, '')
-        self.socket.connect("tcp://127.0.0.1:5558")
+        context = zmq.Context()
+
+        # Create PULL Socket
+        self.pullSocket = context.socket(zmq.PULL)
+        self.pullSocket.connect("tcp://localhost:5556")
+
+    def __tick(self):
+        while True:
+            try:
+                request = str(self.pullSocket.recv())
+                # print("Request: ", request)
+                # time.sleep(1)
+                print(request)
+                break
+
+            except Exception as e:
+                print(e)
+                self.errors.append(e.__str__() + str(dt.now()))
+                break
 
     def update_symbol_data(self):
 
         if self.socket is not None:
-            for symbol in self.symbol_list:
-                request = 'tick'
-                message = "{0} {1}".format(request, symbol)
-                print("send_message - ", message)
-                self.socket.send_string(message)
-                response = self.socket.recv()
-                print("Received reply ", request, "[", response, "]")
+            response = self.__tick()
+            print("Received reply ", "[", response, "]")
 
             if not response == 'Nothing New':
-                s, data = str(response).split(' ', 1)
-                data = json.loads(data.replace('"', '').replace('\'', '"'))
-                if any(symbol in s for s in self.symbol_data):
-                    self.symbol_data[symbol] = self.symbol_data[symbol].append(pd.DataFrame.from_dict({'ASK': [data['ask']], 'BID': [data['bid']], 'CLOSE': [data['close']]  , 'TIME' : [dt.fromtimestamp(data['timestamp'])]}))
-                    ## If dataframe gets to big empty it.
-                    if len(self.symbol_data[symbol].index) > 100000:
-                        self.symbol_data[symbol] = self.symbol_data[symbol][-1000]
+                s, bid, ask = str(response).split('|',2)
+                spread = bid - ask
+
+                self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
+                ## If dataframe gets to big empty it.
+                if len(self.symbol_data[s].index) > 100000:
+                    self.symbol_data[s] = self.symbol_data[s][-1000]
 
                 else:
-                    self.symbol_data[symbol] = pd.DataFrame.from_dict({'ASK': [data['ask']], 'BID': [data['bid']], 'CLOSE': [data['close']] , 'TIME' : [dt.fromtimestamp(data['timestamp'])]})
+                    self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
                 ## todo rethink this
                 self.update_bars()
 
@@ -211,8 +222,8 @@ class CryptoLiveDataHandler():
 #     print("BAR - " + str(handler._get_new_bar('XRPUSD')))
 
 # symbol = ('XRPUSD')
-# context = zmq_client.py.Context()
-# socket = context.socket(zmq_client.py.REQ)
+# context = zmq.py.Context()
+# socket = context.socket(zmq.py.REQ)
 # socket.connect("tcp://127.0.0.1:5558")
 # request = 'tick'
 # message = "{0} {1}".format(request, symbol)

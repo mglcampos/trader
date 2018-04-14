@@ -137,15 +137,14 @@
     #     time.sleep(1)
 
 import zmq
-
 # Sample Commands for ZeroMQ MT4 EA
 eurusd_buy_order = "TRADE|OPEN|0|EURUSD|0|50|50|Python-to-MT4"
 eurusd_sell_order = "TRADE|OPEN|1|EURUSD|0|50|50|Python-to-MT4"
 eurusd_closebuy_order = "TRADE|CLOSE|0|EURUSD|0|50|50|Python-to-MT4"
-get_rates = "RATES|GBPUSD"
+get_rates = "RATES|BTCUSD"
 
 # Sample Function for Client
-def zeromq_mt4_ea_client():
+def zeromq_mt4_ea():
 
     # Create ZMQ Context
     context = zmq.Context()
@@ -175,7 +174,7 @@ def zeromq_mt4_ea_client():
 def remote_send(socket, data):
 
     try:
-        socket.send(data)
+        socket.send_string(data)
         msg = socket.recv_string()
         print(msg)
 
@@ -193,4 +192,4 @@ def remote_pull(socket):
         print("Waiting for PUSH from MetaTrader 4..")
 
 # Run Tests
-zeromq_mt4_ea_client()
+zeromq_mt4_ea()

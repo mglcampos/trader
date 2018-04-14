@@ -98,6 +98,19 @@
       "heartbeat": 300,
       "risk_handler" : "kelly",
       "store" : true,
+      "enabled": false
+    },
+    {
+      "name": "mt4 backtest",
+      "symbol_list": ["BTC/USD"],
+      "strategies": ["crypto bull"],
+      "base_currency": "USD",
+      "data_handler" : "mt4 backtest data handler",
+      "brokers": [{"name": "metatrader", "key":"", "secret":""}],
+      "market": "forex",
+      "heartbeat": 0,
+      "risk_handler" : "kelly",
+      "store" : false,
       "enabled": true
     }
   ],

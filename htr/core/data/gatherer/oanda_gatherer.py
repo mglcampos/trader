@@ -2,7 +2,7 @@ from OandaWrapper import Streamer, OandaFormat
 from thread import start_new_thread
 from threading import Thread
 import time
-import zmq
+import zmq_client
 import pprint
 from datetime import datetime
 from DataStorage import Artic
@@ -13,8 +13,8 @@ class RateStreamer(Streamer):
     def __init__(self, instruments, environment='practice'):
         self.OANDA_ACCESS_TOKEN = "970b08eac223cc0fb6b9d50aa9bd7bd5-aa2497c02bec0264cc32c98909be36fd"
         self.OANDA_ACCOUNT_ID = 6068438
-        self.context = zmq.Context()
-        self.socket = self.context.socket(zmq.REP)
+        self.context = zmq_client.Context()
+        self.socket = self.context.socket(zmq_client.REP)
         self.socket.bind("tcp://127.0.0.1:5558")
         self.instruments = instruments
         self.cache = {}

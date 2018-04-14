@@ -9,7 +9,7 @@ class BrokerHandler(object):
 	__metaclass__ = ABCMeta
 
 	@abstractmethod
-	def create_order(self):
+	def create_order(self, symbol, amount, price, side, ord_type):
 		"""Creates an Limit/Market/Stop order."""
 
 		pass

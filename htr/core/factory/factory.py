@@ -91,7 +91,7 @@ class NodeFactory():
 					gatherer_thread = threading.Thread(target=gatherer.start_server)
 					gatherer_thread.start()
 
-					LiveTradeEngine(data_handler_class, CryptoExecutionHandler, CryptoPortfolio, StrategyManager,
+					LiveTradeEngine(data_handler_class, MetatraderExecutionHandler, MetatraderPortfolio, StrategyManager,
 					               risk_class, broker_handler_class, node_context).trade()
 
 	def _initialize_concurrent(self):

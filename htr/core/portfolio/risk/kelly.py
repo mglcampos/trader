@@ -12,12 +12,9 @@ class Kelly(RiskHandler):
         self.current_positions = None
         self.context = context
 
-    def update_current_positions(self, current_positions):
-        self.current_positions = current_positions
-
     def calculate_trade(self, positions_dict, signal, close_value):
         # todo sacar isto - symbol, strength, dir, pos, pl_ratio
-        self.update_current_positions(positions_dict)
+        self.current_positions = positions_dict
        ## todo assert there is enough units to generate quantity
         return self._calculate_quantity(close_value, signal)
 

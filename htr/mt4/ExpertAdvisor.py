@@ -1,15 +1,15 @@
 import datetime
 import time
-import zmq
+import zmq_client
 import pandas as pd
 
 class ExpertAdvisor():
     def __init__(self):
-        context = zmq.Context()
-        self.sub = context.socket(zmq.SUB)
-        self.sub.setsockopt(zmq.SUBSCRIBE, '')
+        context = zmq_client.Context()
+        self.sub = context.socket(zmq_client.SUB)
+        self.sub.setsockopt(zmq_client.SUBSCRIBE, '')
         self.sub.bind("tcp://127.0.0.1:2027")
-        self.pub = context.socket(zmq.PUB)
+        self.pub = context.socket(zmq_client.PUB)
         self.pub.bind("tcp://127.0.0.1:2028")
 
         self.cache = {}

@@ -3,7 +3,7 @@ import datetime
 import numpy as np
 import pandas as pd
 from .data_handler import DataHandler
-import zmq
+import zmq_client
 import json, ast
 import dateutil.parser
 
@@ -43,9 +43,9 @@ class OandaLiveDataHandler(DataHandler):
         # self.update_symbol_data()
 
     def startListener(self):
-        context = zmq.Context()
-        self.socket = context.socket(zmq.REQ)
-        # self.socket.setsockopt(zmq.py.SUBSCRIBE, '')
+        context = zmq_client.Context()
+        self.socket = context.socket(zmq_client.REQ)
+        # self.socket.setsockopt(zmq_client.py.SUBSCRIBE, '')
         self.socket.connect("tcp://127.0.0.1:5558")
 
 

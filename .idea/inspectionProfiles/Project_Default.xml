@@ -13,7 +13,7 @@
     <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="ignoredPackages">
         <value>
-          <list size="74">
+          <list size="75">
             <item index="0" class="java.lang.String" itemvalue="netifaces" />
             <item index="1" class="java.lang.String" itemvalue="pycurl" />
             <item index="2" class="java.lang.String" itemvalue="Babel" />
@@ -88,6 +88,7 @@
             <item index="71" class="java.lang.String" itemvalue="command-not-found" />
             <item index="72" class="java.lang.String" itemvalue="pytz" />
             <item index="73" class="java.lang.String" itemvalue="jsonpatch" />
+            <item index="74" class="java.lang.String" itemvalue="zmq" />
           </list>
         </value>
       </option>
