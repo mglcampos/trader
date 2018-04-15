@@ -2,29 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htr/core/brokerage/metatrader.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htr/core/execution/metatrader.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/zmq.py" afterPath="$PROJECT_DIR$/zmq_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.json" afterPath="$PROJECT_DIR$/config/config.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/brokerage/broker_handler.py" afterPath="$PROJECT_DIR$/htr/core/brokerage/broker_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/brokerage/kraken.py" afterPath="$PROJECT_DIR$/htr/core/brokerage/kraken.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" afterPath="$PROJECT_DIR$/htr/core/data/gatherer/oanda_gatherer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/__init__.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/crypto_live_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/crypto_live_data_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/oanda_data_handler.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/execution/__init__.py" afterPath="$PROJECT_DIR$/htr/core/execution/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py" afterPath="$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/factory/factory.py" afterPath="$PROJECT_DIR$/htr/core/factory/factory.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/__init__.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" afterPath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/cointegration.py" afterPath="$PROJECT_DIR$/htr/helpers/cointegration.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/report_analysis.py" afterPath="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/test2.py" afterPath="$PROJECT_DIR$/htr/helpers/test2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/mt4/ExpertAdvisor.py" afterPath="$PROJECT_DIR$/htr/mt4/ExpertAdvisor.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,16 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="backtest_portfolio.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-255">
-              <caret line="266" column="67" lean-forward="false" selection-start-line="266" selection-start-column="55" selection-end-line="266" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="crypto_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -60,8 +30,8 @@
       <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="108" column="38" lean-forward="false" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
+            <state relative-caret-position="269">
+              <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -70,8 +40,8 @@
       <file leaf-file-name="metatrader_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="64" column="57" lean-forward="true" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+            <state relative-caret-position="-15">
+              <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
               <folding>
                 <element signature="e#2847#6894#0" expanded="false" />
               </folding>
@@ -82,11 +52,41 @@
       <file leaf-file-name="factory.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="91" column="43" lean-forward="true" selection-start-line="89" selection-start-column="20" selection-end-line="91" selection-end-column="43" />
+            <state relative-caret-position="1190">
+              <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
               <folding>
                 <element signature="e#1#17#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="live_trader.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="73" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interpreter.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="htr.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -103,25 +103,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="metatrader_data_handler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="metatrader_data_handler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="67" column="59" lean-forward="true" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
+            <state relative-caret-position="-108">
+              <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding>
                 <element signature="e#1#36#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="53" lean-forward="false" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="53" />
-              <folding>
-                <element signature="e#1#33#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,16 +123,6 @@
               <folding>
                 <element signature="e#1#49#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kelly.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -247,18 +225,18 @@
         <option value="$PROJECT_DIR$/htr/core/brokerage/metatrader.py" />
         <option value="$PROJECT_DIR$/htr/core/execution/metatrader.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
-        <option value="$PROJECT_DIR$/htr/core/factory/factory.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/__init__.py" />
         <option value="$PROJECT_DIR$/htr/core/execution/__init__.py" />
-        <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/mt4_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/__init__.py" />
+        <option value="$PROJECT_DIR$/config/config.json" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py" />
+        <option value="$PROJECT_DIR$/htr/core/factory/factory.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-1" />
     <option name="y" value="27" />
     <option name="width" value="994" />
@@ -310,11 +288,6 @@
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="htr" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -328,72 +301,7 @@
               <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="htr" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="brokerage" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="gatherer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="data" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="engines" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="execution" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="factory" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-              <item name="risk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="htr" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="interpreter" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -433,7 +341,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.zmq">
+  <component name="RunManager" selected="Python.htr">
     <configuration name="analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -481,7 +389,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="trader" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/htr.py" />
-      <option name="PARAMETERS" value="-m simulation" />
+      <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
@@ -528,9 +436,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.zmq" />
-        <item index="1" class="java.lang.String" itemvalue="Python.report_analysis" />
-        <item index="2" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="0" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="1" class="java.lang.String" itemvalue="Python.zmq" />
+        <item index="2" class="java.lang.String" itemvalue="Python.report_analysis" />
         <item index="3" class="java.lang.String" itemvalue="Python.analyzer" />
         <item index="4" class="java.lang.String" itemvalue="Python.dataprep" />
       </list>
@@ -576,18 +484,18 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-1" width="1370" height="745" extended-state="6" />
+    <frame x="-2" y="-1" width="1370" height="745" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24011713" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5316901" sideWeight="0.22552083" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27286822" sideWeight="0.77447915" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34728682" sideWeight="0.77447915" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29225352" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45736435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29114583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -633,6 +541,26 @@
           <line>72</line>
           <option name="timeStamp" value="43" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/core/engines/live_trader.py</url>
+          <line>71</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/core/engines/live_trader.py</url>
+          <line>109</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/core/factory/factory.py</url>
+          <line>27</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py</url>
+          <line>77</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
@@ -644,7 +572,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="45" />
+      <option name="time" value="54" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -734,24 +662,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/interpreter/option_parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1785">
           <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -852,14 +766,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1276">
@@ -925,7 +831,7 @@
         <state relative-caret-position="470">
           <caret line="49" column="48" lean-forward="true" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
           <folding>
-            <element signature="e#1#12#0" expanded="true" />
+            <element signature="e#1#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -964,31 +870,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-969">
-          <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
-          <folding>
-            <element signature="e#2985#7032#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="15" column="40" lean-forward="false" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="64" column="57" lean-forward="true" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
-          <folding>
-            <element signature="e#2847#6894#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1012,30 +898,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="108" column="38" lean-forward="false" selection-start-line="108" selection-start-column="38" selection-end-line="108" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/data/handler/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding>
-            <element signature="e#1#45#0" expanded="true" />
+            <element signature="e#1#45#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="91" column="43" lean-forward="true" selection-start-line="89" selection-start-column="20" selection-end-line="91" selection-end-column="43" />
+        <state relative-caret-position="-969">
+          <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
           <folding>
-            <element signature="e#1#17#0" expanded="true" />
+            <element signature="e#2985#7032#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-15">
+          <caret line="45" column="32" lean-forward="true" selection-start-line="45" selection-start-column="32" selection-end-line="45" selection-end-column="32" />
+          <folding>
+            <element signature="e#2847#6894#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="109" column="28" lean-forward="false" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-108">
+          <caret line="26" column="26" lean-forward="true" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1050,13 +956,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/metatrader_data_handler.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="67" column="59" lean-forward="true" selection-start-line="67" selection-start-column="59" selection-end-line="67" selection-end-column="59" />
+        <state relative-caret-position="30">
+          <caret line="71" column="48" lean-forward="false" selection-start-line="71" selection-start-column="48" selection-end-line="73" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="82" column="57" lean-forward="false" selection-start-line="82" selection-start-column="57" selection-end-line="82" selection-end-column="57" />
           <folding>
-            <element signature="e#1#36#0" expanded="true" />
+            <element signature="e#1#17#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="83" column="17" lean-forward="true" selection-start-line="83" selection-start-column="17" selection-end-line="83" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>

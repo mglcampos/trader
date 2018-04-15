@@ -42,11 +42,11 @@ class MetatraderDataHandler():
     def __tick(self):
         while True:
             try:
-                request = str(self.pullSocket.recv())
+                tick = str(self.pullSocket.recv())
                 # print("Request: ", request)
                 # time.sleep(1)
-                print(request)
-                break
+                print(tick)
+                return tick
 
             except Exception as e:
                 print(e)
@@ -56,6 +56,7 @@ class MetatraderDataHandler():
     def update_symbol_data(self):
 
         if self.socket is not None:
+            print('update')
             response = self.__tick()
             print("Received reply ", "[", response, "]")
 

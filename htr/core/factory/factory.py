@@ -14,7 +14,6 @@ from htr.helpers.class_finder import FilePaths, get_class
 from htr.core.strategy import StrategyManager
 from htr.core.brokerage import KrakenHandler
 
-
 class NodeFactory():
 	"""Receives factory_type and simulation from the interpreter and instantiates nodes."""
 
@@ -75,11 +74,13 @@ class NodeFactory():
 
 					## todo select broker handler from config file, unpack brokerage dict
 					# broker_handler_class = get_class(node['brokerage'], FilePaths.BROKER_HANDLER)
-					broker_handler_class = KrakenHandler
-
+					# broker_handler_class = KrakenHandler
+					from htr.core.brokerage.metatrader import MetatraderHandler
+					broker_handler_class = MetatraderHandler
 					## todo select portfolio from config file, unpack brokerage dict
 					# portfolio_class = get_class(node['portfolio'], FilePaths.PORTFOLIO)
-					portfolio_class = CryptoPortfolio
+					# portfolio_class = CryptoPortfolio
+					portfolio_class = MetatraderPortfolio
 
 					# Merges backtest nodes dict attribute with specs dict.
 					merged_dict = dict(list(node.items()) + list(getattr(self.context, Context.SPECS).items()))
@@ -87,9 +88,9 @@ class NodeFactory():
 					node_context.__dict__ = merged_dict
 
 					# Start Data Gatherer server.
-					gatherer = CryptoGatherer(broker_handler_class)
-					gatherer_thread = threading.Thread(target=gatherer.start_server)
-					gatherer_thread.start()
+					# gatherer = CryptoGatherer(broker_handler_class)
+					# gatherer_thread = threading.Thread(target=gatherer.start_server)
+					# gatherer_thread.start()
 
 					LiveTradeEngine(data_handler_class, MetatraderExecutionHandler, MetatraderPortfolio, StrategyManager,
 					               risk_class, broker_handler_class, node_context).trade()
