@@ -10,6 +10,7 @@ class MetatraderHandler(BrokerHandler):
     def __init__(self, context):
         """."""
 
+        context = zmq.Context()
         # Create REQ Socket
         self.reqSocket = context.socket(zmq.REQ)
         self.reqSocket.connect("tcp://localhost:5555")
@@ -113,10 +114,22 @@ class MetatraderHandler(BrokerHandler):
     #     else:
     #         return float(self.kraken.balance()['result']['X'+symbol])
     #
-    # def get_cash(self, symbol='USD'):
-    #     """."""
-    #
-    #     return float(self.kraken.trade_balance(symbol)['result']['mf'])
+    def get_cash(self, symbol='USD'):
+        """."""
+        ## todo not using symbol
+
+        # ACCOUNT | 1  # balance
+        # ACCOUNT | 2  # current P/L
+        # ACCOUNT | 3  # equity
+        # ACCOUNT | 4  # margin used
+        # ACCOUNT | 5  # free margin
+        # ACCOUNT | 6  # margin level
+        # ACCOUNT | 7  # margin call level
+        # ACCOUNT | 8  # margin stop out level
+        # ACCOUNT | 0  # all of the above.
+
+        msg = 'ACCOUNT|{}'.format('5')
+        return self.remote_send(self.reqSocket, msg)
     #
     # def get_max_buy(self, pair):
     #     """."""

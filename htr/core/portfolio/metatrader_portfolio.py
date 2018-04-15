@@ -290,13 +290,14 @@ class MetatraderPortfolio():
 		d = dict((k, v) for k, v in \
 		     [(s, 0) for s in self.symbol_list])
 
-		positions = self.broker_handler.get_available_units()
-		for s in positions:
-			if s[1:] == self.context.base_currency:
-				d['cash'] = float(positions[s])
-
-			else:
-				d[s[1:] + '/' + self.context.base_currency] = float(positions[s])
+		## todo commented for mt4 backtest
+		# positions = self.broker_handler.get_available_units()
+		# for s in positions:
+		# 	if s[1:] == self.context.base_currency:
+		# 		d['cash'] = float(positions[s])
+        #
+		# 	else:
+		# 		d[s[1:] + '/' + self.context.base_currency] = float(positions[s])
 
 		return d
 

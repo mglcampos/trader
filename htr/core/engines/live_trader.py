@@ -47,7 +47,8 @@ class LiveTrader:
 
         self.broker_handler = self.broker_handler_cls(self.context)
 
-        self.initial_capital = self.broker_handler.get_cash(symbol=self.context.base_currency)
+        # self.initial_capital = self.broker_handler.get_cash(symbol=self.context.base_currency)
+        self.initial_capital = 1000 ## todo edit this
         setattr(self.context, 'initial_capital', self.initial_capital)
 
         self.data_handler = self.data_handler_cls(self.context, self.events)

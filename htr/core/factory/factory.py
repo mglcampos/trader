@@ -3,7 +3,7 @@ import threading
 
 from htr.core.configuration import *
 from htr.core.data.handler import *
-from htr.core.data.gatherer import CryptoGatherer
+# from htr.core.data.gatherer import CryptoGatherer
 from htr.core.engines import Backtest as BacktestEngine
 from htr.core.engines import LiveTrader as LiveTradeEngine
 from htr.core.execution import *
@@ -12,7 +12,7 @@ from htr.core.portfolio import *
 from htr.core.portfolio.risk import *
 from htr.helpers.class_finder import FilePaths, get_class
 from htr.core.strategy import StrategyManager
-from htr.core.brokerage import KrakenHandler
+# from htr.core.brokerage import KrakenHandler
 
 class NodeFactory():
 	"""Receives factory_type and simulation from the interpreter and instantiates nodes."""

@@ -24,7 +24,8 @@ class MetatraderDataHandler():
         self.latest_symbol_data = {}
         self.data_generator = {}
         self.continue_backtest = True
-        self.socket = None
+        self.pullSocket = None
+        self.errors = []
 
         for s in self.symbol_list:
             self.latest_symbol_data[s] = []
@@ -54,25 +55,24 @@ class MetatraderDataHandler():
                 break
 
     def update_symbol_data(self):
+        """."""
 
-        if self.socket is not None:
-            print('update')
-            response = self.__tick()
-            print("Received reply ", "[", response, "]")
+        response = self.__tick()
+        print("Received reply ", "[", response, "]")
 
-            if not response == 'Nothing New':
-                s, bid, ask = str(response).split('|',2)
-                spread = bid - ask
+        if not response == 'Nothing New':
+            s, bid, ask = str(response).split('|',2)
+            spread = bid - ask
 
-                self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
-                ## If dataframe gets to big empty it.
-                if len(self.symbol_data[s].index) > 100000:
-                    self.symbol_data[s] = self.symbol_data[s][-1000]
+            self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
+            ## If dataframe gets to big empty it.
+            if len(self.symbol_data[s].index) > 100000:
+                self.symbol_data[s] = self.symbol_data[s][-1000]
 
-                else:
-                    self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
-                ## todo rethink this
-                self.update_bars()
+            else:
+                self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
+            ## todo rethink this
+            self.update_bars()
 
 # #################################################################
 #
