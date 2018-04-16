@@ -3,8 +3,8 @@
     {
       "name": "forex_pairs",
       "strategies": ["pairs trading"],
-      "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/forex/eur/EURNZD1.csv"], "symbol":"EUR/NZD"},
-      {"path":["/home/mcampos/Documents/code/trader/histdata/forex/eur/EURAUD1.csv"], "symbol":"EUR/AUD"}],
+      "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/forex/eur/EURNOK1.csv"], "symbol":"EUR/NOK"},
+      {"path":["/home/mcampos/Documents/code/trader/histdata/forex/eur/EURSEK1.csv"], "symbol":"EUR/SEK"}],
       "data_header": ["Day", "Time", "Open", "High", "Low", "Close", "Volume"],
       "start_date": "2018-03-01",
       "end_date": "2018-04-01",

@@ -2,19 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BTCUSD_report.csv" afterPath="$PROJECT_DIR$/BTCUSD_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EURAUD_report.csv" afterPath="$PROJECT_DIR$/EURAUD_report.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EURHUF_report.csv" afterPath="$PROJECT_DIR$/EURHUF_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EURNOK_report.csv" afterPath="$PROJECT_DIR$/EURNOK_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EURNZD_report.csv" afterPath="$PROJECT_DIR$/EURNZD_report.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LTCUSD_report.csv" afterPath="$PROJECT_DIR$/LTCUSD_report.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/EURSEK_report.csv" afterPath="$PROJECT_DIR$/EURSEK_report.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/config.json" afterPath="$PROJECT_DIR$/config/config.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/specs_pairs.csv" afterPath="$PROJECT_DIR$/config/specs_pairs.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/equity.csv" afterPath="$PROJECT_DIR$/equity.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/analyzer.py" afterPath="$PROJECT_DIR$/htr/helpers/analyzer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/htr/helpers/report_analysis.py" afterPath="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reportf.json" afterPath="$PROJECT_DIR$/reportf.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/zmq_client.py" afterPath="$PROJECT_DIR$/zmq_client.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,7 +24,7 @@
       <file leaf-file-name="metatrader_portfolio.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="17">
               <caret line="292" column="42" lean-forward="false" selection-start-line="292" selection-start-column="42" selection-end-line="292" selection-end-column="42" />
               <folding>
                 <element signature="e#2847#6894#0" expanded="false" />
@@ -37,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="zmq_client.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="zmq_client.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/zmq_client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="152" column="9" lean-forward="true" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="9" />
+            <state relative-caret-position="377">
+              <caret line="197" column="45" lean-forward="false" selection-start-line="197" selection-start-column="45" selection-end-line="197" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -50,8 +46,8 @@
       <file leaf-file-name="analyzer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,18 +56,18 @@
       <file leaf-file-name="report_analysis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
+            <state relative-caret-position="136">
               <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pairs_trading.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pairs_trading.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-172">
-              <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+            <state relative-caret-position="722">
+              <caret line="130" column="19" lean-forward="true" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -80,8 +76,8 @@
       <file leaf-file-name="specs_pairs.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/specs_pairs.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+            <state relative-caret-position="374">
+              <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -90,8 +86,8 @@
       <file leaf-file-name="config.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="79" lean-forward="true" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
+            <state relative-caret-position="102">
+              <caret line="6" column="107" lean-forward="true" selection-start-line="6" selection-start-column="107" selection-end-line="6" selection-end-column="107" />
               <folding />
             </state>
           </provider>
@@ -100,7 +96,7 @@
       <file leaf-file-name="csv_data_handler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
+            <state relative-caret-position="1598">
               <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding />
             </state>
@@ -142,8 +138,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>long</find>
-      <find>current_posit</find>
       <find>update_f</find>
       <find>market_v</find>
       <find>hurst</find>
@@ -172,6 +166,8 @@
       <find>zmq_client</find>
       <find>get_avai</find>
       <find>close</find>
+      <find>100</find>
+      <find>sek</find>
     </findStrings>
     <replaceStrings>
       <replace>eth</replace>
@@ -217,7 +213,6 @@
         <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/zmq" />
         <option value="$PROJECT_DIR$/zmq.py" />
-        <option value="$PROJECT_DIR$/zmq_client.py" />
         <option value="$PROJECT_DIR$/htr/helpers/cointegration.py" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/mt4_backtest_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/core/brokerage/kraken.py" />
@@ -237,6 +232,7 @@
         <option value="$PROJECT_DIR$/htr/helpers/report_analysis.py" />
         <option value="$PROJECT_DIR$/config/specs_pairs.csv" />
         <option value="$PROJECT_DIR$/config/config.json" />
+        <option value="$PROJECT_DIR$/zmq_client.py" />
       </list>
     </option>
   </component>
@@ -280,35 +276,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="histdata" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="histdata" type="462c0819:PsiDirectoryNode" />
-              <item name="forex" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
-              <item name="trader" type="462c0819:PsiDirectoryNode" />
-              <item name="histdata" type="462c0819:PsiDirectoryNode" />
-              <item name="forex" type="462c0819:PsiDirectoryNode" />
-              <item name="eur" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
@@ -361,7 +335,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -397,7 +370,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.report_analysis">
+  <component name="RunManager" selected="Python.zmq">
     <configuration name="analyzer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -492,10 +465,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.report_analysis" />
-        <item index="1" class="java.lang.String" itemvalue="Python.htr" />
-        <item index="2" class="java.lang.String" itemvalue="Python.analyzer" />
-        <item index="3" class="java.lang.String" itemvalue="Python.zmq" />
+        <item index="0" class="java.lang.String" itemvalue="Python.zmq" />
+        <item index="1" class="java.lang.String" itemvalue="Python.report_analysis" />
+        <item index="2" class="java.lang.String" itemvalue="Python.htr" />
+        <item index="3" class="java.lang.String" itemvalue="Python.analyzer" />
         <item index="4" class="java.lang.String" itemvalue="Python.dataprep" />
       </list>
     </recent_temporary>
@@ -540,19 +513,19 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-1" width="1924" height="952" extended-state="6" />
+    <frame x="-1" y="27" width="1924" height="952" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17083333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.53488374" sideWeight="0.22986823" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3673709" sideWeight="0.77013177" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298122" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2793427" sideWeight="0.77013177" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45736435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45736435" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29114583" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -843,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -872,7 +844,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2516">
           <caret line="151" column="0" lean-forward="false" selection-start-line="151" selection-start-column="0" selection-end-line="151" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -880,7 +851,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
           <caret line="72" column="0" lean-forward="false" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -888,9 +858,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1649">
           <caret line="102" column="30" lean-forward="false" selection-start-line="102" selection-start-column="30" selection-end-line="102" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#16#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -900,16 +867,6 @@
           <caret line="130" column="36" lean-forward="false" selection-start-line="130" selection-start-column="36" selection-end-line="130" selection-end-column="36" />
           <folding>
             <element signature="e#1#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="292" column="42" lean-forward="false" selection-start-line="292" selection-start-column="42" selection-end-line="292" selection-end-column="42" />
-          <folding>
-            <element signature="e#2847#6894#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -924,19 +881,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/zmq_client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="152" column="9" lean-forward="true" selection-start-line="152" selection-start-column="9" selection-end-line="152" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/histdata/forex/USDCHF1.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -944,13 +892,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
+        <state relative-caret-position="1598">
           <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding />
         </state>
@@ -958,40 +905,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
+        <state relative-caret-position="222">
+          <caret line="147" column="0" lean-forward="false" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/metatrader_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="17">
+          <caret line="292" column="42" lean-forward="false" selection-start-line="292" selection-start-column="42" selection-end-line="292" selection-end-column="42" />
+          <folding>
+            <element signature="e#2847#6894#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/specs_pairs.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="11" lean-forward="true" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+        <state relative-caret-position="374">
+          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="79" lean-forward="true" selection-start-line="7" selection-start-column="79" selection-end-line="7" selection-end-column="79" />
+        <state relative-caret-position="102">
+          <caret line="6" column="107" lean-forward="true" selection-start-line="6" selection-start-column="107" selection-end-line="6" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="46" lean-forward="false" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-172">
-          <caret line="60" column="42" lean-forward="false" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+        <state relative-caret-position="722">
+          <caret line="130" column="19" lean-forward="true" selection-start-line="130" selection-start-column="19" selection-end-line="130" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/zmq_client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="197" column="45" lean-forward="false" selection-start-line="197" selection-start-column="45" selection-end-line="197" selection-end-column="45" />
           <folding />
         </state>
       </provider>

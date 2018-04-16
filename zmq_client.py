@@ -136,11 +136,38 @@
     #     socket.send("%d %d" % (topic, messagedata))
     #     time.sleep(1)
 
+
+# compArray[0] = TRADE
+# compArray[1] = ACTION(e.g.OPEN, MODIFY, CLOSE)
+# compArray[2] = TYPE(e.g.OP_BUY, OP_SELL, etc - only
+# used
+# when
+# ACTION = OPEN)
+#
+# // ORDER
+# TYPES:
+# // https: // docs.mql4.com / constants / tradingconstants / orderproperties
+#
+# // OP_BUY = 0
+# // OP_SELL = 1
+# // OP_BUYLIMIT = 2
+# // OP_SELLLIMIT = 3
+# // OP_BUYSTOP = 4
+# // OP_SELLSTOP = 5
+#
+# compArray[3] = Symbol(e.g.EURUSD, etc.)
+# compArray[4] = Open / Close
+# Price(ignored if ACTION = MODIFY)
+# compArray[5] = SL
+# compArray[6] = TP
+# compArray[7] = lOTS
+# compArray[8] = comments / ticket
+
 import zmq
 # Sample Commands for ZeroMQ MT4 EA
-eurusd_buy_order = "TRADE|OPEN|0|EURUSD|0|50|50|Python-to-MT4"
-eurusd_sell_order = "TRADE|OPEN|1|EURUSD|0|50|50|Python-to-MT4"
-eurusd_closebuy_order = "TRADE|CLOSE|0|EURUSD|0|50|50|Python-to-MT4"
+eurusd_buy_order = "TRADE|OPEN|0|EURUSD|0|50|50|0.01|Python-to-MT4"
+eurusd_sell_order = "TRADE|OPEN|1|EURUSD|0|50|50|0.01|Python-to-MT4"
+eurusd_closebuy_order = "TRADE|CLOSE|0|EURUSD|0|50|50|0.01"
 get_rates = "RATES|BTCUSD"
 
 # Sample Function for Client
@@ -159,13 +186,16 @@ def zeromq_mt4_ea():
 
     # Send RATES command to ZeroMQ MT4 EA
     remote_send(reqSocket, get_rates)
+    # PULL from pullSocket
+    remote_pull(pullSocket)
 
     # Send BUY EURUSD command to ZeroMQ MT4 EA
-    # remote_send(reqSocket, eurusd_buy_order)
+    remote_send(reqSocket, eurusd_buy_order)
+    ticket = remote_pull(pullSocket).split('|', 1)[1]
 
     # Send CLOSE EURUSD command to ZeroMQ MT4 EA. You'll need to append the
     # trade's ORDER ID to the end, as below for example:
-    # remote_send(reqSocket, eurusd_closebuy_order + "|" + "12345678")
+    remote_send(reqSocket, eurusd_closebuy_order + "|" + ticket)
 
     # PULL from pullSocket
     remote_pull(pullSocket)
@@ -176,7 +206,7 @@ def remote_send(socket, data):
     try:
         socket.send_string(data)
         msg = socket.recv_string()
-        print(msg)
+        print("SENT: ", msg)
 
     except zmq.Again as e:
         print("Waiting for PUSH from MetaTrader 4..")
@@ -185,8 +215,10 @@ def remote_send(socket, data):
 def remote_pull(socket):
 
     try:
+        # msg = socket.recv(flags=zmq.NOBLOCK)
         msg = socket.recv(flags=zmq.NOBLOCK)
-        print(msg)
+        print("RECEIVED: ", msg)
+        return msg
 
     except zmq.Again as e:
         print("Waiting for PUSH from MetaTrader 4..")
