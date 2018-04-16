@@ -21,9 +21,9 @@
     {
       "name": "mean_reverting",
       "strategies": ["crypto bull"],
-      "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/forex/EURUSD5.csv"], "symbol":"EUR/USD"}],
+      "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/crypto_mt/LTCUSD1.csv"], "symbol":"LTC/USD"}],
       "data_header": ["Day", "Time", "Open", "High", "Low", "Close", "Volume"],
-      "start_date": "2018-01-01",
+      "start_date": "2018-03-01",
       "end_date": "2018-04-01",
       "data_preparation": true,
       "specs": "",

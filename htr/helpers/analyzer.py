@@ -110,7 +110,7 @@ class Analyzer:
 
         return file_paths
 
-    def study_stationarity(self, files, timeframe = '5.'):
+    def study_stationarity(self, files, timeframe = '1.'):
         """."""
 
         errors = []
@@ -123,7 +123,7 @@ class Analyzer:
 
         print(errors)
 
-    def study_cointegration(self, files, timeframe = '5.'):
+    def study_cointegration(self, files, timeframe = '1.'):
         """."""
 
         errors = []
@@ -141,6 +141,7 @@ class Analyzer:
 errors = []
 timeframe = '5.'
 
-a = Analyzer(start_date='2018-01-01', end_date='2018-04-01')
+a = Analyzer(start_date='2018-03-16', end_date='2018-04-01')
 files = a.get_files('/home/mcampos/Documents/code/trader/histdata')
 print(a.study_cointegration(files))
+# print(a.study_stationarity(files))
