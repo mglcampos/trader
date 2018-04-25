@@ -29,8 +29,8 @@ class Kelly(RiskHandler):
         quantity = 0
         if signal.signal_type == 'LONG':
             if signal.strength == 1.0:
-                # quantity = 50 * (1/close_value) # todo change this
-                quantity = 5000
+                quantity = 50 * (1/close_value) # todo change this for crypto
+                # quantity = 5000 ## todo for forex
 
             else:
                 quantity = 25 * (1 / close_value)  # todo change this

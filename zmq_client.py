@@ -173,6 +173,7 @@ get_rates = "RATES|BTCUSD"
 # Sample Function for Client
 def zeromq_mt4_ea():
 
+    print("Starting client")
     # Create ZMQ Context
     context = zmq.Context()
 
@@ -185,20 +186,30 @@ def zeromq_mt4_ea():
     pullSocket.connect("tcp://localhost:5556")
 
     # Send RATES command to ZeroMQ MT4 EA
-    remote_send(reqSocket, get_rates)
-    # PULL from pullSocket
-    remote_pull(pullSocket)
+    # remote_send(reqSocket, get_rates)
+    # # PULL from pullSocket
+    # remote_pull(pullSocket)
 
+    import time
+    #
     # Send BUY EURUSD command to ZeroMQ MT4 EA
     remote_send(reqSocket, eurusd_buy_order)
-    ticket = remote_pull(pullSocket).split('|', 1)[1]
+    time.sleep(5)
+    ticket = remote_pull(pullSocket)
+    if ticket is not None and len(ticket) > 1:
+        ticket = ticket.split('|', 1)[1]
+        print("TICKET : ", ticket)
+    else:
+        ticket = -1
 
+    time.sleep(5)
     # Send CLOSE EURUSD command to ZeroMQ MT4 EA. You'll need to append the
     # trade's ORDER ID to the end, as below for example:
-    remote_send(reqSocket, eurusd_closebuy_order + "|" + ticket)
-
-    # PULL from pullSocket
-    remote_pull(pullSocket)
+    if ticket != -1:
+        remote_send(reqSocket, eurusd_closebuy_order + "|" + ticket)
+        time.sleep(5)
+        # PULL from pullSocket
+        remote_pull(pullSocket)
 
 # Function to send commands to ZeroMQ MT4 EA
 def remote_send(socket, data):
@@ -206,7 +217,7 @@ def remote_send(socket, data):
     try:
         socket.send_string(data)
         msg = socket.recv_string()
-        print("SENT: ", msg)
+        print("SENT: ", data)
 
     except zmq.Again as e:
         print("Waiting for PUSH from MetaTrader 4..")
@@ -218,7 +229,7 @@ def remote_pull(socket):
         # msg = socket.recv(flags=zmq.NOBLOCK)
         msg = socket.recv(flags=zmq.NOBLOCK)
         print("RECEIVED: ", msg)
-        return msg
+        return str(msg)
 
     except zmq.Again as e:
         print("Waiting for PUSH from MetaTrader 4..")

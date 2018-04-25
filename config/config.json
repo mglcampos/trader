@@ -15,12 +15,12 @@
       "timeframe": "H1",
       "commission" : 0,
       "initial_capital": 5000,
-      "enabled": true,
+      "enabled": false,
       "store": true
     },
     {
-      "name": "mean_reverting",
-      "strategies": ["crypto bull"],
+      "name": "trend_following",
+      "strategies": [""],
       "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/crypto_mt/LTCUSD1.csv"], "symbol":"LTC/USD"}],
       "data_header": ["Day", "Time", "Open", "High", "Low", "Close", "Volume"],
       "start_date": "2018-03-01",
@@ -37,8 +37,8 @@
     },
     {
       "name": "crypto_csv",
-      "strategies": ["crypto bull"],
-      "data_sources": [{"path":["histdata/BTCUSD_2018_M1.csv"], "symbol":"BTC/USD"}],
+      "strategies": [""],
+      "data_sources": [{"path":["histdata/crypto/BTCUSD_2018_M1.csv"], "symbol":"BTC/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
