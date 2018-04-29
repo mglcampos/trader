@@ -7,10 +7,10 @@ client = MongoClient('localhost', 27017)
 backtests = client['backtests']
 backtest = backtests.backtest
 for test in backtest.find().sort('max_drawdown', ASCENDING):
-    if 'forex' in test['files'][0]['path'][0]:
+   if 'crypto' in test['files'][0]['path'][0]:
         print('Backtest: ', test['name'],  test['files'], ' | Sharpe: ', test['sharpe'], ' | Profitability : ', test['profit'], ' | Max Drawdown: ', test['max_drawdown'])
-    elif 'crypto_mt' in test['files'][0]['path'][0]:
-        print('Backtest: ', test['name'],  test['files'], ' | Sharpe: ', test['sharpe'], ' | Profitability : ', test['profit'], ' | Max Drawdown: ', test['max_drawdown'])
+    # elif 'crypto_mt' in test['files'][0]['path'][0]:
+    #     print('Backtest: ', test['name'],  test['files'], ' | Sharpe: ', test['sharpe'], ' | Profitability : ', test['profit'], ' | Max Drawdown: ', test['max_drawdown'])
 
 # backtests = client['series_analysis']
 # results = backtests.cointegration

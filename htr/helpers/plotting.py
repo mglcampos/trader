@@ -1,31 +1,11 @@
 
 import matplotlib.pyplot as plt
-
-from htr.helpers.dataprep import DataPrep
-
-
+import pandas as pd
 import datetime
 import numpy as np
-import matplotlib.colors as colors
-import matplotlib.finance as finance
-import matplotlib.dates as mdates
-import matplotlib.ticker as mticker
-import matplotlib.mlab as mlab
-import matplotlib.pyplot as plt
-import matplotlib.font_manager as font_manager
+import talib
 
-
-startdate = datetime.date(2006, 1, 1)
-today = enddate = datetime.date.today()
-ticker = 'SPY'
-
-
-fh = finance.fetch_historical_yahoo(ticker, startdate, enddate)
-# a numpy record array with fields: date, open, high, low, close, volume, adj_close)
-
-r = mlab.csv2rec(fh)
-fh.close()
-r.sort()
+from htr.helpers.dataprep import DataPrep
 
 
 def moving_average(x, n, type='simple'):
@@ -91,135 +71,60 @@ def moving_average_convergence(x, nslow=26, nfast=12):
     emafast = moving_average(x, nfast, type='exponential')
     return emaslow, emafast, emafast - emaslow
 
+dt = DataPrep()
 
-plt.rc('axes', grid=True)
-plt.rc('grid', color='0.75', linestyle='-', linewidth=0.5)
+file = "/home/mcampos/Documents/code/trader/histdata/crypto/BTCUSD_2017_M10.csv"
 
-textsize = 9
-left, width = 0.1, 0.8
-rect1 = [left, 0.7, width, 0.2]
-rect2 = [left, 0.3, width, 0.4]
-rect3 = [left, 0.1, width, 0.2]
+df = dt.load_csv(file, header=["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"])[0]
+df.index = df["Datetime"]
+df = df[df.index > '2017-10-26']
+df['SAR'] = talib.SAR(df['High'], df['Low'])
+emaslow, emafast, df['MACD'] = moving_average_convergence(df['Close'].values)
+df['RSI'] = relative_strength(df['Close'].values)
+print(df.head())
+# Lets plot
+fig = plt.figure(1)
+fig.suptitle('Trend Following Studies', fontsize=16)
+ax = plt.subplot(211)
+ax.title.set_text('Price')
+df['Close'].plot(legend=None)
+ax = plt.subplot(212)
+ax.title.set_text('SAR')
+df['SAR'].plot(legend=None)
 
+fig = plt.figure(2)
+ax = plt.subplot(211)
+ax.title.set_text('Price')
+df['Close'].plot(legend=None)
+fig.subplots_adjust(hspace=1)
+ax = plt.subplot(212)
+ax.title.set_text('MACD')
+df['MACD'].plot(legend=None)
 
-fig = plt.figure(facecolor='white')
-axescolor = '#f6f6f6'  # the axes background color
-
-ax1 = fig.add_axes(rect1, axisbg=axescolor)  # left, bottom, width, height
-ax2 = fig.add_axes(rect2, axisbg=axescolor, sharex=ax1)
-ax2t = ax2.twinx()
-ax3 = fig.add_axes(rect3, axisbg=axescolor, sharex=ax1)
-
-
-# plot the relative strength indicator
-prices = r.adj_close
-rsi = relative_strength(prices)
-fillcolor = 'darkgoldenrod'
-
-ax1.plot(r.date, rsi, color=fillcolor)
-ax1.axhline(70, color=fillcolor)
-ax1.axhline(30, color=fillcolor)
-ax1.fill_between(r.date, rsi, 70, where=(rsi >= 70), facecolor=fillcolor, edgecolor=fillcolor)
-ax1.fill_between(r.date, rsi, 30, where=(rsi <= 30), facecolor=fillcolor, edgecolor=fillcolor)
-ax1.text(0.6, 0.9, '>70 = overbought', va='top', transform=ax1.transAxes, fontsize=textsize)
-ax1.text(0.6, 0.1, '<30 = oversold', transform=ax1.transAxes, fontsize=textsize)
-ax1.set_ylim(0, 100)
-ax1.set_yticks([30, 70])
-ax1.text(0.025, 0.95, 'RSI (14)', va='top', transform=ax1.transAxes, fontsize=textsize)
-ax1.set_title('%s daily' % ticker)
-
-# plot the price and volume data
-dx = r.adj_close - r.close
-low = r.low + dx
-high = r.high + dx
-
-deltas = np.zeros_like(prices)
-deltas[1:] = np.diff(prices)
-up = deltas > 0
-ax2.vlines(r.date[up], low[up], high[up], color='black', label='_nolegend_')
-ax2.vlines(r.date[~up], low[~up], high[~up], color='black', label='_nolegend_')
-ma20 = moving_average(prices, 20, type='simple')
-ma200 = moving_average(prices, 200, type='simple')
-
-linema20, = ax2.plot(r.date, ma20, color='blue', lw=2, label='MA (20)')
-linema200, = ax2.plot(r.date, ma200, color='red', lw=2, label='MA (200)')
-
-
-last = r[-1]
-s = '%s O:%1.2f H:%1.2f L:%1.2f C:%1.2f, V:%1.1fM Chg:%+1.2f' % (
-    today.strftime('%d-%b-%Y'),
-    last.open, last.high,
-    last.low, last.close,
-    last.volume*1e-6,
-    last.close - last.open)
-t4 = ax2.text(0.3, 0.9, s, transform=ax2.transAxes, fontsize=textsize)
-
-props = font_manager.FontProperties(size=10)
-leg = ax2.legend(loc='center left', shadow=True, fancybox=True, prop=props)
-leg.get_frame().set_alpha(0.5)
-
-
-volume = (r.close*r.volume)/1e6  # dollar volume in millions
-vmax = volume.max()
-poly = ax2t.fill_between(r.date, volume, 0, label='Volume', facecolor=fillcolor, edgecolor=fillcolor)
-ax2t.set_ylim(0, 5*vmax)
-ax2t.set_yticks([])
-
-
-# compute the MACD indicator
-fillcolor = 'darkslategrey'
-nslow = 26
-nfast = 12
-nema = 9
-emaslow, emafast, macd = moving_average_convergence(prices, nslow=nslow, nfast=nfast)
-ema9 = moving_average(macd, nema, type='exponential')
-ax3.plot(r.date, macd, color='black', lw=2)
-ax3.plot(r.date, ema9, color='blue', lw=1)
-ax3.fill_between(r.date, macd - ema9, 0, alpha=0.5, facecolor=fillcolor, edgecolor=fillcolor)
-
-
-ax3.text(0.025, 0.95, 'MACD (%d, %d, %d)' % (nfast, nslow, nema), va='top',
-         transform=ax3.transAxes, fontsize=textsize)
-
-#ax3.set_yticks([])
-# turn off upper axis tick labels, rotate the lower ones, etc
-for ax in ax1, ax2, ax2t, ax3:
-    if ax != ax3:
-        for label in ax.get_xticklabels():
-            label.set_visible(False)
-    else:
-        for label in ax.get_xticklabels():
-            label.set_rotation(30)
-            label.set_horizontalalignment('right')
-
-    ax.fmt_xdata = mdates.DateFormatter('%Y-%m-%d')
-
-
-class MyLocator(mticker.MaxNLocator):
-    def __init__(self, *args, **kwargs):
-        mticker.MaxNLocator.__init__(self, *args, **kwargs)
-
-    def __call__(self, *args, **kwargs):
-        return mticker.MaxNLocator.__call__(self, *args, **kwargs)
-
-# at most 5 ticks, pruning the upper and lower so they don't overlap
-# with other ticks
-#ax2.yaxis.set_major_locator(mticker.MaxNLocator(5, prune='both'))
-#ax3.yaxis.set_major_locator(mticker.MaxNLocator(5, prune='both'))
-
-ax2.yaxis.set_major_locator(MyLocator(5, prune='both'))
-ax3.yaxis.set_major_locator(MyLocator(5, prune='both'))
-
+fig = plt.figure(3)
+ax = plt.subplot(211)
+ax.title.set_text('Price')
+df['Close'].plot(legend=None)
+fig.subplots_adjust(hspace=1)
+ax = plt.subplot(212)
+ax.title.set_text('RSI')
+df['RSI'].plot(legend=None)
+fig = plt.figure(4)
+fig.subplots_adjust(hspace=1)
+ax = plt.subplot(111)
+ax.title.set_text('EMAs')
+df['Close'].plot(legend='Price')
+pd.Series(emaslow).plot(legend='EMASLOW')
+pd.Series(emafast).plot(legend='EMAFAST')
 plt.show()
 
 
 
-#
-# plt = Plotting()
-# dt = DataPrep()
-#
-# file = "/home/mcampos/Documents/code/trader/histdata/crypto/BTCUSD_2017_M10.csv"
-#
-# df = dt.load_csv(file)[0]
-#
-# plt.plot(df)
+equity=500
+for i in range(0,24):
+    equity += equity*0.15
+
+    if i < 7:
+        equity += 500
+
+    print("Mês: {}, equity: {}".format(i+1, equity))

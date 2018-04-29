@@ -9,7 +9,7 @@ from htr.core.strategy import Strategy
 
 
 
-class CryptoTrend(Strategy):
+class CryptoMacd(Strategy):
 	"""
 	  .
 	   """

@@ -37,17 +37,18 @@
     },
     {
       "name": "crypto_csv",
-      "strategies": [""],
-      "data_sources": [{"path":["histdata/crypto/BTCUSD_2018_M1.csv"], "symbol":"BTC/USD"}],
+      "strategies": ["crypto ema troika"],
+      "data_sources": [{"path":["histdata/crypto/BTCUSD_2017_M11.csv"], "symbol":"BTC/USD"}],
       "data_header": ["Datetime", "High", "Low", "Open", "Close", "Volume", "QuoteVolume", "WeightedAverage"],
       "data_preparation": true,
       "risk_handler" : "kelly",
       "data_handler" : "crypto_data_handler",
       "timeframe": "M5",
+      "specs": "",
       "initial_capital": 50,
       "commission" : 0.004,
-      "enabled": false,
-      "store": false
+      "enabled": true,
+      "store": true
     },
     {
       "name": "crypto_quandl",

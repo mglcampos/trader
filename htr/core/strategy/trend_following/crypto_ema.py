@@ -10,9 +10,9 @@ class CryptoEma(Strategy):
        Carries out a basic Moving Average Crossover strategy with a
        short/long simple weighted moving average. Default short/long
        windows are 20/100 periods respectively.
-       """
+    """
 
-    def __init__(self, context, events, data_handler, short_window=12, long_window=26, trend_window=200):
+    def __init__(self, context, events, data_handler):
         """
         Initialises the Moving Averages Strategy.
 
@@ -27,9 +27,8 @@ class CryptoEma(Strategy):
         self.data_handler = data_handler
         self.symbol_list = self.data_handler.symbol_list
         self.events = events
-        self.short_window = short_window
-        self.long_window = long_window
-        self.trend_window = trend_window
+        self.short_window = int(context.fast_ema)
+        self.long_window = int(context.slow_ema)
         self.bought = self._calculate_initial_bought()
         self.trend_flag = False
 
@@ -82,19 +81,13 @@ class CryptoEma(Strategy):
                 return
 
             # Perform technical analysis.
-            if data is not None and len(data) > 600:
+            if data is not None and len(data) > 100:
 
-                ema200 = talib.EMA(data, timeperiod=self.trend_window)
-                ema12 = talib.EMA(data, timeperiod=self.short_window)
-                ema26 = talib.EMA(data, timeperiod=self.long_window)
 
-                #if ema12[-1] >= ema26[-1]:
-                #    print("Cruzaram, price is : " + str(data[-1]))
-                # If short moving average is higher than the long moving average lets BUY.
-                if ema12[-1] >= ema26[-1] \
-                        and data[-1] >= ema200[-1] \
-                        and self.bought[symbol][0] == "OUT"\
-                        and self.trend_flag is False:
+                ema_fast = talib.EMA(data, timeperiod=self.short_window)
+                ema_slow = talib.EMA(data, timeperiod=self.long_window)
+
+                if ema_slow[-1] > ema_fast[-1] and self.bought[symbol][0] == "OUT":
                     print("LONG: %s" % bar_date)
                     self.trend_flag = True
                     # Create BUY signal.
@@ -104,7 +97,7 @@ class CryptoEma(Strategy):
                     # Share signal in the events queue.
                     self.events.put(signal)
                 # If short moving average is lower than the long moving average lets EXIT position.
-                elif data[-1] <= ema12[-1] and self.bought[symbol][0] == "LONG":
+                elif ema_slow[-1] < ema_fast[-1] and self.bought[symbol][0] == "LONG":
                     print("CLOSE POSITION: %s" % bar_date)
                     # Create EXIT signal.
                     signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
@@ -112,6 +105,3 @@ class CryptoEma(Strategy):
                     self.bought[symbol] = ('OUT', data[-1])
                     # Share signal in the events queue.
                     self.events.put(signal)
-
-                elif ema12[-1] <= ema26[-1] and self.bought[symbol][0] == "OUT":
-                    self.trend_flag = False
