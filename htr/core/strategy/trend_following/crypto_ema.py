@@ -105,3 +105,18 @@ class CryptoEma(Strategy):
                     self.bought[symbol] = ('OUT', data[-1])
                     # Share signal in the events queue.
                     self.events.put(signal)
+
+
+
+
+n = 7
+if n < 2:
+    print(1)
+else:
+    f0 = 1
+    f1 = 1
+    for i in range(2, n):
+        f2 = f0 + f1
+        f0 = f1
+        f1 = f2
+    print(f2)

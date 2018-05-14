@@ -1,0 +1,2 @@
+0	19:16:06.318	Expert ZeroMQ_MT4_EA_Template EURUSD,M5: loaded successfully
+0	19:16:06.318	ZeroMQ_MT4_EA_Template EURUSD,M5 inputs: PROJECT_NAME=DWX_ZeroMQ_Example; ZEROMQ_PROTOCOL=tcp; HOSTNAME=*; REP_PORT=5555; PUSH_PORT=5556; MILLISECOND_TIMER=10; t0=--- Trading Parameters ---; MagicNumber=123456; MaximumOrders=1; MaximumLotSize=0.01; 
