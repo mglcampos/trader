@@ -8,7 +8,7 @@ import time
 
 from htr.core.events import MarketEvent
 
-class MetatraderDataHandler():
+class TickDataHandler():
     """
 
     """
@@ -31,34 +31,72 @@ class MetatraderDataHandler():
             self.latest_symbol_data[s] = []
 
         print('Starting Tick Listener')
-        self.__startListener()
-
-    def __startListener(self):
         context = zmq.Context()
-
+        self.reqSocket = context.socket(zmq.REQ)
+        self.reqSocket.connect("tcp://localhost:5555")
         # Create PULL Socket
         self.pullSocket = context.socket(zmq.PULL)
         self.pullSocket.connect("tcp://localhost:5556")
 
+    def __remote_send(self, socket, data):
+
+        try:
+            socket.send_string(data)
+            time.sleep(1)
+            msg = socket.recv_string()
+            print("SENT: ", data)
+            print("RECEIVED-REP: ", msg)
+        except zmq.Again as e:
+            print("Waiting for PUSH from MetaTrader 4..")
+
+    # Function to retrieve data from ZeroMQ MT4 EA
+    def __remote_pull(self, socket):
+
+        try:
+            # msg = socket.recv(flags=zmq.NOBLOCK)
+            msg = socket.recv(flags=zmq.NOBLOCK)
+            print("RECEIVED-PULL: ", msg)
+            return str(msg)
+
+        except zmq.Again as e:
+            print("Waiting for PUSH from MetaTrader 4..")
+
+    def __tick(self, req):
+        while True:
+            try:
+                self.__remote_send(self.reqSocket, req)
+
+                # PULL from pullSocket
+                return self.__remote_pull(self.pullSocket)
+
+
+            except Exception as e:
+                print(e)
+                self.errors.append(e.__str__() + str(dt.now()))
+                break
+
     def update_symbol_data(self):
         """."""
 
-        response = self.__tick()
-        print("Received reply ", "[", response, "]")
 
-        if not response == 'Nothing New':
-            s, bid, ask = str(response).split('|',2)
-            spread = bid - ask
+        for symbol in self.symbol_list:
+            get_rates = "RATES|{}".format(symbol)
+            response = self.__tick(get_rates)
+            print("Received reply ", "[", response, "]")
 
-            self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
-            ## If dataframe gets to big empty it.
-            if len(self.symbol_data[s].index) > 100000:
-                self.symbol_data[s] = self.symbol_data[s][-1000]
+            if not response == 'something':
+                s, bid, ask = str(response).split('|',2)
+                spread = bid - ask
 
-            else:
-                self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
-            ## todo rethink this
-            self.update_bars()
+                self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
+                ## If dataframe gets to big empty it.
+                if len(self.symbol_data[s].index) > 100000:
+                    self.symbol_data[s] = self.symbol_data[s][-1000]
+
+                else:
+                    self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
+                ## todo rethink this
+                self.update_bars()
 
 # #################################################################
 #
