@@ -16,7 +16,7 @@
       "commission" : 0,
       "initial_capital": 5000,
       "enabled": false,
-      "store": true
+      "store": false
     },
     {
       "name": "trend_following",
@@ -103,13 +103,13 @@
     },
     {
       "name": "mt4 backtest",
-      "symbol_list": ["BTC/USD"],
-      "strategies": ["crypto bull"],
-      "base_currency": "USD",
-      "data_handler" : "metatrader data handler",
+      "symbol_list": ["EURUSD"],
+      "strategies": ["stochastic"],
+      "base_currency": "EUR",
+      "data_handler" : "tick data handler",
       "brokers": [{"name": "metatrader", "key":"", "secret":""}],
-      "market": "activtrades",
-      "heartbeat": 0,
+      "market": "darwinex",
+      "heartbeat": 3,
       "risk_handler" : "kelly",
       "store" : false,
       "enabled": true

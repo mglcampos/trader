@@ -168,7 +168,7 @@ import zmq
 eurusd_buy_order = "TRADE|OPEN|0|EURUSD|0|50|50|0.01|Python-to-MT4"
 eurusd_sell_order = "TRADE|OPEN|1|EURUSD|0|50|50|0.01|Python-to-MT4"
 eurusd_closebuy_order = "TRADE|CLOSE|0|EURUSD|0|50|50|0.01"
-get_rates = "RATES|BTCUSD"
+get_rates = "RATES|EURUSD"
 
 # Sample Function for Client
 def zeromq_mt4_ea():
@@ -217,8 +217,6 @@ def zeromq_mt4_ea():
 
 
 
-
-
 # Function to send commands to ZeroMQ MT4 EA
 def remote_send(socket, data):
 
@@ -249,7 +247,5 @@ for i in range (0,5):
     zeromq_mt4_ea()
 
 
-
-i
 
 

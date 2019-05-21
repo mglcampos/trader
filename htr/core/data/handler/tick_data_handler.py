@@ -80,21 +80,24 @@ class TickDataHandler():
 
 
         for symbol in self.symbol_list:
+            symbol = symbol.replace('/','')
             get_rates = "RATES|{}".format(symbol)
+            self.symbol_data[symbol] =  pd.DataFrame(columns=['ASK', 'BID', 'CLOSE', 'TIME'])
             response = self.__tick(get_rates)
             print("Received reply ", "[", response, "]")
-
             if not response == 'something':
                 s, bid, ask = str(response).split('|',2)
+                ask = float(ask.replace("'",""))
+                bid = float(bid.replace("'",""))
                 spread = bid - ask
 
-                self.symbol_data[s] = self.symbol_data[s].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
+                self.symbol_data[symbol] = self.symbol_data[symbol].append(pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)]  , 'TIME' : [dt.now()]}))
                 ## If dataframe gets to big empty it.
-                if len(self.symbol_data[s].index) > 100000:
-                    self.symbol_data[s] = self.symbol_data[s][-1000]
+                if len(self.symbol_data[symbol].index) > 100000:
+                    self.symbol_data[symbol] = self.symbol_data[symbol][-1000]
 
                 else:
-                    self.symbol_data[s] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
+                    self.symbol_data[symbol] = pd.DataFrame.from_dict({'ASK': [ask], 'BID': [bid], 'CLOSE': [bid - (spread/2)] , 'TIME' : [dt.now()]})
                 ## todo rethink this
                 self.update_bars()
 
