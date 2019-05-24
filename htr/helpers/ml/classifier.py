@@ -46,7 +46,7 @@ class FeatureGenerator():
         self.price_data['Stoch_Osc'] = self.stoch_osc
         self.price_data['FClose'] = pd.DataFrame(self.state_means, index=self.price_data.index, columns=['FClose'])
         #self.price_data['Returns'] =  pd.DataFrame(np.log(self.price_data[self.ticker].values) - np.log(np.roll(self.price_data[self.ticker].values,1)), index=self.price_data.index, columns=['Returns'])
-        self.price_data['FReturns'] =  pd.DataFrame(np.log(self.state_means) - np.log(np.roll(self.state_means,1)), index=self.price_data.index, columns=['Returns'])
+        self.price_data['FReturns'] =  pd.DataFrame(np.log(self.state_means) - np.log(np.roll(self.state_means,1)), index=self.price_data.index, columns=['FReturns'])
         #self.price_data['FHurst'] = pd.DataFrame(self.state_means, index = self.price_data.index, columns=['FHurst']).rolling(self.period).apply(self.hurst)
         X, Y = self.generate_regimes(self.generate_lags(self.price_data))
         #print(X.head())
@@ -117,7 +117,7 @@ class FeatureGenerator():
     def generate_regimes(self, X):
 
         ss = preprocessing.StandardScaler()
-        split = 2500
+        split = 2000
         unsup = mix.GaussianMixture(n_components=4, covariance_type="spherical", n_init=100, random_state=42)
         unsup.fit(np.reshape(ss.fit_transform(X[:split]), (-1, X.shape[1])))
         regime = unsup.predict(np.reshape(ss.fit_transform(X[split:]), (-1, X.shape[1])))
