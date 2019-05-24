@@ -109,7 +109,7 @@
       "data_handler" : "tick data handler",
       "brokers": [{"name": "metatrader", "key":"", "secret":""}],
       "market": "darwinex",
-      "heartbeat": 3,
+      "heartbeat": 15,
       "risk_handler" : "kelly",
       "store" : false,
       "enabled": true

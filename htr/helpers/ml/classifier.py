@@ -37,10 +37,13 @@ class FeatureGenerator():
         self.period = period
         self.ticker = ticker
         self.n_lags = n_lags
+        self.stoch_osc = []
+        self.state_means = []
 
     def get_sample(self, price_data):
         self.price_data = price_data
-        self.price_data['Stoch_Osc'] = self.get_stochastic(self.filter_prices())
+        self.stoch_osc = self._get_stochastic(self.filter_prices())
+        self.price_data['Stoch_Osc'] = self.stoch_osc
         self.price_data['FClose'] = pd.DataFrame(self.state_means, index=self.price_data.index, columns=['FClose'])
         #self.price_data['Returns'] =  pd.DataFrame(np.log(self.price_data[self.ticker].values) - np.log(np.roll(self.price_data[self.ticker].values,1)), index=self.price_data.index, columns=['Returns'])
         self.price_data['FReturns'] =  pd.DataFrame(np.log(self.state_means) - np.log(np.roll(self.state_means,1)), index=self.price_data.index, columns=['Returns'])
@@ -48,6 +51,12 @@ class FeatureGenerator():
         X, Y = self.generate_regimes(self.generate_lags(self.price_data))
         #print(X.head())
         return X, Y
+
+    def get_stoch(self):
+        return self.stoch_osc
+
+    def get_fprice(self):
+        return self.state_means
 
     def filter_prices(self):
         kf = KalmanFilter(transition_matrices=[1],
@@ -78,7 +87,7 @@ class FeatureGenerator():
         hurst = m[0] * 2
         return hurst
 
-    def get_stochastic(self, state_means):
+    def _get_stochastic(self, state_means):
         rolling_min = pd.DataFrame(state_means).rolling(self.period).min()
         rolling_max = pd.DataFrame(state_means).rolling(self.period).max()
         sample = pd.concat([pd.DataFrame(state_means), pd.DataFrame(self.price_data[self.ticker].values), rolling_min, rolling_max],
@@ -119,7 +128,7 @@ class FeatureGenerator():
         Regimes[columns] = ss1.fit_transform(Regimes[columns])
         Y = np.sign(Regimes.FReturns)
         Regimes = Regimes.drop(['FReturns','market_cu_return'], axis=1)
-        print(Regimes.tail(1))
+        #print(Regimes.tail(1))
         return Regimes, Y
 
     def clean_dataset(self, df):
