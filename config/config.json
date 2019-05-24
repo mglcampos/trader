@@ -19,6 +19,23 @@
       "store": false
     },
     {
+      "name": "stoch_osc",
+      "strategies": ["stochastic"],
+      "data_sources": [],
+      "data_header": ["Datetime", "Close"],
+      "start_date": "2019-04-01",
+      "end_date": "2019-05-17",
+      "data_preparation": false,
+      "specs": "",
+      "risk_handler" : "kelly",
+      "data_handler" : "influxdb_data_handler",
+      "timeframe": "15M",
+      "commission" : 0,
+      "initial_capital": 1000,
+      "enabled": true,
+      "store": false
+    },
+    {
       "name": "trend_following",
       "strategies": [""],
       "data_sources": [{"path":["/home/mcampos/Documents/code/trader/histdata/crypto_mt/LTCUSD1.csv"], "symbol":"LTC/USD"}],
@@ -47,7 +64,7 @@
       "specs": "",
       "initial_capital": 50,
       "commission" : 0.004,
-      "enabled": true,
+      "enabled": false,
       "store": true
     },
     {
@@ -104,7 +121,7 @@
     {
       "name": "mt4 backtest",
       "symbol_list": ["EURUSD"],
-      "strategies": ["stochastic"],
+      "strategies": ["stochastic live"],
       "base_currency": "EUR",
       "data_handler" : "tick data handler",
       "brokers": [{"name": "metatrader", "key":"", "secret":""}],

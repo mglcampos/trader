@@ -24,8 +24,8 @@ class Classifier:
         X_train, X_test, y_train, y_test = train_test_split(self.X, self.Y, test_size=0.1)
         self.model.fit(X_train, y_train)
 
-    def update_sample(self, price_data):
-        self.X, self.Y = self.feature_gen.get_sample(price_data)
+    def update_sample(self, price_data, fast=False):
+        self.X, self.Y = self.feature_gen.get_sample(price_data, fast=fast)
 
     def get_x_vec(self):
         #print(self.X.tail(1))
@@ -40,14 +40,17 @@ class FeatureGenerator():
         self.stoch_osc = []
         self.state_means = []
 
-    def get_sample(self, price_data):
+    def get_sample(self, price_data, fast=False):
         self.price_data = price_data
         self.stoch_osc = self._get_stochastic(self.filter_prices())
         self.price_data['Stoch_Osc'] = self.stoch_osc
         self.price_data['FClose'] = pd.DataFrame(self.state_means, index=self.price_data.index, columns=['FClose'])
+        if fast is True:
+            return [],[]
         #self.price_data['Returns'] =  pd.DataFrame(np.log(self.price_data[self.ticker].values) - np.log(np.roll(self.price_data[self.ticker].values,1)), index=self.price_data.index, columns=['Returns'])
         self.price_data['FReturns'] =  pd.DataFrame(np.log(self.state_means) - np.log(np.roll(self.state_means,1)), index=self.price_data.index, columns=['FReturns'])
         #self.price_data['FHurst'] = pd.DataFrame(self.state_means, index = self.price_data.index, columns=['FHurst']).rolling(self.period).apply(self.hurst)
+
         X, Y = self.generate_regimes(self.generate_lags(self.price_data))
         #print(X.head())
         return X, Y

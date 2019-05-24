@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="Refactoring htr once again">
+      <change afterPath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/helpers/ml/test_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/helpers/ml/test_classifier.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,38 +24,39 @@
     <session id="1182871517">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="json" value="43" />
-          <entry key="py" value="7045" />
+          <entry key="dummy" value="5" />
+          <entry key="json" value="110" />
+          <entry key="py" value="7302" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="43" />
-          <entry key="PLAIN_TEXT" value="43" />
-          <entry key="Python" value="7045" />
+          <entry key="JSON" value="110" />
+          <entry key="PLAIN_TEXT" value="48" />
+          <entry key="Python" value="7302" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="json" value="1" />
-          <entry key="py" value="35" />
+          <entry key="py" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="1" />
-          <entry key="Python" value="35" />
+          <entry key="Python" value="41" />
         </counts>
       </usages-collector>
     </session>
@@ -62,8 +66,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1870">
-              <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+            <state relative-caret-position="337">
+              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="120" column="36" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1247">
+              <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="425">
+              <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+              <folding>
+                <element signature="e#39#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,10 +112,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1827">
-              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            <state relative-caret-position="273">
+              <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
               <folding>
                 <element signature="e#1#13#0" expanded="true" />
               </folding>
@@ -89,19 +123,28 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="541">
+              <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/ml/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="625">
+              <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
               <folding>
-                <marker date="1558712449349" expanded="true" signature="387:388" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="387:393" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="420:778" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="2473:2511" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="2506:2511" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="2535:2544" ph="..." />
-                <marker date="1558712449349" expanded="true" signature="5652:5658" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="387:388" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="387:393" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="420:778" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="2559:2597" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="2592:2597" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="2621:2630" ph="..." />
+                <marker date="1558738179024" expanded="true" signature="5738:5744" ph="..." />
               </folding>
             </state>
           </provider>
@@ -110,7 +153,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
+            <state relative-caret-position="765">
               <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
             </state>
           </provider>
@@ -176,8 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/htr/helpers/playground.py" />
-        <option value="$PROJECT_DIR$/htr/helpers/stationarity.py" />
         <option value="$PROJECT_DIR$/htr/mt4/ExpertAdvisor.py" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/crypto_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" />
@@ -223,10 +264,12 @@
         <option value="$PROJECT_DIR$/zmq_client.py" />
         <option value="$PROJECT_DIR$/htr/core/data/handler/tick_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/helpers/ml/__init__.py" />
-        <option value="$PROJECT_DIR$/config/config.json" />
-        <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" />
-        <option value="$PROJECT_DIR$/htr/helpers/ml/classifier.py" />
         <option value="$PROJECT_DIR$/htr/helpers/ml/test_classifier.py" />
+        <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/ml/classifier.py" />
+        <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" />
+        <option value="$PROJECT_DIR$/config/config.json" />
+        <option value="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" />
       </list>
     </option>
   </component>
@@ -268,7 +311,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -356,7 +398,23 @@
               <item name="htr" type="462c0819:PsiDirectoryNode" />
               <item name="core" type="462c0819:PsiDirectoryNode" />
               <item name="strategy" type="462c0819:PsiDirectoryNode" />
+              <item name="crypto" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="htr" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
               <item name="mean_reverting" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="htr" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+              <item name="statistical_arbitrage" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
@@ -442,6 +500,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -450,19 +509,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\strategy\mean_reverting" />
+      <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\data\handler" />
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/htr/core/strategy/trend_following" />
+      <recent name="$PROJECT_DIR$/htr/core/portfolio" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/htr/core/strategy/trend_following" />
       <recent name="$PROJECT_DIR$/histdata/forex/EUR" />
       <recent name="$PROJECT_DIR$/histdata/crypto" />
       <recent name="$PROJECT_DIR$/histdata/forex" />
       <recent name="$PROJECT_DIR$/histdata/crypto_mt" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\strategy\mean_reverting" />
-      <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/htr/core/strategy/trend_following" />
-      <recent name="$PROJECT_DIR$/htr/core/portfolio" />
-      <recent name="$PROJECT_DIR$/htr/core/brokerage" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -637,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558658343131</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Refactoring htr once again">
+      <created>1558718478922</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1558718478923</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -677,13 +743,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14781491" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14974293" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286385" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.77013177" visible="true" weight="0.61455524" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77013177" weight="0.16037735" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.42991912" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -769,32 +836,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/crypto_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="70" column="28" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
-          <folding>
-            <element signature="e#2985#7032#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/bokeh/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/htr/helpers/plots.html" />
-    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="49" column="59" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/core/generic.py" />
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_pairs_trading.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -859,13 +900,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1836">
           <caret line="111" column="1" selection-start-line="111" selection-end-line="121" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2023">
-          <caret line="120" column="36" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -1050,10 +1084,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
+    <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="24" selection-start-line="110" selection-start-column="24" selection-end-line="110" selection-end-column="24" />
+        <state relative-caret-position="765">
+          <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/data_object.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="e#1#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1064,35 +1114,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1827">
-          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
-          <folding>
-            <element signature="e#1#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="541">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+        <state relative-caret-position="836">
+          <caret line="120" column="36" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/ml/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="625">
+          <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
           <folding>
-            <marker date="1558712449349" expanded="true" signature="387:388" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="387:393" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="420:778" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="2473:2511" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="2506:2511" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="2535:2544" ph="..." />
-            <marker date="1558712449349" expanded="true" signature="5652:5658" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="387:388" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="387:393" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="420:778" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="2559:2597" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="2592:2597" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="2621:2630" ph="..." />
+            <marker date="1558738179024" expanded="true" signature="5738:5744" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1247">
+          <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+          <folding>
+            <element signature="e#39#48#0" expanded="true" />
           </folding>
         </state>
       </provider>

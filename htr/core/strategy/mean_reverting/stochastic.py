@@ -63,7 +63,7 @@ class Stochastic(Strategy):
         recent_data.columns = ['Time', self.ticker]
         recent_data = recent_data.drop(['Time'], axis=1)
 
-        price_data = recent_data[1000:].append(price_data, ignore_index=True)
+        price_data = recent_data[-300:].append(price_data, ignore_index=True)
         self.X = price_data.append(recent_data, ignore_index=True)
 
         # First training
@@ -125,111 +125,78 @@ class Stochastic(Strategy):
             # Perform technical analysis.
             if data is not None and len(data) > self.minimum_data_size:
                 self.pred += 1
+                print("Iter: {}, row: {}".format(self.pred, [data[-1]]))
+                self.X = self.X.append(pd.DataFrame([[data[-1]]], columns=[self.ticker]), ignore_index=True)
+                self.X = self.X.iloc[1:]
+                self.X.index = self.X.index.values + self.pred
+                # Add new tick.
+                self.model.update_sample(self.X.copy(), fast=True)
+                # Generate features.
+                stoch_osc = self.model.feature_gen.get_stoch()[-1]
+                previous_fprice = self.fprice
+                self.fprice = self.model.feature_gen.get_fprice()[-1]
+                print("\nStoch_Osc: {}, FPrice: {}".format(stoch_osc, self.fprice))
+
+                if stoch_osc < 20 and self.fprice > data[-1]:
+                    if self.signal != -1.0:
+                        self.signal = 1.0
+                        print("LONG POSITION: %s" % bar_date)
+                        signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
+                        self.bought[symbol] = ('LONG', data[-1])
+                        self.events.put(signal)
+                    else:
+                        self.signal = 0.0
+                        print("CLOSE POSITION: %s" % bar_date)
+                        signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+                        self.bought[symbol] = ('OUT', data[-1])
+                        self.events.put(signal)
+
+                elif stoch_osc > 80 and self.fprice < data[-1]:
+                    if self.signal != 1.0:
+                        self.signal = -1.0
+                        print("SHORT POSITION: %s" % bar_date)
+                        signal = SignalEvent(1, symbol, bar_date, 'SHORT', 1.0)
+                        self.bought[symbol] = ('SHORT', data[-1])
+                        self.events.put(signal)
+                    else:
+                        self.signal = 0.0
+                        print("CLOSE POSITION: %s" % bar_date)
+                        signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+                        self.bought[symbol] = ('OUT', data[-1])
+                        self.events.put(signal)
+
+                # print('SIGNAL: {}'.format(self.signal))
+                # x_vec = self.model.get_x_vec()
+                # # print("x_vec: {}".format(x_vec))
+                # if self.fprice > previous_fprice:
+                #     if self.y_pred == 1.0:
+                #         self.hit += 1
+                #     else:
+                #         self.false_down += 1
+                #         self.miss += 1
+                #
+                # elif self.fprice < previous_fprice:
+                #     if self.y_pred == -1.0:
+                #         self.hit += 1
+                #     else:
+                #         self.miss += 1
+                #         self.false_up += 1
+                #
+                # self.y_pred = self.model.predict(x_vec)[0]
+                # print("\nReport: Hits: {}, Missed: {}, False_Up: {}, False_Down: {}.\n".format(self.hit, self.miss,
+                #                                                                                self.false_up,
+                #                                                                                self.false_down))
+                # print("Prediction: {}\n".format(self.y_pred))
                 # returns = pd.Series(data).pct_change()
                 # sum_returns = sum(returns.values[-3:])
                 # ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
                 if self.fprice == 0.0:
                     self.fprice = data[-1]
-                print("Price Pct Change: {}.".format(((data[-1] - data[-2]) / data[-2]) * 100))
+                #print("Price Pct Change: {}.".format(((data[-1] - data[-2]) / data[-2]) * 100))
                 print("FPrice Pct Change: {}.".format(((data[-1] - self.fprice) / self.fprice) * 100))
                 #Train every 15minutes if hearbeat = 15s
-                if self.pred % 60 == 0 and self.pred > 1:
-                    print("Iter: {}, row: {}".format(self.pred, [data[-1]]))
-                    self.X = self.X.append(pd.DataFrame([[data[-1]]], columns=[self.ticker]), ignore_index=True)
-                    self.X = self.X.iloc[1:]
-                    self.X.index = self.X.index.values + self.pred
-                    # Add new tick.
-                    self.model.update_sample(self.X.copy())
-                    # Generate features.
-                    stoch_osc = self.model.feature_gen.get_stoch()[-1]
-                    previous_fprice = self.fprice
-                    self.fprice = self.model.feature_gen.get_fprice()[-1]
-                    print("\nStoch_Osc: {}, FPrice: {}".format(stoch_osc, self.fprice))
-
-                    if stoch_osc < 20 and self.fprice > data[-1]:
-                        if self.signal != -1.0:
-                            self.signal = 1.0
-                        else:
-                            self.signal = 0.0
-
-                    elif stoch_osc > 80 and self.fprice < data[-1]:
-                        if self.signal != 1.0:
-                            self.signal = -1.0
-                        else:
-                            self.signal = 0.0
-
-                    print('SIGNAL: {}'.format(self.signal))
-                    x_vec = self.model.get_x_vec()
-                    # print("x_vec: {}".format(x_vec))
-                    if self.fprice > previous_fprice:
-                        if self.y_pred == 1.0:
-                            self.hit += 1
-                        else:
-                            self.false_down += 1
-                            self.miss += 1
-
-                    elif self.fprice < previous_fprice:
-                        if self.y_pred == -1.0:
-                            self.hit += 1
-                        else:
-                            self.miss +=1
-                            self.false_up += 1
-
-                    self.y_pred = self.model.predict(x_vec)[0]
-                    print("\nReport: Hits: {}, Missed: {}, False_Up: {}, False_Down: {}.\n".format(self.hit, self.miss, self.false_up,
-                                                                                                   self.false_down))
-                    print("Prediction: {}\n".format(self.y_pred))
-                    print("Training {} forecasting model.".format(self.ticker))
-                    self.model.train()
-
-                # adf = ts.adfuller(data)
-                # print('ADF: ', cadf)
-                # print('HURST: ', self.hurst(data))
-                # self.hurst_cache.append(self.hurst(data))
-                # self.adf_cache.append(adf[0])
-
-                # if len(self.hurst_cache) > 800:
-                # 	fig = plt.figure(2)
-                # 	fig.suptitle('Stationarity', fontsize=16)
-                # 	ax = plt.subplot(211)
-                # 	ax.title.set_text('ADF')
-                # 	pd.Series(self.adf_cache).plot(legend=None)
-                # 	ax = plt.subplot(212)
-                # 	ax.title.set_text('Hurst')
-                # 	pd.Series(self.hurst_cache).plot(legend=None)
+                # if self.pred % 50 == 0 and self.pred > 1:
+                #     print("Training {} forecasting model.".format(self.ticker))
+                #     self.model.train()
 
 
-                # if slope[-1] >= lowerband[-1] and slope[-2] < lowerband[-1] and rsi3[-1] <= 50 and data[-1] <= ema12[-1] and self.pos_count[symbol] == 0:
-                # 	strength = 1.0
-                # 	# if data[-1] <= ema12[-1]:
-                # 	# 	strength = 1.0
-                # 	# else:
-                # 	# 	strength = 0.5
-                #
-                # 	self.pos_count[symbol] += 1
-                # 	print("LONG: %s" % bar_date)
-                # 	self.bought[symbol] = ('', slope[-1])
-                # 	# Create BUY signal.
-                # 	signal = SignalEvent(1, symbol, bar_date, 'LONG', strength)
-                # 	# Share signal in the events queue.
-                # 	self.events.put(signal)
-                # ## todo lucrar no upper band
-                #
-                # elif slope[-1] >= upperband[-1] and self.pos_count[symbol] > 0:
-                # 	self.pos_count[symbol] -= 1
-                # 	print("CLOSE POSITION: %s" % bar_date)
-                # 	self.bought[symbol] = ('', 0)
-                # 	# Create EXIT signal.
-                # 	signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-                # 	# Share signal in the events queue.
-                # 	self.events.put(signal)
-                """
-                elif self.pos_count[symbol] > 0 and ret >= 2 and slope[-1] < 0:
-                    self.pos_count[symbol] -= 1
-                    print("CLOSE POSITION: %s" % bar_date)
-                    self.bought[symbol] = ('', 0)
-                    # Create EXIT signal.
-                    signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-                    # Share signal in the events queue.
-                    self.events.put(signal)
-                """
