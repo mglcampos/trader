@@ -21,9 +21,9 @@
     {
       "name": "stoch_osc",
       "strategies": ["stochastic"],
-      "data_sources": [],
+      "data_sources": [{"symbol":"EURUSD"}],
       "data_header": ["Datetime", "Close"],
-      "start_date": "2019-04-01",
+      "start_date": "2019-04-30",
       "end_date": "2019-05-17",
       "data_preparation": false,
       "specs": "",

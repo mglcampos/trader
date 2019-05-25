@@ -43,7 +43,7 @@ class BacktestPortfolio(Portfolio):
 		Parameters:
 		signal - The tuple containing Signal information.
 		"""
-
+		orders = []
 		if event.type == 'SIGNAL':
 			quantity = self.risk_handler.calculate_trade(self.current_positions, event, self.data_handler.get_latest_bar_value(event.symbol, "Close"))
 			if quantity != 0:

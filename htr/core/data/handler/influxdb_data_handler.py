@@ -11,26 +11,29 @@ from htr.core.events.event import  MarketEvent
 from htr.helpers.dataprep.dataprep import DataPrep
 
 
-class InfluxDBDataHandler(DataHandler):
+class InfluxdbDataHandler(DataHandler):
 
     def __init__(self, context, events):
         self.events = events
         self.data_sources = context.data_sources
         self.symbol_list = [ds['symbol'] for ds in context.data_sources]
+        self.ticker = self.symbol_list[0]
         self.prepare = context.data_preparation
         self.header = context.data_header
         self.dframes = {}
         self.start_date = context.start_date
         self.end_date = context.end_date
         self.latest_data = {}
+        self.latest_data[self.ticker] = []
         self.data_generator = {}
         self.symbol_data = {}
         self.db = InfluxDBClient('104.248.41.39', 8086, 'admin', 'jndm4jr5jndm4jr6', 'darwinex')
+
         ##todo should there be more dataprep modules? choose base on context?
         self.dataprep = DataPrep(context = context)
         self.continue_backtest = True
         try:
-            self._load_csv_files()
+            self._load_data()
         except Exception as e:
             print('Error loading files.', e)
 
@@ -40,14 +43,18 @@ class InfluxDBDataHandler(DataHandler):
 
         return df.drop(['time'], axis=1)
 
-    def _load_data(self, ticker, start=None, end=None, freq='1m', remote=False):
 
-        start_dt = dt.strptime(start, '%Y-%m-%d')
-        end_dt = dt.strptime(end, '%Y-%m-%d')
+
+    ##todo use decorator to validate types
+    def _load_data(self):
+        """Loads data."""
+
+        start_dt = dt.strptime(self.start_date, '%Y-%m-%d')
+        end_dt = dt.strptime(self.end_date, '%Y-%m-%d')
         start_epoch = int(float(start_dt.timestamp())) * 1000 * 1000 * 1000
         end_epoch = int(end_dt.timestamp()) * 1000 * 1000 * 1000
-        query = "Select last(price) from {} where time > {} and time < {} group by time({})".format(ticker, str(
-            start_epoch), str(end_epoch), freq)
+        query = "Select last(price) from {} where time > {} and time < {} group by time({})".format(self.ticker, str(
+            start_epoch), str(end_epoch), '15m')
 
         result = list(self.db.query(query))[0]
         data = self.influx_to_pandas(result)
@@ -55,64 +62,10 @@ class InfluxDBDataHandler(DataHandler):
 
         data.index.name = 'Datetime'
         data.columns = ['Close']
-
-        return data
-
-    ##todo use decorator to validate types
-    def _load_csv_files(self):
-        """Loads comma delimited files."""
-
-        path_list = None
-        symbol = None
-        comb_index = None
-
-        for ds in self.data_sources:
-            path_list = ds['path']
-            symbol = ds['symbol']
-            self.dframes[symbol] = []
-            self.latest_data[symbol] = []
-            # For each path in path list.
-            for path in path_list:
-                if path is not None and symbol is not None:
-                    if os.path.isdir(path):
-                        for root, dirs, files in os.walk(path):
-                            for file in files:
-                                if file.endswith('.csv') or file.endswith('.txt'):
-                                    self.dframes[symbol].append(pd.read_csv(os.path.join(root, file),
-                header=None, parse_dates=True, names=self.header))
-
-                    elif os.path.isfile(path):
-                        self.dframes[symbol].append(pd.read_csv(path,
-                header=None, parse_dates=True, names=self.header))
-
-                else:
-                    ##todo raise custom exception
-                    raise ValueError("Path or symbol_list is empty")
-
-            # Prepare data.
-            if self.prepare is True:
-                self.dframes[symbol] = self.dataprep.prepare(self.dframes[symbol])
-                ##todo change this later
-                df = self.dframes[symbol][0]
-                self.dframes[symbol][0] = df[(df.index > self.start_date) & (df.index < self.end_date)]
-
-            # todo change this to use concatenation of dframes
-            try:
-                self.data_generator[symbol] = self.dframes[symbol][0]
-            except:
-                raise ValueError('No datasets were loaded, path may be wrong.')
-
-            self.symbol_data[symbol] = self.data_generator[symbol]
-
-            # Guarantee all data iterates over the same index.
-            if comb_index is None:
-                comb_index = self.data_generator[symbol].index
-
-            else:
-                comb_index.union(self.data_generator[symbol].index)
-            print(self.data_generator[symbol])
-        for s in self.symbol_list:
-            self.data_generator[s] = self.data_generator[s].reindex(index=comb_index, method='pad').iterrows()
+        self.dframes[self.ticker] = [data]
+        self.data_generator[self.ticker] = self.dframes[self.ticker][0]
+        self.symbol_data[self.ticker] = self.data_generator[self.ticker]
+        self.data_generator[self.ticker] = self.data_generator[self.ticker].iterrows()
 
     def get_symbol_data(self, symbol=None):
 

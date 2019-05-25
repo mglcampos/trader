@@ -52,7 +52,8 @@ class Stochastic(Strategy):
         ## Add big sample
         price_data = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\basic_{}_sample.csv'.format(self.ticker.lower()))[
             ['Date', 'Close']]
-        split = 10000
+        split = 100
+        #split = 10000
         price_data = price_data[:split]
         price_data.columns = ['Date', self.ticker]
         price_data = price_data.drop(['Date'], axis=1)
@@ -70,8 +71,9 @@ class Stochastic(Strategy):
         self.model = Classifier(self.ticker)
         print("Creating sample for {}.".format(self.ticker))
         self.model.update_sample(self.X.copy())
-        print("Training {} forecasting model.".format(self.ticker))
-        self.model.train()
+        ## todo
+        # print("Training {} forecasting model.".format(self.ticker))
+        # self.model.train()
 
     def _calculate_initial_bought(self):
         """Cache where open positions are stored for strategy use."""
@@ -138,13 +140,13 @@ class Stochastic(Strategy):
                 print("\nStoch_Osc: {}, FPrice: {}".format(stoch_osc, self.fprice))
 
                 if stoch_osc < 20 and self.fprice > data[-1]:
-                    if self.signal != -1.0:
+                    if self.bought[symbol][0] == 'OUT':
                         self.signal = 1.0
                         print("LONG POSITION: %s" % bar_date)
                         signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
                         self.bought[symbol] = ('LONG', data[-1])
                         self.events.put(signal)
-                    else:
+                    elif self.bought[symbol][0] == 'SHORT':
                         self.signal = 0.0
                         print("CLOSE POSITION: %s" % bar_date)
                         signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
@@ -152,19 +154,19 @@ class Stochastic(Strategy):
                         self.events.put(signal)
 
                 elif stoch_osc > 80 and self.fprice < data[-1]:
-                    if self.signal != 1.0:
+                    if self.bought[symbol][0] == 'OUT':
                         self.signal = -1.0
                         print("SHORT POSITION: %s" % bar_date)
                         signal = SignalEvent(1, symbol, bar_date, 'SHORT', 1.0)
                         self.bought[symbol] = ('SHORT', data[-1])
                         self.events.put(signal)
-                    else:
+                    elif self.bought[symbol][0] == 'LONG':
                         self.signal = 0.0
                         print("CLOSE POSITION: %s" % bar_date)
                         signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
                         self.bought[symbol] = ('OUT', data[-1])
                         self.events.put(signal)
-
+                ## todo
                 # print('SIGNAL: {}'.format(self.signal))
                 # x_vec = self.model.get_x_vec()
                 # # print("x_vec: {}".format(x_vec))
@@ -194,6 +196,7 @@ class Stochastic(Strategy):
                     self.fprice = data[-1]
                 #print("Price Pct Change: {}.".format(((data[-1] - data[-2]) / data[-2]) * 100))
                 print("FPrice Pct Change: {}.".format(((data[-1] - self.fprice) / self.fprice) * 100))
+                ## todo
                 #Train every 15minutes if hearbeat = 15s
                 # if self.pred % 50 == 0 and self.pred > 1:
                 #     print("Training {} forecasting model.".format(self.ticker))

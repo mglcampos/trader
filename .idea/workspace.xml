@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="Refactoring htr once again">
-      <change afterPath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/equity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/equity.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reportf.json" beforeDir="false" afterPath="$PROJECT_DIR$/reportf.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,7 +17,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/trader$htr.coverage" NAME="htr Coverage Results" MODIFIED="1558655802104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/trader$htr.coverage" NAME="htr Coverage Results" MODIFIED="1558740556855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/trader$zmq.coverage" NAME="zmq Coverage Results" MODIFIED="1558468221987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/trader$test_classifier.coverage" NAME="test_classifier Coverage Results" MODIFIED="1558714638571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/htr/helpers/ml" />
   </component>
@@ -35,48 +36,39 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="5" />
-          <entry key="json" value="110" />
-          <entry key="py" value="7302" />
+          <entry key="json" value="122" />
+          <entry key="py" value="7568" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="110" />
+          <entry key="JSON" value="122" />
           <entry key="PLAIN_TEXT" value="48" />
-          <entry key="Python" value="7302" />
+          <entry key="Python" value="7568" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="json" value="1" />
-          <entry key="py" value="41" />
+          <entry key="json" value="2" />
+          <entry key="py" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="1" />
-          <entry key="Python" value="41" />
+          <entry key="JSON" value="2" />
+          <entry key="Python" value="50" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/strategy/statistical_arbitrage/pairs_trading.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
-              <caret line="120" column="36" selection-start-line="120" selection-start-column="25" selection-end-line="120" selection-end-column="36" />
+            <state relative-caret-position="-850">
+              <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -84,17 +76,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1247">
-              <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+            <state relative-caret-position="769">
+              <caret line="148" column="57" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/manager.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+            <state relative-caret-position="357">
+              <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
               <folding>
                 <element signature="e#39#48#0" expanded="true" />
               </folding>
@@ -103,58 +104,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/data/handler/tick_data_handler.py">
+        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
+            <state relative-caret-position="34">
+              <caret line="46" selection-start-line="46" selection-end-line="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-              <folding>
-                <element signature="e#1#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="541">
-              <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/ml/classifier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="53" column="7" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
-              <folding>
-                <marker date="1558738179024" expanded="true" signature="387:388" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="387:393" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="420:778" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="2559:2597" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="2592:2597" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="2621:2630" ph="..." />
-                <marker date="1558738179024" expanded="true" signature="5738:5744" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="48" column="58" selection-start-line="48" selection-start-column="58" selection-end-line="48" selection-end-column="58" />
+            <state relative-caret-position="1496">
+              <caret line="160" column="48" lean-forward="true" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -170,7 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>bars</find>
       <find>SignalEvent</find>
       <find>plt</find>
       <find>find(</find>
@@ -200,6 +161,7 @@
       <find>dropna</find>
       <find>print</find>
       <find>60</find>
+      <find>load_csv</find>
     </findStrings>
     <replaceStrings>
       <replace>eth</replace>
@@ -232,7 +194,6 @@
         <option value="$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py" />
         <option value="$PROJECT_DIR$/htr/helpers/dataprep/dataprep.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/portfolio.py" />
-        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/zmq" />
         <option value="$PROJECT_DIR$/zmq.py" />
         <option value="$PROJECT_DIR$/htr/helpers/cointegration.py" />
@@ -267,9 +228,10 @@
         <option value="$PROJECT_DIR$/htr/helpers/ml/test_classifier.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py" />
         <option value="$PROJECT_DIR$/htr/helpers/ml/classifier.py" />
+        <option value="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" />
+        <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" />
         <option value="$PROJECT_DIR$/config/config.json" />
-        <option value="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" />
       </list>
     </option>
   </component>
@@ -536,7 +498,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_classifier">
+  <component name="RunManager" selected="Python.htr">
     <configuration name="htr" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="trader" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -551,7 +513,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/htr.py" />
-      <option name="PARAMETERS" value="-m live" />
+      <option name="PARAMETERS" value="-m simulation" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -656,8 +618,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test_classifier" />
         <item itemvalue="Python.htr" />
+        <item itemvalue="Python.test_classifier" />
         <item itemvalue="Python.zmq" />
         <item itemvalue="Python.report_analysis" />
         <item itemvalue="Python.plotting" />
@@ -703,7 +665,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558718478923</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Refactoring htr once again">
+      <created>1558738473652</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1558738473652</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -745,13 +714,13 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14974293" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14974293" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286385" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.77013177" weight="0.16037735" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.42991912" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.77013177" visible="true" weight="0.3328841" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.6051213" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32884097" />
@@ -836,7 +805,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../../environments/q/lib/python3.4/site-packages/pandas/core/generic.py" />
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_pairs_trading.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -955,20 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-559">
-          <caret line="95" column="29" selection-start-line="95" selection-start-column="29" selection-end-line="95" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2002">
-          <caret line="128" column="74" selection-start-line="128" selection-start-column="74" selection-end-line="128" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/risk_handler.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1042,45 +996,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="83" selection-start-line="83" selection-end-line="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/option_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="106" selection-start-line="106" selection-end-line="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/engines/live_trader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1057">
           <caret line="113" selection-start-line="113" selection-end-line="113" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
@@ -1094,9 +1013,6 @@
     <entry file="file://$PROJECT_DIR$/htr/core/data/handler/data_object.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
@@ -1104,13 +1020,6 @@
           <folding>
             <element signature="e#1#13#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/tick_data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
         </state>
       </provider>
     </entry>
@@ -1144,27 +1053,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/tick_data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1247">
-          <caret line="178" column="45" lean-forward="true" selection-start-line="178" selection-start-column="45" selection-end-line="178" selection-end-column="45" />
+        <state relative-caret-position="402">
+          <caret line="94" column="53" selection-start-line="94" selection-start-column="53" selection-end-line="94" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/csv_data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="187">
+          <caret line="46" column="12" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="55" column="36" lean-forward="true" selection-start-line="55" selection-start-column="36" selection-end-line="55" selection-end-column="36" />
+        <state relative-caret-position="357">
+          <caret line="35" column="12" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding>
             <element signature="e#39#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/option_parser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="106" selection-start-line="106" selection-end-line="106" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/interpreter/interpreter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/factory/factory.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/engines/backtest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="160" column="48" lean-forward="true" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="148" column="57" selection-start-line="148" selection-start-column="57" selection-end-line="148" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-850">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
         </state>
       </provider>
     </entry>
