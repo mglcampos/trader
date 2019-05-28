@@ -42,15 +42,17 @@ class FeatureGenerator():
 
     def get_sample(self, price_data, fast=False):
         self.price_data = price_data
+
+        if fast is True:
+            self.stoch_osc = self._get_stochastic(self.filter_prices()[-15:], fast=fast)
+            self.price_data['FClose'] = pd.DataFrame(self.state_means, index=self.price_data.index, columns=['FClose'])
+            return [],[]
         self.stoch_osc = self._get_stochastic(self.filter_prices())
         self.price_data['Stoch_Osc'] = self.stoch_osc
         self.price_data['FClose'] = pd.DataFrame(self.state_means, index=self.price_data.index, columns=['FClose'])
-        if fast is True:
-            return [],[]
         #self.price_data['Returns'] =  pd.DataFrame(np.log(self.price_data[self.ticker].values) - np.log(np.roll(self.price_data[self.ticker].values,1)), index=self.price_data.index, columns=['Returns'])
         self.price_data['FReturns'] =  pd.DataFrame(np.log(self.state_means) - np.log(np.roll(self.state_means,1)), index=self.price_data.index, columns=['FReturns'])
         #self.price_data['FHurst'] = pd.DataFrame(self.state_means, index = self.price_data.index, columns=['FHurst']).rolling(self.period).apply(self.hurst)
-
         X, Y = self.generate_regimes(self.generate_lags(self.price_data))
         #print(X.head())
         return X, Y
@@ -90,7 +92,7 @@ class FeatureGenerator():
         hurst = m[0] * 2
         return hurst
 
-    def _get_stochastic(self, state_means):
+    def _get_stochastic(self, state_means, fast=False):
         rolling_min = pd.DataFrame(state_means).rolling(self.period).min()
         rolling_max = pd.DataFrame(state_means).rolling(self.period).max()
         sample = pd.concat([pd.DataFrame(state_means), pd.DataFrame(self.price_data[self.ticker].values), rolling_min, rolling_max],
@@ -99,6 +101,15 @@ class FeatureGenerator():
         sample.columns = ['FPrice', 'Price', 'Min', 'Max']
         #sample = sample.dropna()
         stoch_osc = (sample.FPrice - sample.Min) / (sample.Max - sample.Min) * 100
+        if fast is True:
+            rolling_min = pd.DataFrame(state_means, columns=['Min']).rolling(self.period).min()
+            rolling_max = pd.DataFrame(state_means, columns=['Max']).rolling(self.period).max()
+            sample = pd.concat(
+                [pd.DataFrame(state_means, columns=['FPrice']), rolling_min, rolling_max],
+                axis=1)
+
+            sample = sample.dropna()
+            stoch_osc = (sample.FPrice - sample.Min) / (sample.Max - sample.Min) * 100
 
         return stoch_osc.values
 

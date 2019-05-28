@@ -26,14 +26,15 @@ class Kelly(RiskHandler):
     def _calculate_quantity(self, close_value, signal):
         """Calculate quantity for base currency in pair (e.g. for XRPUSD calculates XRP amount)"""
 
-        quantity = 0
+        quantity = self.context.initial_capital
         if signal.signal_type == 'LONG':
             if signal.strength == 1.0:
-                quantity = 50 * (1/close_value) # todo change this for crypto
-                # quantity = 5000 ## todo for forex
+                #quantity = 50 * (1/close_value) # todo change this for crypto
+                quantity *= 1 ## todo for forex
 
             else:
-                quantity = 25 * (1 / close_value)  # todo change this
+                #quantity = 25 * (1 / close_value)  # todo change this
+                quantity *= 0.5
 
         elif signal.signal_type == 'EXIT':
             print(self.current_positions)

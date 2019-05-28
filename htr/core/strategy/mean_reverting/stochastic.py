@@ -54,6 +54,7 @@ class Stochastic(Strategy):
             ['Date', 'Close']]
         split = 100
         #split = 10000
+        ## todo pre ml
         price_data = price_data[:split]
         price_data.columns = ['Date', self.ticker]
         price_data = price_data.drop(['Date'], axis=1)
@@ -63,17 +64,21 @@ class Stochastic(Strategy):
 
         recent_data.columns = ['Time', self.ticker]
         recent_data = recent_data.drop(['Time'], axis=1)
-
-        price_data = recent_data[-300:].append(price_data, ignore_index=True)
+        ##
+        price_data = recent_data[-100:].append(price_data, ignore_index=True)
         self.X = price_data.append(recent_data, ignore_index=True)
 
         # First training
         self.model = Classifier(self.ticker)
         print("Creating sample for {}.".format(self.ticker))
         self.model.update_sample(self.X.copy())
+
+        # ## TODO only for stoch pre ml testing
+        self.X = self.X[-300:]
+
         ## todo
-        # print("Training {} forecasting model.".format(self.ticker))
-        # self.model.train()
+        print("Training {} forecasting model.".format(self.ticker))
+        self.model.train()
 
     def _calculate_initial_bought(self):
         """Cache where open positions are stored for strategy use."""
@@ -101,7 +106,7 @@ class Stochastic(Strategy):
 
         return bar_date, data
 
-    def _check_stop(self):
+    def _check_stop(self, data):
         """Check for stop conditions, e.g. Stop losses, take profit, etc
 
         Generates EXIT signals.
@@ -109,8 +114,73 @@ class Stochastic(Strategy):
         Returns:
             bool: True if EXIT signal was issued, False if it was not.
         """
+        ## todo improve this
+        symbol = self.symbol_list[0]
+        if self.bought[symbol][0] != 'OUT':
+            ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1] * 100
+            if self.bought[symbol][0] == 'LONG':
+                if ret < -0.06:
+                    return True
+            elif self.bought[symbol][0] == 'SHORT':
+                if ret > 0.06:
+                    return True
+        return False
 
-        pass
+    def _check_week_stop(self, date):
+        """Check for weekend.
+
+        Generates EXIT signals.
+
+        Returns:
+            bool: True if EXIT signal was issued, False if it was not.
+        """
+
+        weekstop = False
+        ## Friday
+        if date.weekday() == 4 and date.hour >= 20:
+            weekstop = True
+        ## Saturday
+        elif date.weekday() == 5:
+            weekstop = True
+        ## Sunday
+        elif  date.weekday() == 6:
+            weekstop = True
+
+        return weekstop
+
+    def _check_spread_stop(self, date):
+        """Check for spread spikes.
+
+        Generates EXIT signals.
+
+        Returns:
+            bool: True if EXIT signal was issued, False if it was not.
+        """
+
+        ## todo should actually monitor bid ask spread
+
+
+        if date.hour >= 21 or date.hour < 1:
+            return True
+        return False
+
+    def _fire_sale(self, bar_date, data):
+        """Close all positions."""
+        symbol = self.symbol_list[0]
+        if self.bought[symbol][0] == 'SHORT':
+            self.signal = 0.0
+            print("CLOSE POSITION: %s" % bar_date)
+            signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+            self.bought[symbol] = ('OUT', data[-1])
+            self.events.put(signal)
+
+        elif self.bought[symbol][0] == 'LONG':
+            self.signal = 0.0
+            print("CLOSE POSITION: %s" % bar_date)
+            signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+            self.bought[symbol] = ('OUT', data[-1])
+            self.events.put(signal)
+
 
     def calculate_signals(self):
         """Calculates if trading signals should be generated and queued."""
@@ -120,84 +190,96 @@ class Stochastic(Strategy):
             # Load price series data.
             bar_date, data = self._load_data(symbol)
 
-            # Checks for stop conditions
-            if self._check_stop():
-                return
-
             # Perform technical analysis.
             if data is not None and len(data) > self.minimum_data_size:
+
+                # Checks for stop conditions
+                if self._check_week_stop(bar_date) or self._check_stop(data):
+                    self._fire_sale(bar_date, data)
+                    return
+
+                if self._check_spread_stop(bar_date):
+                    return
+
                 self.pred += 1
                 print("Iter: {}, row: {}".format(self.pred, [data[-1]]))
                 self.X = self.X.append(pd.DataFrame([[data[-1]]], columns=[self.ticker]), ignore_index=True)
                 self.X = self.X.iloc[1:]
                 self.X.index = self.X.index.values + self.pred
                 # Add new tick.
+                # todo no ml version
                 self.model.update_sample(self.X.copy(), fast=True)
+                # self.model.update_sample(self.X.copy())
                 # Generate features.
+
                 stoch_osc = self.model.feature_gen.get_stoch()[-1]
+                previous_stoch_osc = self.model.feature_gen.get_stoch()[-2]
                 previous_fprice = self.fprice
                 self.fprice = self.model.feature_gen.get_fprice()[-1]
                 print("\nStoch_Osc: {}, FPrice: {}".format(stoch_osc, self.fprice))
 
-                if stoch_osc < 20 and self.fprice > data[-1]:
-                    if self.bought[symbol][0] == 'OUT':
-                        self.signal = 1.0
-                        print("LONG POSITION: %s" % bar_date)
-                        signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
-                        self.bought[symbol] = ('LONG', data[-1])
-                        self.events.put(signal)
-                    elif self.bought[symbol][0] == 'SHORT':
-                        self.signal = 0.0
-                        print("CLOSE POSITION: %s" % bar_date)
-                        signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-                        self.bought[symbol] = ('OUT', data[-1])
-                        self.events.put(signal)
+               # print('SIGNAL: {}'.format(self.signal))
+               #  x_vec = self.model.get_x_vec()
+               #  # print("x_vec: {}".format(x_vec))
+               #  if self.fprice > previous_fprice:
+               #      if self.y_pred == 1.0:
+               #          self.hit += 1
+               #      else:
+               #          self.false_down += 1
+               #          self.miss += 1
+               #
+               #  elif self.fprice < previous_fprice:
+               #      if self.y_pred == -1.0:
+               #          self.hit += 1
+               #      else:
+               #          self.miss += 1
+               #          self.false_up += 1
+               #
+               #  self.y_pred = self.model.predict(x_vec)[0]
+               #  print("\nReport: Hits: {}, Missed: {}, False_Up: {}, False_Down: {}.\n".format(self.hit, self.miss,
+               #                                                                                 self.false_up,
+               #                                                                                 self.false_down))
+               #  print("Prediction: {}\n".format(self.y_pred))
 
-                elif stoch_osc > 80 and self.fprice < data[-1]:
-                    if self.bought[symbol][0] == 'OUT':
-                        self.signal = -1.0
-                        print("SHORT POSITION: %s" % bar_date)
-                        signal = SignalEvent(1, symbol, bar_date, 'SHORT', 1.0)
-                        self.bought[symbol] = ('SHORT', data[-1])
-                        self.events.put(signal)
-                    elif self.bought[symbol][0] == 'LONG':
-                        self.signal = 0.0
-                        print("CLOSE POSITION: %s" % bar_date)
-                        signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
-                        self.bought[symbol] = ('OUT', data[-1])
-                        self.events.put(signal)
-                ## todo
-                # print('SIGNAL: {}'.format(self.signal))
-                # x_vec = self.model.get_x_vec()
-                # # print("x_vec: {}".format(x_vec))
-                # if self.fprice > previous_fprice:
-                #     if self.y_pred == 1.0:
-                #         self.hit += 1
-                #     else:
-                #         self.false_down += 1
-                #         self.miss += 1
-                #
-                # elif self.fprice < previous_fprice:
-                #     if self.y_pred == -1.0:
-                #         self.hit += 1
-                #     else:
-                #         self.miss += 1
-                #         self.false_up += 1
-                #
-                # self.y_pred = self.model.predict(x_vec)[0]
-                # print("\nReport: Hits: {}, Missed: {}, False_Up: {}, False_Down: {}.\n".format(self.hit, self.miss,
-                #                                                                                self.false_up,
-                #                                                                                self.false_down))
-                # print("Prediction: {}\n".format(self.y_pred))
+                ## todo trade only between 00h and 21h30, dont trade saturday,
+                if stoch_osc > previous_stoch_osc and previous_stoch_osc < 5 and self.fprice > data[-1] and self.bought[symbol][0] == 'OUT':
+                    self.signal = 1.0
+                    print("LONG POSITION: %s" % bar_date)
+                    signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
+                    self.bought[symbol] = ('LONG', data[-1])
+                    self.events.put(signal)
+
+                elif stoch_osc <= 10 and self.fprice > data[-1] and self.bought[symbol][0] == 'SHORT':
+                    self.signal = 0.0
+                    print("CLOSE POSITION: %s" % bar_date)
+                    signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+                    self.bought[symbol] = ('OUT', data[-1])
+                    self.events.put(signal)
+
+                elif stoch_osc < previous_stoch_osc and previous_stoch_osc > 95 and self.fprice < data[-1] and self.bought[symbol][0] == 'OUT':
+                    self.signal = -1.0
+                    print("SHORT POSITION: %s" % bar_date)
+                    signal = SignalEvent(1, symbol, bar_date, 'SHORT', 1.0)
+                    self.bought[symbol] = ('SHORT', data[-1])
+                    self.events.put(signal)
+
+                elif stoch_osc >= 90 and self.fprice < data[-1] and self.bought[symbol][0] == 'LONG':
+                    self.signal = 0.0
+                    print("CLOSE POSITION: %s" % bar_date)
+                    signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
+                    self.bought[symbol] = ('OUT', data[-1])
+                    self.events.put(signal)
+
+
                 # returns = pd.Series(data).pct_change()
                 # sum_returns = sum(returns.values[-3:])
                 # ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]
                 if self.fprice == 0.0:
                     self.fprice = data[-1]
-                #print("Price Pct Change: {}.".format(((data[-1] - data[-2]) / data[-2]) * 100))
-                print("FPrice Pct Change: {}.".format(((data[-1] - self.fprice) / self.fprice) * 100))
-                ## todo
-                #Train every 15minutes if hearbeat = 15s
+                # #print("Price Pct Change: {}.".format(((data[-1] - data[-2]) / data[-2]) * 100))
+                # print("FPrice Pct Change: {}.".format(((data[-1] - self.fprice) / self.fprice) * 100))
+                # ## todo
+                # #Train every 15minutes if hearbeat = 15s
                 # if self.pred % 50 == 0 and self.pred > 1:
                 #     print("Training {} forecasting model.".format(self.ticker))
                 #     self.model.train()

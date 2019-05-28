@@ -504,6 +504,8 @@ class BacktestPortfolio(Portfolio):
 			'name': self.context.name,
 			'files': files,
 			'strategy': self.context.strategies,
+			'start_date': self.context.start_date,
+			'end_date': self.context.end_date,
 			'header': self.context.data_header,
 			'instruments': self.symbol_list,
 			'sharpe': float(sharpe_ratio),
