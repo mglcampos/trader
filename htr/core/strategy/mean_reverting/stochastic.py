@@ -242,28 +242,30 @@ class Stochastic(Strategy):
                #  print("Prediction: {}\n".format(self.y_pred))
 
                 ## todo trade only between 00h and 21h30, dont trade saturday,
-                if stoch_osc > previous_stoch_osc and previous_stoch_osc < 5 and self.fprice > data[-1] and self.bought[symbol][0] == 'OUT':
+                if previous_stoch_osc < 20  and stoch_osc > 20 and self.fprice >= data[-1] and self.bought[symbol][0] == 'OUT':
                     self.signal = 1.0
                     print("LONG POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'LONG', 1.0)
                     self.bought[symbol] = ('LONG', data[-1])
                     self.events.put(signal)
 
-                elif stoch_osc <= 10 and self.fprice > data[-1] and self.bought[symbol][0] == 'SHORT':
+                elif stoch_osc >= 90 and self.fprice <= data[-1] and self.bought[symbol][0] == 'LONG':
                     self.signal = 0.0
                     print("CLOSE POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
                     self.bought[symbol] = ('OUT', data[-1])
                     self.events.put(signal)
 
-                elif stoch_osc < previous_stoch_osc and previous_stoch_osc > 95 and self.fprice < data[-1] and self.bought[symbol][0] == 'OUT':
+                ####################  ----   #############$#######
+
+                elif stoch_osc >= 80 and self.fprice <= data[-1] and self.bought[symbol][0] == 'OUT':
                     self.signal = -1.0
                     print("SHORT POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'SHORT', 1.0)
                     self.bought[symbol] = ('SHORT', data[-1])
                     self.events.put(signal)
 
-                elif stoch_osc >= 90 and self.fprice < data[-1] and self.bought[symbol][0] == 'LONG':
+                elif stoch_osc <= 10 and self.fprice >= data[-1] and self.bought[symbol][0] == 'SHORT':
                     self.signal = 0.0
                     print("CLOSE POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
