@@ -20,6 +20,7 @@ class InfluxdbDataHandler(DataHandler):
         self.ticker = self.symbol_list[0]
         self.prepare = context.data_preparation
         self.header = context.data_header
+        self.freq = context.timeframe
         self.dframes = {}
         self.start_date = context.start_date
         self.end_date = context.end_date
@@ -54,7 +55,7 @@ class InfluxdbDataHandler(DataHandler):
         start_epoch = int(float(start_dt.timestamp())) * 1000 * 1000 * 1000
         end_epoch = int(end_dt.timestamp()) * 1000 * 1000 * 1000
         query = "Select last(price) from {} where time > {} and time < {} group by time({})".format(self.ticker, str(
-            start_epoch), str(end_epoch), '15m')
+            start_epoch), str(end_epoch), self.freq)
 
         result = list(self.db.query(query))[0]
         data = self.influx_to_pandas(result)

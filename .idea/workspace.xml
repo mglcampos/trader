@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="Refactoring htr once again">
+      <change afterPath="$PROJECT_DIR$/htr/core/strategy/trend_following/kalman_vol_trend.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/htr/helpers/welford.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/crypto_report.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/crypto_report.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/equity.csv" beforeDir="false" afterPath="$PROJECT_DIR$/equity.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/full_report.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/full_report.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/htr/helpers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/helpers/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/helpers/ml/classifier.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reportf.json" beforeDir="false" afterPath="$PROJECT_DIR$/reportf.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/single_pair_report.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/single_pair_report.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/trader$htr.coverage" NAME="htr Coverage Results" MODIFIED="1559067441348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/trader$htr.coverage" NAME="htr Coverage Results" MODIFIED="1559354132259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/trader$zmq.coverage" NAME="zmq Coverage Results" MODIFIED="1558468221987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/trader$test_classifier.coverage" NAME="test_classifier Coverage Results" MODIFIED="1558997124062" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/htr/helpers/ml" />
   </component>
@@ -28,81 +27,83 @@
     <session id="1182871517">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="4" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="5" />
-          <entry key="json" value="122" />
-          <entry key="py" value="8953" />
+          <entry key="dummy" value="9" />
+          <entry key="json" value="153" />
+          <entry key="py" value="11122" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JSON" value="122" />
-          <entry key="PLAIN_TEXT" value="48" />
-          <entry key="Python" value="8953" />
+          <entry key="JSON" value="153" />
+          <entry key="PLAIN_TEXT" value="52" />
+          <entry key="Python" value="11122" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="json" value="3" />
-          <entry key="py" value="59" />
+          <entry key="csv" value="1" />
+          <entry key="json" value="4" />
+          <entry key="py" value="69" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JSON" value="3" />
-          <entry key="Python" value="59" />
+          <entry key="CSV" value="1" />
+          <entry key="JSON" value="4" />
+          <entry key="Python" value="69" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/kalman_vol.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-801">
-              <caret line="217" column="35" selection-start-line="217" selection-start-column="35" selection-end-line="217" selection-end-column="35" />
+            <state relative-caret-position="161">
+              <caret line="280" column="75" lean-forward="true" selection-start-line="280" selection-start-column="75" selection-end-line="280" selection-end-column="75" />
               <folding>
-                <marker date="1559067441327" expanded="true" signature="5099:5744" ph="..." />
+                <element signature="e#1#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
+        <entry file="file://$PROJECT_DIR$/htr/core/strategy/trend_following/kalman_vol_trend.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="32" selection-start-line="32" selection-end-line="32" />
+            <state relative-caret-position="85">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
+        <entry file="file://$PROJECT_DIR$/config/config.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="286">
+              <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -110,44 +111,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/helpers/ml/classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1649">
-              <caret line="136" selection-start-line="136" selection-end-line="136" />
+            <state relative-caret-position="347">
+              <caret line="92" column="20" selection-start-line="77" selection-start-column="4" selection-end-line="92" selection-end-column="20" />
               <folding>
-                <marker date="1558994251389" expanded="true" signature="387:388" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="387:393" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="420:778" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="2768:2806" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="2801:2806" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="2830:2839" ph="..." />
-                <marker date="1558994251389" expanded="true" signature="6448:6454" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="387:388" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="387:393" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="420:778" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="2837:2875" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="2870:2875" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="2899:2908" ph="..." />
+                <marker date="1559257301502" expanded="true" signature="6523:6529" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
+        <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="507" column="46" selection-start-line="507" selection-start-column="46" selection-end-line="507" selection-end-column="46" />
-              <folding>
-                <element signature="e#64#102#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/performance/performance.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2570">
+            <state relative-caret-position="2618">
               <caret line="160" column="48" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
             </state>
           </provider>
@@ -156,7 +152,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1482">
+            <state relative-caret-position="1666">
               <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
             </state>
           </provider>
@@ -165,7 +161,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/examples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
+            <state relative-caret-position="6256">
               <caret line="374" column="18" selection-start-line="374" selection-start-column="18" selection-end-line="377" selection-end-column="39" />
             </state>
           </provider>
@@ -182,10 +178,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>find(</find>
-      <find>self.notes</find>
-      <find>'</find>
-      <find>end_date</find>
       <find>usdchf</find>
       <find>eursgd</find>
       <find>name</find>
@@ -212,6 +204,10 @@
       <find>load_csv</find>
       <find>MKT-OPEN SELL</find>
       <find>reportf</find>
+      <find>short</find>
+      <find>long</find>
+      <find>hurst</find>
+      <find>huesst</find>
     </findStrings>
     <replaceStrings>
       <replace>eth</replace>
@@ -231,11 +227,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/htr/mt4/ExpertAdvisor.py" />
-        <option value="$PROJECT_DIR$/htr/core/data/handler/crypto_data_handler.py" />
-        <option value="$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py" />
-        <option value="$PROJECT_DIR$/htr/helpers/csv_reader.py" />
-        <option value="$PROJECT_DIR$/htr/core/configuration/__init__.py" />
         <option value="$PROJECT_DIR$/config/specs.csv" />
         <option value="$PROJECT_DIR$/htr/core/engines/backtest.py" />
         <option value="$PROJECT_DIR$/htr/core/configuration/jsonreader.py" />
@@ -276,12 +267,17 @@
         <option value="$PROJECT_DIR$/htr/helpers/ml/__init__.py" />
         <option value="$PROJECT_DIR$/htr/helpers/ml/test_classifier.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic_live.py" />
-        <option value="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" />
-        <option value="$PROJECT_DIR$/config/config.json" />
-        <option value="$PROJECT_DIR$/htr/helpers/ml/classifier.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py" />
         <option value="$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py" />
         <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py" />
+        <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/kalman_bb.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/Welford.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/__init__.py" />
+        <option value="$PROJECT_DIR$/htr/helpers/ml/classifier.py" />
+        <option value="$PROJECT_DIR$/htr/core/strategy/trend_following/kalman_vol_trend.py" />
+        <option value="$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py" />
+        <option value="$PROJECT_DIR$/config/config.json" />
+        <option value="$PROJECT_DIR$/htr/core/strategy/mean_reverting/kalman_vol.py" />
       </list>
     </option>
   </component>
@@ -292,10 +288,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1592" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="width" value="1614" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -323,7 +318,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -440,6 +434,14 @@
               <item name="trader" type="b2602c69:ProjectViewProjectNode" />
               <item name="trader" type="462c0819:PsiDirectoryNode" />
               <item name="htr" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="strategy" type="462c0819:PsiDirectoryNode" />
+              <item name="trend_following" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="trader" type="b2602c69:ProjectViewProjectNode" />
+              <item name="trader" type="462c0819:PsiDirectoryNode" />
+              <item name="htr" type="462c0819:PsiDirectoryNode" />
               <item name="helpers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -539,21 +541,22 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="reportf&#9;FILE&#9;file://C:/Users/utilizador/Documents/htr/trader/reportf.json" />
+    <property name="SearchEverywhereHistoryKey" value="hurst&#9;null&#9;null&#10;reportf&#9;FILE&#9;file://C:/Users/utilizador/Documents/htr/trader/reportf.json" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\strategy\trend_following" />
       <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\strategy\mean_reverting" />
       <recent name="C:\Users\utilizador\Documents\htr\trader\htr\core\data\handler" />
       <recent name="$PROJECT_DIR$/config" />
       <recent name="$PROJECT_DIR$/htr/core/strategy/trend_following" />
-      <recent name="$PROJECT_DIR$/htr/core/portfolio" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/htr/core/strategy/trend_following" />
@@ -756,7 +759,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558743020961</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Refactoring htr once again">
+      <created>1559068327990</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1559068327991</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Refactoring htr once again">
+      <created>1559150707817</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1559150707818</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -795,15 +812,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1592" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19402985" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24293059" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286385" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.77013177" visible="true" weight="0.28199565" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5173536" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.77013177" visible="true" weight="0.3207547" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.5161725" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32884097" />
@@ -820,7 +838,7 @@
       <window_info anchor="right" id="R Graphics" order="4" />
       <window_info anchor="right" id="R Packages" order="5" />
       <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="SciView" order="7" weight="0.32942432" />
+      <window_info anchor="right" id="SciView" order="7" weight="0.20437019" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -875,9 +893,9 @@
           <option name="timeStamp" value="72" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py</url>
-          <line>6</line>
-          <option name="timeStamp" value="82" />
+          <url>file://$PROJECT_DIR$/htr/helpers/ml/classifier.py</url>
+          <line>47</line>
+          <option name="timeStamp" value="84" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -893,47 +911,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/htr/helpers/plotting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1258">
-          <caret line="122" column="7" selection-start-line="122" selection-end-line="129" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/analyzer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="73" column="30" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="30" />
-          <folding>
-            <element signature="e#1#16#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/trend_following/crypto_ema_troika.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1445">
-          <caret line="88" column="68" selection-start-line="88" selection-start-column="68" selection-end-line="88" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/gatherer/crypto_gatherer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/crypto_live_data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/histdata/crypto/BTCUSD_2017_M10.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/metatrader/message.py" />
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/trend_following/crypto_ema.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -970,13 +947,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/specs_ema.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="17" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/portfolio.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1006,13 +976,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/patterns/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/helpers/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="46" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/dataprep/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
@@ -1066,9 +1029,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="17" column="47" lean-forward="true" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
-          <folding>
-            <element signature="e#1#13#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1152,23 +1112,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-          <folding>
-            <element signature="e#39#48#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/ml/test_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -1176,71 +1119,134 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/mean_reverting.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
+        <state relative-caret-position="561">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/examples.py">
+    <entry file="file://$PROJECT_DIR$/htr/helpers/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="374" column="18" selection-start-line="374" selection-start-column="18" selection-end-line="377" selection-end-column="39" />
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/performance/performance.py">
+    <entry file="file://$PROJECT_DIR$/config/specs_ema.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2570">
-          <caret line="160" column="48" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/welford.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4301">
+          <caret line="260" column="64" selection-start-line="260" selection-start-column="41" selection-end-line="260" selection-end-column="64" />
+          <folding>
+            <marker date="1559070528621" expanded="true" signature="5099:5744" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/report_analysis.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/portfolio/backtest_portfolio.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="880">
-          <caret line="507" column="46" selection-start-line="507" selection-start-column="46" selection-end-line="507" selection-end-column="46" />
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#64#102#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/portfolio/risk/kelly.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/performance/performance.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/crypto/crypto_bull.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="2618">
+          <caret line="160" column="48" selection-start-line="160" selection-start-column="48" selection-end-line="160" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/adx_cross.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1666">
+          <caret line="102" column="24" selection-start-line="102" selection-start-column="24" selection-end-line="105" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/examples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6256">
+          <caret line="374" column="18" selection-start-line="374" selection-start-column="18" selection-end-line="377" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/helpers/stationarity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/helpers/ml/classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        <state relative-caret-position="347">
+          <caret line="92" column="20" selection-start-line="77" selection-start-column="4" selection-end-line="92" selection-end-column="20" />
           <folding>
-            <marker date="1558994251389" expanded="true" signature="387:388" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="387:393" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="420:778" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="2768:2806" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="2801:2806" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="2830:2839" ph="..." />
-            <marker date="1558994251389" expanded="true" signature="6448:6454" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="387:388" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="387:393" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="420:778" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="2837:2875" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="2870:2875" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="2899:2908" ph="..." />
+            <marker date="1559257301502" expanded="true" signature="6523:6529" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/stochastic.py">
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/trend_following/kalman_vol_trend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-801">
-          <caret line="217" column="35" selection-start-line="217" selection-start-column="35" selection-end-line="217" selection-end-column="35" />
+        <state relative-caret-position="85">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/data/handler/influxdb_data_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="57" column="47" selection-start-line="57" selection-start-column="47" selection-end-line="57" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/kalman_vol.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="280" column="75" lean-forward="true" selection-start-line="280" selection-start-column="75" selection-end-line="280" selection-end-column="75" />
           <folding>
-            <marker date="1559067441327" expanded="true" signature="5099:5744" ph="..." />
+            <element signature="e#1#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
