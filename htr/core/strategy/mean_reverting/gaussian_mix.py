@@ -3,7 +3,9 @@ import talib
 
 import numpy as np
 import pandas as pd
-
+import sklearn.mixture as mix
+from sklearn import preprocessing
+from pykalman import KalmanFilter
 from htr.core.events import *
 from htr.core.strategy import Strategy
 from htr.helpers.ml import Classifier
@@ -16,7 +18,7 @@ class GaussianMix(Strategy):
       .
        """
 
-    def __init__(self, context, events, data_handler, slow_period=7, fast_period=3):
+    def __init__(self, context, events, data_handler, slow_period=21, fast_period=7):
         """
         Initialises the Moving Averages Strategy.
 
@@ -32,59 +34,32 @@ class GaussianMix(Strategy):
         self.symbol_list = self.data_handler.symbol_list
         self.events = events
 
-        self.period = slow_period
+        self.slow_period = slow_period
         self.fast_period = fast_period
-        self.minimum_data_size = self.period + 14
+        self.minimum_data_size = 100
         self.bought = self._calculate_initial_bought()
-
+        self.welford = Welford(3)
         self.pos_count = {}
         self.signal = 0.0
         for s in self.symbol_list:
             self.pos_count[s] = 0
 
-        self.hurst_cache = []
-        self.adf_cache = []
+
         self.pred = 0
         self.fprice = 0.0
         self.ticker = self.symbol_list[0]
-        self.y_pred = 0
-        self.false_down = 0
-        self.hit = 0
-        self.miss = 0
-        self.false_up = 0
-        self.hte = []
-        self.autocov = []
-        self.welford = Welford(self.fast_period)
+
+
         ## Add big sample
-        price_data = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\basic_{}_sample.csv'.format(self.ticker.lower()))[
+        X = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\basic_{}_sample.csv'.format(self.ticker.lower()))[
             ['Date', 'Close']]
-        split = 100
-        #split = 10000
-        ## todo pre ml
-        price_data = price_data[:split]
-        price_data.columns = ['Date', self.ticker]
-        price_data = price_data.drop(['Date'], axis=1)
+        X = X.drop(['Date'], axis=1)
+        X = X[['Returns', 'FReturns', 'Hurst', 'Corr', 'High', 'Low', 'Open', 'Close', 'FClose', 'RSI', 'Stoch_Osc']]
 
-        ## Update with 2k of recent 15m data
-        recent_data = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\{}15.csv'.format(self.ticker), names=['Date','Time','Open', 'High', 'Low', 'Close', 'Volume' ])[['Time', 'Close']]
-
-        recent_data.columns = ['Time', self.ticker]
-        recent_data = recent_data.drop(['Time'], axis=1)
-        ##
-        price_data = recent_data[-100:].append(price_data, ignore_index=True)
-        self.X = price_data.append(recent_data, ignore_index=True)
-
-        # First training
-        self.model = Classifier(self.ticker)
-        print("Creating sample for {}.".format(self.ticker))
-        self.model.update_sample(self.X.copy(), period=self.period)
-
-        # ## TODO only for stoch pre ml testing
-        self.X = self.X[-5:]
-
-        # ## todo
-        # print("Training {} forecasting model.".format(self.ticker))
-        # self.model.train()
+        self.ss = preprocessing.StandardScaler()
+        self.X = X
+        self.unsup = mix.GaussianMixture(n_components=4, covariance_type="spherical", n_init=100, random_state=42)
+        self.unsup.fit(np.reshape(self.ss.fit_transform(self.X), (-1, self.X.shape[1])))
 
     def _calculate_initial_bought(self):
         """Cache where open positions are stored for strategy use."""
@@ -124,14 +99,14 @@ class GaussianMix(Strategy):
         """
         ## todo improve this
         symbol = self.symbol_list[0]
-        if self.bought[symbol][0] != 'OUT':
-            ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1] * 100
-            if self.bought[symbol][0] == 'LONG':
-                if ret < -0.06:
-                    return True
-            elif self.bought[symbol][0] == 'SHORT':
-                if ret > 0.06:
-                    return True
+        # if self.bought[symbol][0] != 'OUT':
+        #     ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1] * 100
+        #     if self.bought[symbol][0] == 'LONG':
+        #         if ret < -0.06:
+        #             return True
+        #     elif self.bought[symbol][0] == 'SHORT':
+        #         if ret > 0.06:
+        #             return True
         return False
 
     def _check_week_stop(self, date):
@@ -206,6 +181,18 @@ class GaussianMix(Strategy):
         hurst = m[0] * 2
         return hurst
 
+    def filter_prices(self, data):
+        kf = KalmanFilter(transition_matrices=[1],
+                          observation_matrices=[1],
+                          initial_state_mean=data[0],
+                          initial_state_covariance=1,
+                          observation_covariance=1,
+                          transition_covariance=.01)
+
+        state_means, _ = kf.filter(data)
+        self.state_means = state_means.flatten()
+        return state_means
+
     def lagged_auto_cov(self, Xi, t=1):
         """
         for series of values x_i, length N, compute empirical auto-cov with lag t
@@ -238,7 +225,7 @@ class GaussianMix(Strategy):
 
             # Perform technical analysis.
             if data is not None and len(data) > self.minimum_data_size:
-
+                vol = self.welford.update_and_return(data[-3:]) * 100
                 # Checks for stop conditions
                 if self._check_week_stop(bar_date) or self._check_stop(data):
                     self._fire_sale(bar_date, data)
@@ -248,68 +235,46 @@ class GaussianMix(Strategy):
                     return
 
                 self.pred += 1
-                vol = self.welford.update_and_return(data[-self.fast_period:]) * 100
-                self.fprice = self.model.feature_gen.get_fprice()
-                fret = sum(pd.DataFrame(self.fprice[-self.fast_period:]).pct_change()[-self.fast_period + 1:].values)
-                # fsret = sum(pd.DataFrame(self.fprice[-self.period:]).pct_change()[-self.period + 1:].values)
-                # sret = sum(pd.DataFrame(data[-self.period:]).pct_change()[-self.period + 1:].values)
-                ret = sum(pd.DataFrame(data[-self.fast_period:]).pct_change()[-self.fast_period + 1:].values)
-                print("\nRet: {}, Vol: {}".format(fret, vol))
-                print("Iter: {}, row: {}".format(self.pred, [data[-1]]))
-                self.X = self.X.append(pd.DataFrame([[data[-1]]], columns=[self.ticker]), ignore_index=True)
+
+                high = self.data_handler.get_latest_bars_values(
+                    symbol, "High", N=1
+                )
+                low = self.data_handler.get_latest_bars_values(
+                    symbol, "Low", N=1
+                )
+                open = self.data_handler.get_latest_bars_values(
+                    symbol, "Open", N=1
+                )
+                ufhurst = pd.DataFrame(data[-21:], index=data.index, columns=['Hurst']).rolling(self.slow_period).apply(self.hurst)
+                corr = pd.DataFrame(data[-21:], index=data.index, columns=['Corr']).rolling(self.slow_period).apply(
+                    lambda x: x.autocorr(), raw=False)
+                ret = pd.DataFrame(data[-2:]).pct_change()[-1].values
+                state_means = self.filter_prices(data[-100:])
+                fret = pd.DataFrame(state_means[-2:]).pct_change()[-1].values
+
+                fret = pd.DataFrame(state_means[-2:]).pct_change()[-1].values
+                rolling_min = pd.DataFrame(state_means).rolling(self.fast_period).min()
+                rolling_max = pd.DataFrame(state_means).rolling(self.fast_period).max()
+                sample = pd.concat(
+                    [pd.DataFrame(state_means), pd.DataFrame(data), rolling_min, rolling_max, ufhurst, corr], axis=1)
+                sample.index = data.index
+                sample.columns = ['FPrice', 'Price', 'Min', 'Max','Hurst','Corr']
+                stoch_osc = (sample.FPrice - sample.Min) / (sample.Max - sample.Min)
+                rsi = pd.DataFrame(talib.RSI(state_means, timeperiod=self.fast_period), index=data.index, columns=['RSI'])
+
+                row = [ret[-1:], fret[-1:], ufhurst[-1:],corr[-1:], [high], [low], [open], data[-1:], state_means[-1:], rsi[-1:], stoch_osc[-1:]]
+                print(row)
+
+                print("Iter: {}, row: {}".format(self.pred, data[-1]))
+                self.X = self.X.append(pd.DataFrame(row, columns=self.X.columns), ignore_index=True)
                 self.X = self.X.iloc[1:]
                 self.X.index = self.X.index.values + self.pred
-                # Add new tick.
-                # todo no ml version
-                self.model.update_sample(self.X.copy(), fast=True, period=self.period)
-                # self.model.update_sample(self.X.copy())
-                # Generate features.
 
-                # stoch_osc = self.model.feature_gen.get_stoch()
+                bbh = self.fprice[-1] + 2*vol / 100
+                bbl = self.fprice[-1] - 2*vol / 100
 
-                # previous_stoch_osc = self.model.feature_gen.get_stoch()[-2]
-                #previous_fprice = self.fprice
-               # print('SIGNAL: {}'.format(self.signal))
-               #  x_vec = self.model.get_x_vec()
-               #  # print("x_vec: {}".format(x_vec))
-               #  if self.fprice > previous_fprice:
-               #      if self.y_pred == 1.0:
-               #          self.hit += 1
-               #      else:
-               #          self.false_down += 1
-               #          self.miss += 1
-               #
-               #  elif self.fprice < previous_fprice:
-               #      if self.y_pred == -1.0:
-               #          self.hit += 1
-               #      else:
-               #          self.miss += 1
-               #          self.false_up += 1
-               #
-               #  self.y_pred = self.model.predict(x_vec)[0]
-               #  print("\nReport: Hits: {}, Missed: {}, False_Up: {}, False_Down: {}.\n".format(self.hit, self.miss,
-               #                                                                                 self.false_up,
-               #                                                                                 self.false_down))
-               #  print("Prediction: {}\n".format(self.y_pred))
-
-                bbh = self.fprice[-1] + 3*vol / 100
-                bbl = self.fprice[-1] - 3*vol / 100
-                self.hte.append(pd.DataFrame(data[-21:]).rolling(21).apply(self.hurst).values[-1][0])
-                # self.autocov.append(np.log(pd.DataFrame(data[-21:]).rolling(21).apply(self.lagged_auto_cov).values[-1][0]))
-                self.autocov.append(
-                    pd.DataFrame(data[-21:]).rolling(21).apply(lambda x: x.autocorr(), raw=False).values[-1][0])
-                try:
-                    if self.autocov[-1] > 50.0: self.autocov[-1] = self.autocov[-2]
-                except:
-                    pass
-                # print("HTE {}".format(self.hte))
                 reverting = False
-                hurst_mean = np.mean(self.hte[-21:])
-                hurst_std = np.std(self.hte[-21:])
-                autocov_mean = np.mean(self.autocov)
-                autocov_std = np.std(self.autocov)
-                # if self.hte[-1] < -0.041 and self.hte[-1] > -0.79:
-                # if self.hte[-1] < hurst_mean and self.hte[-1] >= hurst_mean - hurst_std:
+
                 if self.autocov[-1] < autocov_mean:
                     reverting = True
                 # reverting = True
