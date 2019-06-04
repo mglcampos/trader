@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fd23aff7-5f67-4c3f-bacf-013905ef0752" name="Default" comment="Refactoring htr once again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/gaussian_mix.py" beforeDir="false" afterPath="$PROJECT_DIR$/htr/core/strategy/mean_reverting/gaussian_mix.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +33,7 @@
         <counts>
           <entry key="dummy" value="9" />
           <entry key="json" value="153" />
-          <entry key="py" value="12217" />
+          <entry key="py" value="12270" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
@@ -42,7 +41,7 @@
         <counts>
           <entry key="JSON" value="153" />
           <entry key="PLAIN_TEXT" value="52" />
-          <entry key="Python" value="12217" />
+          <entry key="Python" value="12270" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -75,8 +74,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/gaussian_mix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="277" column="51" lean-forward="true" selection-start-line="277" selection-start-column="51" selection-end-line="277" selection-end-column="51" />
+            <state relative-caret-position="377">
+              <caret line="278" column="18" selection-start-line="278" selection-start-column="18" selection-end-line="278" selection-end-column="18" />
               <folding>
                 <element signature="e#1#13#0" expanded="true" />
                 <element signature="e#2987#3230#0" />
@@ -808,7 +807,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559602615105</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Refactoring htr once again">
+      <created>1559652800508</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1559652800508</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1287,8 +1293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/htr/core/strategy/mean_reverting/gaussian_mix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="277" column="51" lean-forward="true" selection-start-line="277" selection-start-column="51" selection-end-line="277" selection-end-column="51" />
+        <state relative-caret-position="377">
+          <caret line="278" column="18" selection-start-line="278" selection-start-column="18" selection-end-line="278" selection-end-column="18" />
           <folding>
             <element signature="e#1#13#0" expanded="true" />
             <element signature="e#2987#3230#0" />
