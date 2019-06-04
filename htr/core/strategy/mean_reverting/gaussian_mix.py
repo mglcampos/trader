@@ -263,18 +263,23 @@ class GaussianMix(Strategy):
                 rsi = pd.DataFrame(talib.RSI(state_means, timeperiod=self.fast_period), index=data.index, columns=['RSI'])
 
                 row = [ret[-1:], fret[-1:], ufhurst[-1:],corr[-1:], [high], [low], [open], data[-1:], state_means[-1:], rsi[-1:], stoch_osc[-1:]]
-                print(row)
+                print("Row: {}".format(row))
 
-                print("Iter: {}, row: {}".format(self.pred, data[-1]))
+                print("Iter: {}, data: {}".format(self.pred, data[-1]))
                 self.X = self.X.append(pd.DataFrame(row, columns=self.X.columns), ignore_index=True)
                 self.X = self.X.iloc[1:]
                 self.X.index = self.X.index.values + self.pred
+                if self.pred == 0 or self.pred % 5 == 0:
+                    self.unsup.fit(np.reshape(self.ss.fit_transform(self.X), (-1, self.X.shape[1])))
+                reshaped = np.reshape(self.ss.fit_transform(self.X[-1:]), (-1, self.X.shape[1]))
+                regime = self.unsup.predict(reshaped)
 
                 bbh = self.fprice[-1] + 2*vol / 100
                 bbl = self.fprice[-1] - 2*vol / 100
+                covs=self.unsup.covariances_
 
                 reverting = False
-
+                #predict, check low cov regimes, create rule
                 if self.autocov[-1] < autocov_mean:
                     reverting = True
                 # reverting = True
