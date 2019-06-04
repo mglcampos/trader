@@ -51,11 +51,11 @@ class GaussianMix(Strategy):
 
 
         ## Add big sample
-        X = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\basic_{}_sample.csv'.format(self.ticker.lower()))[
-            ['Date', 'Close']]
+        X = pd.read_csv('C:\\Users\\utilizador\\Documents\\quant_research\\data\\basic_{}_sample.csv'.format(self.ticker.lower()))[-1500:]
+        self.last_bar_date = pd.to_datetime(X.Date).values[-1]
         X = X.drop(['Date'], axis=1)
         X = X[['Returns', 'FReturns', 'Hurst', 'Corr', 'High', 'Low', 'Open', 'Close', 'FClose', 'RSI', 'Stoch_Osc']]
-
+        # print(X.head())
         self.ss = preprocessing.StandardScaler()
         self.X = X
         self.unsup = mix.GaussianMixture(n_components=4, covariance_type="spherical", n_init=100, random_state=42)
@@ -99,14 +99,14 @@ class GaussianMix(Strategy):
         """
         ## todo improve this
         symbol = self.symbol_list[0]
-        # if self.bought[symbol][0] != 'OUT':
-        #     ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1] * 100
-        #     if self.bought[symbol][0] == 'LONG':
-        #         if ret < -0.06:
-        #             return True
-        #     elif self.bought[symbol][0] == 'SHORT':
-        #         if ret > 0.06:
-        #             return True
+        if self.bought[symbol][0] != 'OUT':
+            ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1] * 100
+            if self.bought[symbol][0] == 'LONG':
+                if ret < -0.06:
+                    return True
+            elif self.bought[symbol][0] == 'SHORT':
+                if ret > 0.06:
+                    return True
         return False
 
     def _check_week_stop(self, date):
@@ -128,7 +128,8 @@ class GaussianMix(Strategy):
         ## Sunday
         elif  date.weekday() == 6:
             weekstop = True
-
+        if weekstop:
+            print('Weekstop')
         return weekstop
 
     def _check_spread_stop(self, date):
@@ -190,7 +191,7 @@ class GaussianMix(Strategy):
                           transition_covariance=.01)
 
         state_means, _ = kf.filter(data)
-        self.state_means = state_means.flatten()
+        state_means = state_means.flatten()
         return state_means
 
     def lagged_auto_cov(self, Xi, t=1):
@@ -222,19 +223,23 @@ class GaussianMix(Strategy):
         for symbol in self.symbol_list:
             # Load price series data.
             bar_date, data = self._load_data(symbol)
-
+            if  pd.to_datetime([bar_date]).values[0] <= self.last_bar_date:
+                print('Training sample start  date: {}, backtest start date: {}'.format(self.last_bar_date, bar_date))
+                return
             # Perform technical analysis.
-            if data is not None and len(data) > self.minimum_data_size:
+            if data is not None and len(data) >= self.minimum_data_size:
                 vol = self.welford.update_and_return(data[-3:]) * 100
                 # Checks for stop conditions
                 if self._check_week_stop(bar_date) or self._check_stop(data):
                     self._fire_sale(bar_date, data)
+                    print("Fire sale")
                     return
 
                 if self._check_spread_stop(bar_date):
+                    print('Spread stop')
                     return
 
-                self.pred += 1
+
 
                 high = self.data_handler.get_latest_bars_values(
                     symbol, "High", N=1
@@ -245,42 +250,48 @@ class GaussianMix(Strategy):
                 open = self.data_handler.get_latest_bars_values(
                     symbol, "Open", N=1
                 )
-                ufhurst = pd.DataFrame(data[-21:], index=data.index, columns=['Hurst']).rolling(self.slow_period).apply(self.hurst)
-                corr = pd.DataFrame(data[-21:], index=data.index, columns=['Corr']).rolling(self.slow_period).apply(
+                ufhurst = pd.DataFrame(data[-21:], columns=['Hurst']).rolling(self.slow_period).apply(self.hurst)
+                corr = pd.DataFrame(data[-21:], columns=['Corr']).rolling(self.slow_period).apply(
                     lambda x: x.autocorr(), raw=False)
-                ret = pd.DataFrame(data[-2:]).pct_change()[-1].values
+                ret = pd.DataFrame(data[-2:]).pct_change().values[-1]
                 state_means = self.filter_prices(data[-100:])
-                fret = pd.DataFrame(state_means[-2:]).pct_change()[-1].values
-
-                fret = pd.DataFrame(state_means[-2:]).pct_change()[-1].values
+                fret = pd.DataFrame(state_means[-2:]).pct_change().values[-1]
                 rolling_min = pd.DataFrame(state_means).rolling(self.fast_period).min()
                 rolling_max = pd.DataFrame(state_means).rolling(self.fast_period).max()
                 sample = pd.concat(
                     [pd.DataFrame(state_means), pd.DataFrame(data), rolling_min, rolling_max, ufhurst, corr], axis=1)
-                sample.index = data.index
+
                 sample.columns = ['FPrice', 'Price', 'Min', 'Max','Hurst','Corr']
                 stoch_osc = (sample.FPrice - sample.Min) / (sample.Max - sample.Min)
-                rsi = pd.DataFrame(talib.RSI(state_means, timeperiod=self.fast_period), index=data.index, columns=['RSI'])
+                rsi = pd.DataFrame(talib.RSI(state_means, timeperiod=self.fast_period), columns=['RSI']).values
 
-                row = [ret[-1:], fret[-1:], ufhurst[-1:],corr[-1:], [high], [low], [open], data[-1:], state_means[-1:], rsi[-1:], stoch_osc[-1:]]
+                row = [ret[-1], fret[-1], ufhurst.values[-1][0], corr.values[-1][0], high[0], low[0], open[0], data[-1], state_means[-1], rsi[-1][0], stoch_osc.values[-1]]
                 print("Row: {}".format(row))
-
+                print(len(row), len(self.X.columns))
                 print("Iter: {}, data: {}".format(self.pred, data[-1]))
-                self.X = self.X.append(pd.DataFrame(row, columns=self.X.columns), ignore_index=True)
+                self.X = self.X.append(pd.DataFrame([row], columns=self.X.columns), ignore_index=True)
                 self.X = self.X.iloc[1:]
                 self.X.index = self.X.index.values + self.pred
-                if self.pred == 0 or self.pred % 5 == 0:
-                    self.unsup.fit(np.reshape(self.ss.fit_transform(self.X), (-1, self.X.shape[1])))
-                reshaped = np.reshape(self.ss.fit_transform(self.X[-1:]), (-1, self.X.shape[1]))
-                regime = self.unsup.predict(reshaped)
 
-                bbh = self.fprice[-1] + 2*vol / 100
-                bbl = self.fprice[-1] - 2*vol / 100
-                covs=self.unsup.covariances_
+                try:
+                    if self.pred == 0 or self.pred % 300 == 0:
+                        self.unsup.fit(np.reshape(self.ss.fit_transform(self.X), (-1, self.X.shape[1])))
+                    reshaped = np.reshape(self.ss.fit_transform(self.X[-1:]), (-1, self.X.shape[1]))
+                    regime = self.unsup.predict(reshaped)[0]
+                except:
+                    ## todo improve this
+                    self.X.iloc[-1] = self.X.iloc[-2]
+                    print("NaNs in training data prob.")
+                    return
 
+                bbh = state_means[-1] + 2*vol / 100
+                bbl = state_means[-1] - 2*vol / 100
+                covs=sorted(zip([0,1,2,3],self.unsup.covariances_), key=lambda x: x[1])
+                print("Regimes: {}, Covariances: {}".format(regime, covs[:2]))
+                low_cov_regimes = [list(t) for t in zip(*covs)][0][:2]
                 reverting = False
                 #predict, check low cov regimes, create rule
-                if self.autocov[-1] < autocov_mean:
+                if regime in low_cov_regimes:
                     reverting = True
                 # reverting = True
                 # print("Hurst: {} with mean {} is reverting? {}".format(self.hte[-1], np.mean(self.hte), reverting))
@@ -292,7 +303,7 @@ class GaussianMix(Strategy):
                     self.bought[symbol] = ('LONG', data[-1])
                     self.events.put(signal)
 
-                elif self.fprice[-1] <= data[-1] and self.bought[symbol][0] == 'LONG':
+                elif state_means[-1] <= data[-1] + vol / 100 and self.bought[symbol][0] == 'LONG':
                     self.signal = 0.0
                     print("CLOSE POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
@@ -308,14 +319,14 @@ class GaussianMix(Strategy):
                     self.bought[symbol] = ('SHORT', data[-1])
                     self.events.put(signal)
 
-                elif self.fprice[-1] >= data[-1] and self.bought[symbol][0] == 'SHORT':
+                elif state_means[-1] >= data[-1] + vol / 100 and self.bought[symbol][0] == 'SHORT':
                     self.signal = 0.0
                     print("CLOSE POSITION: %s" % bar_date)
                     signal = SignalEvent(1, symbol, bar_date, 'EXIT', 1.0)
                     self.bought[symbol] = ('OUT', data[-1])
                     self.events.put(signal)
 
-
+                self.pred += 1
                 # returns = pd.Series(data).pct_change()
                 # sum_returns = sum(returns.values[-3:])
                 # ret = (data[-1] - self.bought[symbol][1]) / self.bought[symbol][1]

@@ -54,7 +54,7 @@ class InfluxdbDataHandler(DataHandler):
         end_dt = dt.strptime(self.end_date, '%Y-%m-%d')
         start_epoch = int(float(start_dt.timestamp())) * 1000 * 1000 * 1000
         end_epoch = int(end_dt.timestamp()) * 1000 * 1000 * 1000
-        query = "Select last(price) from {} where time > {} and time < {} group by time({})".format(self.ticker, str(
+        query = "Select first(price), max(price), min(price), last(price) from {} where time > {} and time < {} group by time({})".format(self.ticker, str(
             start_epoch), str(end_epoch), self.freq)
 
         result = list(self.db.query(query))[0]
@@ -62,7 +62,7 @@ class InfluxdbDataHandler(DataHandler):
         data = data.fillna(method='ffill')
 
         data.index.name = 'Datetime'
-        data.columns = ['Close']
+        data.columns = ['Open','High','Low','Close']
         self.dframes[self.ticker] = [data]
         self.data_generator[self.ticker] = self.dframes[self.ticker][0]
         self.symbol_data[self.ticker] = self.data_generator[self.ticker]
